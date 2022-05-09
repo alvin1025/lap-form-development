@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Edit WS03 Data')
 

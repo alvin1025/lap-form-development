@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Create Form Development Request')
 
@@ -315,7 +315,7 @@
                                     <option value="Menganalisa Acuan Dari Sales" disabled>Menganalisa Acuan Dari Sales
                                     </option>
                                     <option value="Mencari Acuan Yang Mirip Dengan Yang Diminta
-                                                                                                        Oleh Sales"
+                                                                                                            Oleh Sales"
                                         disabled>
                                         Mencari
                                         Acuan
@@ -329,7 +329,7 @@
                                         Development Ke Qard
                                     </option>
                                     <option value="Menganalisa Form Request Development Dari
-                                                                                                        Marketing"
+                                                                                                            Marketing"
                                         disabled>
                                         Menganalisa
                                         Form
@@ -341,7 +341,7 @@
                                         Marketing</option>
                                     <option
                                         value="Menuju BCI Untuk Analisa Lebih Lanjut,
-                                                                                                        Mengirim Form Permohonan Test"
+                                                                                                            Mengirim Form Permohonan Test"
                                         disabled>
                                         Menuju
                                         BCI
@@ -355,7 +355,7 @@
                                     </option>
                                     <option
                                         value="Mengajukan Pp Yarn Ke Purcashing Jika Weaving
-                                                                                                    Bisa Memproduksi Greige"
+                                                                                                        Bisa Memproduksi Greige"
                                         disabled>
                                         Mengajukan Pp
                                         Yarn Ke
@@ -365,7 +365,7 @@
                                         Bisa Memproduksi Greige</option>
                                     <option
                                         value="Mengajukan Permohonan Ke Bci (Stock Yarn Di
-                                                                                                    Gudang Tidak Mencukupi)"
+                                                                                                        Gudang Tidak Mencukupi)"
                                         disabled>
                                         Mengajukan
                                         Permohonan
@@ -375,8 +375,9 @@
                                         Yarn
                                         Di
                                         Gudang Tidak Mencukupi)</option>
-                                    <option value="Mengajukan Pp Greige (Weaving Tidak Bisa
-                                                                                                    Membuatkan Article)"
+                                    <option
+                                        value="Mengajukan Pp Greige (Weaving Tidak Bisa
+                                                                                                        Membuatkan Article)"
                                         disabled>
                                         Mengajukan Pp
                                         Greige

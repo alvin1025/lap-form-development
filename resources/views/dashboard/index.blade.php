@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Dashboard Utama')
 

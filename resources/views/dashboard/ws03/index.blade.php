@@ -1,5 +1,5 @@
-@extends('dashboard.layouts.main')
-@section('title', 'Create New Employee Account')
+@extends('dashboard.layout.lte')
+@section('title', 'Index WS 03')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -72,15 +72,15 @@
                         <td>{{ $data->article_descrip }}</td>
                         <td>{{ $data->mod_user }}</td>
                         <td>
-                            <a href="/dashboard/ws03/{{ $data->id }}" class="badge bg-info"><span
-                                    data-feather="eye"></span></a>
-                            <a href="/dashboard/ws03/{{ $data->id }}/edit" class="badge bg-warning"><span
-                                    data-feather="edit"></span></a>
+                            <a href="/dashboard/ws03/{{ $data->id }}" class="badge bg-info"><i class="fa fa-eye"
+                                    aria-hidden="true"></i></a>
+                            <a href="/dashboard/ws03/{{ $data->id }}/edit" class="badge bg-warning"><i
+                                    class="fas fa-edit"></i></a>
                             <form action="/dashboard/ws03/{{ $data->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span
-                                        data-feather="x-circle"></span></button>
+                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i
+                                        class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

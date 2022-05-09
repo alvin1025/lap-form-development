@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Create Form Request Development')
 
@@ -555,7 +555,9 @@
                             <option value="Menganalisa Acuan Dari Sales">Menganalisa Acuan Dari Sales
                             </option>
                             <option value="Mencari Acuan Yang Mirip Dengan Yang Diminta
-                                                                                    Oleh Sales">Mencari Acuan Yang Mirip
+                                                                                                Oleh Sales">Mencari Acuan
+                                Yang
+                                Mirip
                                 Dengan
                                 Yang
                                 Diminta
@@ -564,15 +566,18 @@
                                 Development Ke Qard
                             </option>
                             <option value="Menganalisa Form Request Development Dari
-                                                                                    Marketing" disabled>Menganalisa Form
+                                                                                                Marketing" disabled>
+                                Menganalisa
+                                Form
                                 Request
                                 Development
                                 Dari
                                 Marketing</option>
                             <option value="Menganalisa Acuan Dari Marketing" disabled>Menganalisa Acuan Dari
                                 Marketing</option>
-                            <option value="Menuju BCI Untuk Analisa Lebih Lanjut,
-                                                                                    Mengirim Form Permohonan Test"
+                            <option
+                                value="Menuju BCI Untuk Analisa Lebih Lanjut,
+                                                                                                Mengirim Form Permohonan Test"
                                 disabled>
                                 Menuju
                                 BCI
@@ -585,7 +590,8 @@
                                 Article Ke Weaving
                             </option>
                             <option value="Mengajukan Pp Yarn Ke Purcashing Jika Weaving
-                                                                                Bisa Memproduksi Greige" disabled>
+                                                                                            Bisa Memproduksi Greige"
+                                disabled>
                                 Mengajukan Pp
                                 Yarn Ke
                                 Purcashing
@@ -593,7 +599,8 @@
                                 Weaving
                                 Bisa Memproduksi Greige</option>
                             <option value="Mengajukan Permohonan Ke Bci (Stock Yarn Di
-                                                                                Gudang Tidak Mencukupi)" disabled>
+                                                                                            Gudang Tidak Mencukupi)"
+                                disabled>
                                 Mengajukan
                                 Permohonan
                                 Ke
@@ -603,7 +610,8 @@
                                 Di
                                 Gudang Tidak Mencukupi)</option>
                             <option value="Mengajukan Pp Greige (Weaving Tidak Bisa
-                                                                                Membuatkan Article)" disabled>Mengajukan Pp
+                                                                                            Membuatkan Article)" disabled>
+                                Mengajukan Pp
                                 Greige
                                 (Weaving
                                 Tidak

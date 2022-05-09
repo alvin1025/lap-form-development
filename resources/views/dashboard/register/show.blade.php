@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Create New Employee Account')
 
@@ -11,9 +11,9 @@
                         <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center text-white"
                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                <h5 style="color: black" class="mt-5">{{ $users->employee_name }}</h5>
-                                <h6 style="color: black">{{ $users->employee_no }}</h6>
-                                <h5 style="color: black">{{ $users->division }}</h5>
+                                <h5 class="mt-5">{{ $users->employee_name }}</h5>
+                                <h6>{{ $users->employee_no }}</h6>
+                                <h5>{{ $users->division }}</h5>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body p-4">

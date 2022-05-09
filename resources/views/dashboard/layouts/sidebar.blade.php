@@ -75,5 +75,108 @@
             @endif
 
 
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/promosi*') ? 'active' : '' }}"
+                    href="/dashboard/hr/promosi">
+                    <span data-feather="file"></span>
+                    Permohonan Promosi
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/kecelakaan*') ? 'active' : '' }}"
+                    href="/dashboard/hr/kecelakaan">
+                    <span data-feather="file"></span>
+                    Laporan Kecelakaan Kerja
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/meninggalkan*') ? 'active' : '' }}"
+                    href="/dashboard/hr/meninggalkan">
+                    <span data-feather="file"></span>
+                    Permohonan Meninggalkan Tempat Kerja
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/kartu*') ? 'active' : '' }}"
+                    href="/dashboard/hr/kartu">
+                    <span data-feather="file"></span>
+                    Permohonan Pembuatan Kartu
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/shift*') ? 'active' : '' }}"
+                    href="/dashboard/hr/shift">
+                    <span data-feather="file"></span>
+                    Permohonan Tukar Shift
+                </a>
+            </li>
+
+            {{-- <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/undangan*') ? 'active' : '' }}"
+                    href="/dashboard/hr/undangan">
+                    <span data-feather="file"></span>
+                    Undangan Hubungan Kerja
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/pemanggilan*') ? 'active' : '' }}"
+                    href="/dashboard/hr/pemanggilan">
+                    <span data-feather="file"></span>
+                    Surat Pemanggilan
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/peringatan*') ? 'active' : '' }}"
+                    href="/dashboard/hr/peringatan">
+                    <span data-feather="file"></span>
+                    Surat Peringatan
+                </a>
+            </li> --}}
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/denda*') ? 'active' : '' }}"
+                    href="/dashboard/hr/denda">
+                    <span data-feather="file"></span>
+                    Surat Denda
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/dokter*') ? 'active' : '' }}"
+                    href="/dashboard/hr/dokter">
+                    <span data-feather="file"></span>
+                    Surat Periksa Dokter
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/karyawanBaru*') ? 'active' : '' }}"
+                    href="/dashboard/hr/karyawanBaru">
+                    <span data-feather="file"></span>
+                    Pengantar Karyawan Baru
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/hr/instruktur*') ? 'active' : '' }}"
+                    href="/dashboard/hr/instruktur">
+                    <span data-feather="file"></span>
+                    Instruktur Training
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/maintenance/serah-terima*') ? 'active' : '' }}"
+                    href="/dashboard/maintenance/serah-terima">
+                    <span data-feather="file"></span>
+                    Serah Terima
+                </a>
+            </li>
     </div>
 </nav>

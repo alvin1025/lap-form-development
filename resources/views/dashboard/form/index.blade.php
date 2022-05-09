@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Form Request')
 
@@ -35,15 +35,15 @@
                         <td>{{ $form->due_date }}</td>
                         <td>{{ $form->no }}</td>
                         <td>
-                            <a href="/dashboard/formrequest/{{ $form->id }}" class="badge bg-info"><span
-                                    data-feather="eye"></span></a>
-                            <a href="/dashboard/formrequest/{{ $form->id }}/edit" class="badge bg-warning"><span
-                                    data-feather="edit"></span></a>
+                            <a href="/dashboard/formrequest/{{ $form->id }}" class="badge bg-info"><i
+                                    class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="/dashboard/formrequest/{{ $form->id }}/edit" class="badge bg-warning"><i
+                                    class="fas fa-edit"></i></a>
                             <form action="/dashboard/formrequest/{{ $form->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span
-                                        data-feather="x-circle"></span></button>
+                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i
+                                        class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -73,10 +73,10 @@
                         <td>{{ $form->no }}</td>
                         <td>{{ $form->date }}</td>
                         <td>
-                            <a href="/dashboard/formrequest/sales/{{ $form->id }}" class="badge bg-info"><span
-                                    data-feather="eye"></span></a>
-                            <a href="/dashboard/formrequest/sales/{{ $form->id }}/edit" class="badge bg-warning"><span
-                                    data-feather="edit"></span></a>
+                            <a href="/dashboard/formrequest/sales/{{ $form->id }}" class="badge bg-info"><i
+                                    class="fa fa-eye" aria-hidden="true"></i></a>
+                            <a href="/dashboard/formrequest/sales/{{ $form->id }}/edit" class="badge bg-warning"><i
+                                    class="fas fa-edit"></i></a>
                             {{-- <form action="/dashboard/sales/{{ $form->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf

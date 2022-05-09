@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
 @section('title', 'Create Form Development Request')
 
@@ -314,7 +314,8 @@
                                     <option value="Menganalisa Acuan Dari Sales" disabled>Menganalisa Acuan Dari Sales
                                     </option>
                                     <option value="Mencari Acuan Yang Mirip Dengan Yang Diminta
-                                                                                                    Oleh Sales" disabled>
+                                                                                                        Oleh Sales"
+                                        disabled>
                                         Mencari
                                         Acuan
                                         Yang
@@ -327,7 +328,8 @@
                                         Development Ke Qard
                                     </option>
                                     <option value="Menganalisa Form Request Development Dari
-                                                                                                    Marketing" disabled>
+                                                                                                        Marketing"
+                                        disabled>
                                         Menganalisa
                                         Form
                                         Request
@@ -338,7 +340,7 @@
                                         Marketing</option>
                                     <option
                                         value="Menuju BCI Untuk Analisa Lebih Lanjut,
-                                                                                                    Mengirim Form Permohonan Test"
+                                                                                                        Mengirim Form Permohonan Test"
                                         disabled>
                                         Menuju
                                         BCI
@@ -350,8 +352,9 @@
                                     <option value="Meminta Untuk Membuat Article Ke Weaving" disabled>Meminta Untuk Membuat
                                         Article Ke Weaving
                                     </option>
-                                    <option value="Mengajukan Pp Yarn Ke Purcashing Jika Weaving
-                                                                                                Bisa Memproduksi Greige"
+                                    <option
+                                        value="Mengajukan Pp Yarn Ke Purcashing Jika Weaving
+                                                                                                    Bisa Memproduksi Greige"
                                         disabled>
                                         Mengajukan Pp
                                         Yarn Ke
@@ -359,8 +362,9 @@
                                         Jika
                                         Weaving
                                         Bisa Memproduksi Greige</option>
-                                    <option value="Mengajukan Permohonan Ke Bci (Stock Yarn Di
-                                                                                                Gudang Tidak Mencukupi)"
+                                    <option
+                                        value="Mengajukan Permohonan Ke Bci (Stock Yarn Di
+                                                                                                    Gudang Tidak Mencukupi)"
                                         disabled>
                                         Mengajukan
                                         Permohonan
@@ -371,7 +375,7 @@
                                         Di
                                         Gudang Tidak Mencukupi)</option>
                                     <option value="Mengajukan Pp Greige (Weaving Tidak Bisa
-                                                                                                Membuatkan Article)"
+                                                                                                    Membuatkan Article)"
                                         disabled>
                                         Mengajukan Pp
                                         Greige

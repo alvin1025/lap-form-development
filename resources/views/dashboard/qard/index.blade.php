@@ -1,6 +1,6 @@
-@extends('dashboard.layouts.main')
+@extends('dashboard.layout.lte')
 
-@section('title', 'BCI Sample Test Report')
+@section('title', 'Development Report')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -35,15 +35,15 @@
                         <td>placeholder</td>
                         <td>placeholder</td>
                         <td>
-                            <a href="/dashboard/qard/{{ $form->id }}" class="badge bg-info"><span
-                                    data-feather="eye"></span></a>
-                            <a href="/dashboard/qard/{{ $form->id }}/edit" class="badge bg-warning"><span
-                                    data-feather="edit"></span></a>
+                            <a href="/dashboard/qard/{{ $form->id }}" class="badge bg-info"><i class="fa fa-eye"
+                                    aria-hidden="true"></i></a>
+                            <a href="/dashboard/qard/{{ $form->id }}/edit" class="badge bg-warning"><i
+                                    class="fas fa-edit"></i></a>
                             <form action="/dashboard/qard/{{ $form->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span
-                                        data-feather="x-circle"></span></button>
+                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i
+                                        class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>
