@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BciToQard;
+use App\Http\Controllers\DaftarKebutuhanMaterialController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPrimaryController;
 use App\Http\Controllers\DevReportQard;
@@ -15,11 +16,13 @@ use App\Http\Controllers\PembuatanKartuPengenalController;
 use App\Http\Controllers\PengantarKaryawanBaruController;
 use App\Http\Controllers\PermohonanPromosiController;
 use App\Http\Controllers\QardRequestToBciController;
+use App\Http\Controllers\RencanaAnggaranBiayaController;
 use App\Http\Controllers\SerahTerimaMaintenanceController;
 use App\Http\Controllers\SuratDendaController;
 use App\Http\Controllers\SuratPemanggilanKaryawanController;
 use App\Http\Controllers\SuratPengantarPemeriksaanDokterController;
 use App\Http\Controllers\SuratPeringatanController;
+use App\Http\Controllers\SuratPerintahKerjaController;
 use App\Http\Controllers\TukarShiftController;
 use App\Http\Controllers\UndanganHubunganKerjaController;
 use App\Http\Controllers\UndanganInstrukturTrainingController;
@@ -101,6 +104,11 @@ Route::resource('/dashboard/hr/denda', SuratDendaController::class)->middleware(
 Route::resource('/dashboard/hr/dokter', SuratPengantarPemeriksaanDokterController::class)->middleware('auth');
 Route::resource('/dashboard/hr/karyawanBaru', PengantarKaryawanBaruController::class)->middleware('auth');
 Route::resource('/dashboard/hr/instruktur', UndanganInstrukturTrainingController::class)->middleware('auth');
+
+//Route GA
+Route::resource('/dashboard/ga/perintah', SuratPerintahKerjaController::class)->middleware('auth');
+Route::resource('/dashboard/ga/anggaran', RencanaAnggaranBiayaController::class)->middleware('auth');
+Route::resource('/dashboard/ga/kebutuhan', DaftarKebutuhanMaterialController::class)->middleware('auth');
 
 //Route Maintenance
 Route::resource('/dashboard/maintenance/serah-terima', SerahTerimaMaintenanceController::class)->middleware('auth');

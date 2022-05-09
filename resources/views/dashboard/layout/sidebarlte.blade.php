@@ -166,7 +166,7 @@
                                 <p>WS 03</p>
                             </a>
                         </li>
-                        <li class="                                                         nav-item">
+                        <li class="                                                                       nav-item">
                                 <a href="/dashboard/ws05"
                                     class="nav-link {{ Request::is('dashboard/ws05*') ? 'active' : '' }}">
                                     <p>WS 05</p>
@@ -252,6 +252,32 @@
                             <a href="/dashboard/maintenance/serah-terima"
                                 class="nav-link {{ Request::is('/dashboard/maintenance/serah-terima*') ? 'active' : '' }}">
                                 <p>Form Serah Terima</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{-- GA --}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-house"></i>
+                        <p>
+                            GA
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item }">
+                            <a href="/dashboard/ga/perintah"
+                                class="nav-link {{ Request::is('/dashboard/ga/perintah*') ? 'active' : '' }}">
+                                <p>Surat Perintah Kerja</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item }">
+                            <a href="/dashboard/ga/anggaran"
+                                class="nav-link {{ Request::is('/dashboard/ga/anggaran*') ? 'active' : '' }}">
+                                <p>Rencana Anggaran Biaya</p>
                             </a>
                         </li>
                     </ul>
