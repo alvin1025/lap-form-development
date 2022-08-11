@@ -16,7 +16,8 @@
                         <input type="hidden" name="form_request_development_id">
                         <label class="col-sm-4 col-form-label my-2">NO</label>
                         <div class="col-sm-7 my-2">
-                            <input type="text" class="form-control" name="no" value="{{ $nomer }}" readonly />
+                            <input type="text" class="form-control" name="no" value="{{ $nomer }}"
+                                readonly />
                         </div>
                         <label class="col-sm-4 col-form-label my-2">DATE</label>
                         <div class="col-sm-7 my-2">
@@ -34,8 +35,8 @@
                         <label class="col-sm-4 col-form-label my-2">NAME</label>
                         <div class="col-sm-7 my-2">
                             <input type="text" readonly
-                                value="{{ auth()->user()->employee_name }}/{{ auth()->user()->division }}" name="name"
-                                class="form-control @error('name') is-invalid @enderror">
+                                value="{{ auth()->user()->employee_name }}/{{ auth()->user()->division }}"
+                                name="name" class="form-control @error('name') is-invalid @enderror">
                             @error('name')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -79,7 +80,8 @@
                     <div class="row">
                         <label class="col-sm-4 col-form-label my-2">PURPOSE </label>
                         <div class="col-sm-7 my-2">
-                            <input type="text" class="form-control @error('purpose') is-invalid @enderror" name="purpose" />
+                            <input type="text" class="form-control @error('purpose') is-invalid @enderror"
+                                name="purpose" />
                             @error('purpose')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -108,7 +110,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-4 " id="show">
-                                    <input type="text" class="form-control my-2 @error('article_code') is-invalid @enderror"
+                                    <input type="text"
+                                        class="form-control my-2 @error('article_code') is-invalid @enderror"
                                         name="article_code" />
                                     @error('article_code')
                                         <div class="invalid-feedback">
@@ -126,13 +129,14 @@
                                         <label class="form-check-label" for="inlineCheckbox1">GREIGE</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Finish"
-                                            name="width">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                            value="Finish" name="width">
                                         <label class="form-check-label" for="inlineCheckbox2">FINISH</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 ">
-                                    <input type="text" class="form-control my-2 @error('width_value') is-invalid @enderror"
+                                    <input type="text"
+                                        class="form-control my-2 @error('width_value') is-invalid @enderror"
                                         name="width_value" />
                                     @error('width_value')
                                         <div class="invalid-feedback">
@@ -145,13 +149,13 @@
                                 <label class="col-sm-4 col-form-label my-2">SAMPLE</label>
                                 <div class="col-sm-8 ">
                                     <div class="form-check form-check-inline mt-3">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="YES"
-                                            name="sample">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="YES" name="sample">
                                         <label class="form-check-label" for="inlineCheckbox1">YES</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="NO"
-                                            name="sample">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                            value="NO" name="sample">
                                         <label class="form-check-label" for="inlineCheckbox2">NO</label>
                                     </div>
                                 </div>
@@ -262,13 +266,13 @@
                                 <label class="col-sm-4 col-form-label my-2">SHRINGKAGE</label>
                                 <div class="col-sm-8 ">
                                     <div class="form-check form-check-inline mt-3">
-                                        <input class="form-check-input" type="radio" name="shrinkage" id="inlineRadio1"
-                                            value="A" />
+                                        <input class="form-check-input" type="radio" name="shrinkage"
+                                            id="inlineRadio1" value="A" />
                                         <label class="form-check-label" for="inlineRadio1">A</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="shrinkage" id="inlineRadio2"
-                                            value="B" />
+                                        <input class="form-check-input" type="radio" name="shrinkage"
+                                            id="inlineRadio2" value="B" />
                                         <label class="form-check-label" for="inlineRadio2">B</label>
                                     </div>
                                 </div>
@@ -277,9 +281,10 @@
                                 <label class="col-sm-4 col-form-label my-2">SAMPLE NEEDED</label>
                                 <div class="col-sm-4 ">
                                     <div class="form-check form-check-inline mt-3">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Hanger"
-                                            name="sample_needed">
-                                        <small><label class="form-check-label" for="inlineCheckbox1">HANGER</label></small>
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                            value="Hanger" name="sample_needed">
+                                        <small><label class="form-check-label"
+                                                for="inlineCheckbox1">HANGER</label></small>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
@@ -313,8 +318,9 @@
                                     </option>
                                     <option value="Menganalisa Acuan Dari Sales" disabled>Menganalisa Acuan Dari Sales
                                     </option>
-                                    <option value="Mencari Acuan Yang Mirip Dengan Yang Diminta
-                                                                                                        Oleh Sales"
+                                    <option
+                                        value="Mencari Acuan Yang Mirip Dengan Yang Diminta
+                                                                                                            Oleh Sales"
                                         disabled>
                                         Mencari
                                         Acuan
@@ -327,8 +333,9 @@
                                     <option value="Membuat Form Request Development Ke Qard" disabled>Membuat Form Request
                                         Development Ke Qard
                                     </option>
-                                    <option value="Menganalisa Form Request Development Dari
-                                                                                                        Marketing"
+                                    <option
+                                        value="Menganalisa Form Request Development Dari
+                                                                                                            Marketing"
                                         disabled>
                                         Menganalisa
                                         Form
@@ -340,7 +347,7 @@
                                         Marketing</option>
                                     <option
                                         value="Menuju BCI Untuk Analisa Lebih Lanjut,
-                                                                                                        Mengirim Form Permohonan Test"
+                                                                                                            Mengirim Form Permohonan Test"
                                         disabled>
                                         Menuju
                                         BCI
@@ -354,7 +361,7 @@
                                     </option>
                                     <option
                                         value="Mengajukan Pp Yarn Ke Purcashing Jika Weaving
-                                                                                                    Bisa Memproduksi Greige"
+                                                                                                        Bisa Memproduksi Greige"
                                         disabled>
                                         Mengajukan Pp
                                         Yarn Ke
@@ -364,7 +371,7 @@
                                         Bisa Memproduksi Greige</option>
                                     <option
                                         value="Mengajukan Permohonan Ke Bci (Stock Yarn Di
-                                                                                                    Gudang Tidak Mencukupi)"
+                                                                                                        Gudang Tidak Mencukupi)"
                                         disabled>
                                         Mengajukan
                                         Permohonan
@@ -374,8 +381,9 @@
                                         Yarn
                                         Di
                                         Gudang Tidak Mencukupi)</option>
-                                    <option value="Mengajukan Pp Greige (Weaving Tidak Bisa
-                                                                                                    Membuatkan Article)"
+                                    <option
+                                        value="Mengajukan Pp Greige (Weaving Tidak Bisa
+                                                                                                        Membuatkan Article)"
                                         disabled>
                                         Mengajukan Pp
                                         Greige
@@ -383,7 +391,8 @@
                                         Tidak
                                         Bisa
                                         Membuatkan Article)</option>
-                                    <option value="Qard Membuat Permohonan Purchase Greige" disabled>Qard Membuat Permohonan
+                                    <option value="Qard Membuat Permohonan Purchase Greige" disabled>Qard Membuat
+                                        Permohonan
                                         Purchase
                                         Greige</option>
                                     <option value="Membuat Op Finishing" disabled>Membuat Op Finishing</option>
@@ -407,10 +416,12 @@
                                         Development Request Dan Acuan Dari Qard</option>
                                     <option value="Menganalisa Acuan Dari Qard" disabled>Menganalisa Acuan Dari Qard
                                     </option>
-                                    <option value="Memberi Jawaban Bisa Di Weaving Atau Tidak" disabled>Memberi Jawaban Bisa
+                                    <option value="Memberi Jawaban Bisa Di Weaving Atau Tidak" disabled>Memberi Jawaban
+                                        Bisa
                                         Di
                                         Weaving Atau Tidak</option>
-                                    <option value="Jika Bisa Cek Ketersediaan Stock Benang Ke Gudang" disabled>Jika Bisa Cek
+                                    <option value="Jika Bisa Cek Ketersediaan Stock Benang Ke Gudang" disabled>Jika Bisa
+                                        Cek
                                         Ketersediaan Stock Benang Ke Gudang</option>
                                     <option value="Meminta Qard Membuat Pp Yarn " disabled>Meminta Qard Membuat Pp Yarn
                                         (Benang Tidak
@@ -430,8 +441,8 @@
                 </div>
                 <div class="col-sm-5">
                     <div class="row">
-                        <textarea type="text" class="form-control mb-3 my-2 mx-2" placeholder="ADDITIONAL INFORMATION :" rows="13" cols="5"
-                            name="note"></textarea>
+                        <textarea type="text" class="form-control mb-3 my-2 mx-2" placeholder="ADDITIONAL INFORMATION :" rows="13"
+                            cols="5" name="note"></textarea>
                     </div>
                     {{-- <div class="row">
                         <textarea type="text" class="form-control mb-3 my-2 mx-2" placeholder="ADDITIONAL INFORMATION :" rows="10" cols="5"

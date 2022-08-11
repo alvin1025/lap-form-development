@@ -16,14 +16,15 @@
 
                 @csrf
 
-                <body class="my-login-page">
+                <body class="hold-transition login-page"
+                    style="background-image: url('../img/background.png'); background-size: cover;">
                     <section class="h-100">
                         <div class="container h-100">
-                            <div class="row justify-content-md-center h-100">
-                                <div class="card-wrapper">
+                            <div class="row justify-content-md-center h-100 ">
+                                <div class="card-wrapper" style="margin-top: 50%; margin-left: 300px;">
                                     <div class="card fat">
                                         <div class="card-body">
-                                            <h4 class="card-title">Login</h4>
+                                            <h4 class="card-title text-center">Login</h4>
                                             <form method="POST" class="my-login-validation" novalidate="">
                                                 @csrf
                                                 <div class="mb-3">
@@ -56,8 +57,27 @@
                                             </form>
                                         </div>
                                     </div>
+                                    {{-- <div class="">
+                                        sdm sales : S05861
+                                    </div>
+                                    <div class="div">
+                                        dm sales : S06571
+                                    </div>
+                                    <div class="div">
+                                        gm sales : S03505 
+                                    </div>
+                                    <div class="div">
+                                        sdm finance : S01513
+                                    </div>
+                                    <div class="div">
+                                        dm finance : S01456
+                                    </div>
+                                    <div class="div">
+                                        document control : S05029
+                                    </div> --}}
+                                    
                                     <div class="footer">
-                                        Copyright &copy; 2022 &mdash; LUCKY ABADI PRINT
+                                        Copyright &copy; 2022 &mdash; LUCKYTEX GROUP
                                     </div>
                                 </div>
                             </div>

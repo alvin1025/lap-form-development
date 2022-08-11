@@ -54,7 +54,7 @@ class Users extends Controller
 
         // $request->session()->flash('success', 'Registration Successfully! Please Login Now!');
 
-        return redirect('/dashboard/register')->with('success', 'New Employee Has Been Added!');
+        return redirect('/dashboard/register')->with('success', 'User Has Been Added!');
     }
 
     /**
@@ -106,7 +106,7 @@ class Users extends Controller
         // dd($validated);
         // User::update($validateData);
         User::where('id', $register->id)->update($validated);
-        return redirect('/dashboard/register')->with('success', 'Post Has Been Updated');
+        return redirect('/dashboard/register')->with('success', 'User Has Been Updated');
     }
 
     /**
@@ -119,7 +119,7 @@ class Users extends Controller
     {
         User::destroy($id);
 
-        return redirect('/dashboard/register')->with('success', 'Form Request Has Been Deleted');
+        return redirect('/dashboard/register')->with('success', 'User Has Been Deleted');
     }
 
     public function exportexcel()
@@ -137,7 +137,7 @@ class Users extends Controller
 
         Excel::import(new UserImport, \public_path('/UserData/' . $namafile));
 
-        return redirect('/dashboard/register')->with('success', 'Form Request Has Added!');
+        return redirect('/dashboard/register')->with('success', 'User Has Been Added!');
     }
 
     public function exportpdf()

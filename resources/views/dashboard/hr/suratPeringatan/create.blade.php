@@ -14,10 +14,7 @@
 
         </div>
         <div class="row">
-
             <h3 class="text-center" style="font-weight: bold">SURAT PERINGATAN : I</h3>
-
-
             <h5 class="text-center">
                 <div class="col-sm-5">
                     <div class="row">
@@ -137,7 +134,7 @@
             </div>
         </div>
         <div class="row">
-            <label class="col-sm-4 col-form-label my-2">Masa berlaku Surat Peringatan ini mulai tanggal </label>
+            <label class="col-sm-6 col-form-label my-2">Masa berlaku Surat Peringatan ini mulai tanggal </label>
             <div class="col-sm-2 my-2">
                 <input id="berlaku" type="date" class="form-control @error('berlaku') is-invalid @enderror"
                     name="berlaku" />
@@ -162,6 +159,7 @@
             <div class="col-sm-1">
                 <button type="submit" class="btn btn-primary">SUBMIT</button>
             </div>
+
         </div>
     </form>
 

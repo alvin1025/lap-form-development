@@ -18,18 +18,18 @@ class UserImport implements ToModel
      */
     public function model(array $row)
     {
-        
+        // dd($row);
         return new User([
+            'employee_name' => $row[0],
             'employee_no' => $row[1],
-            'employee_name' => $row[2],
-            'position_job_name' => $row[3],
-            'email' => $row[4],
-            'jabatan' => $row[5],
-            'job_code' => $row[6],
-            'work_location' => $row[7],
-            'employee_status' => $row[8],
-            'division' => $row[9],
-            'password' => Hash::make($row[10]),
+            'position_job_name' => $row[2],
+            'jabatan' => $row[3],
+            'job_code' => $row[4],
+            'work_location' => $row[5],
+            'employee_status' => $row[6],
+            'division' => $row[7],
+            'email' => $row[8],
+            'password' => Hash::make($row[9]),
         ]);
     }
 }

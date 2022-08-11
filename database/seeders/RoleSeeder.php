@@ -119,6 +119,14 @@ class RoleSeeder extends Seeder
                 'name' => 'commerce_yarn',
                 'guard_name' => 'web'
             ],
+            [
+                'name' => 'manager',
+                'guard_name' => 'web'
+            ],
+            [
+                'name' => 'gm_manager',
+                'guard_name' => 'web'
+            ],
         ];
         foreach ($roles as $role) {
             Role::create([

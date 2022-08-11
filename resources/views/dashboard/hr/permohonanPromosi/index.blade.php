@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Welcome back, {{ Auth::user()->employee_name }}</h1>
+        <h1 class="text-center">Index Form Permohonan Promosi</h1>
     </div>
 
     @if (session()->has('success'))
@@ -12,7 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-
     <div class="table-responsive">
         @can('permohonan_promosi_create')
             <a href="{{ route('promosi.create') }}" class="btn btn-primary mb-3">Create New Form</a>

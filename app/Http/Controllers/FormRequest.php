@@ -9,6 +9,7 @@ use App\Models\DevModel;
 use App\Models\FormDevSales;
 use App\Models\FormRequestDevelopment;
 use App\Models\FormRequestModel;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -178,7 +179,7 @@ class FormRequest extends Controller
         $mkt = FormRequestDevelopment::find($id);
 
         view()->share('mkt', $mkt);
-        $pdfMarketing = PDF::loadView('pdfMarketing');
+        $pdfMarketing = FacadePdf::loadView('pdfMarketing');
 
         return $pdfMarketing->download('DevelopmentMarketing.pdf');
     }

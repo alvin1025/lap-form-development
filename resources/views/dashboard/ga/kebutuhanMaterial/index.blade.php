@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Welcome back, {{ Auth::user()->employee_name }}</h1>
+        <h1 class="h2">Index Form Daftar Kebutuhan Material</h1>
     </div>
 
     @if (session()->has('success'))
@@ -33,11 +33,11 @@
                         <td>aa</td>
                         <td>aa</td>
                         <td>
-                            <a href="/dashboard/ga/kebutuhan/{{ $form->id }}" class="badge bg-info"><i
+                            <a href="/dashboard/ga/berobat/{{ $form->id }}" class="badge bg-info"><i
                                     class="fa fa-eye" aria-hidden="true"></i></a>
-                            <a href="/dashboard/ga/kebutuhan/{{ $form->id }}/edit" class="badge bg-warning"><i
+                            <a href="/dashboard/ga/berobat/{{ $form->id }}/edit" class="badge bg-warning"><i
                                     class="fas fa-edit"></i></a>
-                            <form action="/dashboard/ga/kebutuhan/{{ $form->id }}" method="post" class="d-inline">
+                            <form action="/dashboard/ga/berobat/{{ $form->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i

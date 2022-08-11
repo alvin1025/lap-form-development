@@ -1,9 +1,9 @@
 @extends('dashboard.layout.lte')
-@section('title', 'Create New Employee Account')
+@section('title', 'Employee Account')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        {{-- <h3 class="h2">Welcome back, {{ auth()->user()->employee_name }}</h3> --}}
+        <h1 class="h2">Index Employee Account</h1>
     </div>
 
     @if (session()->has('success'))
@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <div class="table-responsive">
+    <div class="table-responsive" style="width: 100%">
         <div class="d-flex justify-content-start">
 
             <a href="/dashboard/register/create" class="btn btn-primary mb-3">Create New User</a>
@@ -56,10 +56,12 @@
 
         <table class="table table-striped table-sm" id="dt-init">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">No.</th>
-                    <th scope="col">Nama</th>
                     <th scope="col">Nrp</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Divisi</th>
+                    <th scope="col">Jabatan</th>
                     <th scope="col">Email</th>
                     <th scope="col">ACTION</th>
                 </tr>
@@ -68,8 +70,10 @@
                 @foreach ($users as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $user->employee_name }}</td>
                         <td>{{ $user->employee_no }}</td>
+                        <td>{{ $user->employee_name }}</td>
+                        <td>{{ $user->division }}</td>
+                        <td>{{ $user->jabatan }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
                             <a href="/dashboard/register/{{ $user->id }}" class="badge bg-info"><i
@@ -93,7 +97,9 @@
     <script>
         $(document).ready(function() {
             'use-strict';
-            $('#dt-init').DataTable();
+            $('#dt-init').DataTable({
+                "bAutoWidth": false
+            });
         })
     </script>
 @endpush

@@ -225,7 +225,7 @@
         {{-- row 10 --}}
         <div class="d-flex flex-row">
             <div class="col-sm-1 text-center">
-                <input type="text" id="" class="form-control" name="no9">
+                <input type="text" id="" class="form-control" name="no10">
             </div>
             <div class="col-sm-4 text-center">
                 <textarea name="uraian10" id="uraian10" cols="30" rows="5" class="form-control"></textarea>
