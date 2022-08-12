@@ -150,6 +150,10 @@
                         echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Percent' . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10;">' . ($row->pc = $row->pc != '' ? $row->pc : '-' . '</td>');
                         echo '</tr>';
+                        echo '<tr>';
+                        echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Status' . '</td>';
+                        echo '<td align=left; colspan=3; style="font-size: 10;">' . ($row->status = $row->status == '1' ? "Active" : $row->status = $row->status == '2' ? "Inactive" : '-' . '</td>');
+                        echo '</tr>';
                     }
                     ?>
                 </tbody>

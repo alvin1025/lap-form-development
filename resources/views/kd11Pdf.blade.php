@@ -126,7 +126,12 @@
                         echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Conditions' . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10;">' . ($row->conditions1 = $row->conditions1 != '' ? $row->conditions1 : '-' . '</td>');
                         echo '</tr>';
-                       
+                        echo '<tr>';
+                        echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Status' . '</td>';
+                        echo '<td align=left; colspan=3; style="font-size: 10;">' . ($row->status_old = $row->status_old == '1' ? "Active" : $row->status_old = $row->status_old == '2' ? "Inactive" : '-' . '</td>');
+                        echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Status' . '</td>';
+                        echo '<td align=left; colspan=3; style="font-size: 10;">' . ($row->status = $row->status == '1' ? "Active" : $row->status = $row->status == '2' ? "Inactive" : '-' . '</td>');
+                        echo '</tr>';
                        
                     }
                     ?>
