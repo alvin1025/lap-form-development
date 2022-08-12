@@ -95,7 +95,7 @@
                                             @elseif ($form->status_form == 'aprv 1 ')
                                                 Need Apprv GM
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Inputted to INTEX
+                                                Need Apprv Document Control
                                             @elseif ($form->status_form == 'rejected')
                                                 Rejected
                                             @elseif ($form->status_form == 'inputted')
