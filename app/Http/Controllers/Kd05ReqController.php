@@ -319,7 +319,7 @@ class Kd05ReqController extends Controller
     }
 
     public function reject(){
-        $kd05 = Kd05Req::all()->where('status_form', 'rejected');
+        $kd05 = Kd05Req::all()->where('status_form', 'rejected')->where('emailUser', auth()->user()->email);
 
         return view('dashboard.salesFolder.Kd5Req.reject',[
             'kd05req' => $kd05

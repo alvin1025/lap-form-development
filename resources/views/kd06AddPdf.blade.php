@@ -161,12 +161,12 @@
                         echo '<td align=center; colspan=2;  style="font-size: 8;">' . 'Approve By' . '</td>';
                         echo '</tr>';
                         echo '<tr>';
-                        echo '<td align=center; colspan=2;  style="font-size: 8;">' . $row->created_by . '</td>';
-                        echo '<td align=center; colspan=2; style="font-size: 8;">' . $row->submitted_by . '</td>';
-                        echo '<td align=center; colspan=2; style="font-size: 8;">' . $row->acknowledged_by . '</td>';
-                        echo '<td align=center; colspan=2;  style="font-size: 8;">' . $row->aprv1_by . '</td>';
-                        echo '<td align=center; colspan=2;  style="font-size: 8;">' . $row->aprv2_by . '</td>';
-                        echo '<td align=center; colspan=2;  style="font-size: 8;">' . $row->inputted_by . '</td>';
+                        echo '<td align=center; colspan=2;  style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->created_by . '</td>';
+                        echo '<td align=center; colspan=2; style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->submitted_by . '</td>';
+                        echo '<td align=center; colspan=2; style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->acknowledged_by . '</td>';
+                        echo '<td align=center; colspan=2;  style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->aprv1_by . '</td>';
+                        echo '<td align=center; colspan=2;  style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->aprv2_by . '</td>';
+                        echo '<td align=center; colspan=2;  style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->inputted_by . '</td>';
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td align=center; colspan=2;  style="font-size: 7;">' . date('d-m-Y', strtotime($row->created_date)) . '</td>';

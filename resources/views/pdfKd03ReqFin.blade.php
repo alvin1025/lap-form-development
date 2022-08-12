@@ -134,9 +134,9 @@
                         // echo "</tr>";
                         echo '<tr>';
                         echo '<td align=left; style="font-size: 10; font-weight:900; width:25%">' . 'Street' . '</td>';
-                        echo '<td align=left; style="font-size: 10; width:25%">' . $row->street_old . ' ' . $row->addit_old . '</td>';
+                        echo '<td align=left; style="font-size: 10; width:25%; word-break:break-all; word-wrap:break-word;">' . $row->street_old . ' ' . $row->addit_old . '</td>';
                         echo '<td align=left; style="font-size: 10; font-weight:900; width:25%">' . 'Street' . '</td>';
-                        echo '<td align=left; style="font-size: 10; width:25%">' . ($row->street = $row->street != '' ? $row->street . ' ' . $row->addit : '-' . '</td>');
+                        echo '<td align=left; style="font-size: 10; width:25%; word-break:break-all; word-wrap:break-word;">' . ($row->street = $row->street != '' ? $row->street . ' ' . $row->addit : '-' . '</td>');
                         echo '</tr>';
                         // echo "<tr>";
                         // echo '<td align=left; style="font-size: 10;">' . "Add Street" . '</td>';
@@ -194,9 +194,9 @@
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td align=left; style="font-size: 10; font-weight:900; width:25%">' . 'Freight' . '</td>';
-                        echo '<td align=left; style="font-size: 10; width:25%">' . $row->kode_county_old . '</td>';
+                        echo '<td align=left; style="font-size: 10; width:25%; word-break:break-all; word-wrap:break-word;">' . $row->kode_county_old . '</td>';
                         echo '<td align=left; style="font-size: 10; font-weight:900; width:25%">' . 'Freight' . '</td>';
-                        echo '<td align=left; style="font-size: 10; width:25%">' . ($row->kode_county = $row->kode_county != '' ? $row->kode_county : '-' . '</td>');
+                        echo '<td align=left; style="font-size: 10; width:25%; word-break:break-all; word-wrap:break-word;">' . ($row->kode_county = $row->kode_county != '' ? $row->kode_county : '-' . '</td>');
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td align=left; style="font-size: 10; font-weight:900; width:25%">' . 'Kota' . '</td>';
@@ -225,10 +225,10 @@
                         echo '<td align=center; style="font-size: 8; width:25%">' . 'Approve By' . '</td>';
                         echo '</tr>';
                         echo '<tr>';
-                        echo '<td align=center; style="font-size: 8; width:25%">' . $row->created_by . '</td>';
-                        echo '<td align=center; style="font-size: 8; width:25%">' . $row->aprv1_by . '</td>';
-                        echo '<td align=center; style="font-size: 8; width:25%">' . $row->aprv2_by . '</td>';
-                        echo '<td align=center; style="font-size: 8; width:25%">' . $row->inputted_by . '</td>';
+                        echo '<td align=center; style="font-size: 8; width:25%; word-break:break-all; word-wrap:break-word;">' . $row->created_by . '</td>';
+                        echo '<td align=center; style="font-size: 8; width:25%; word-break:break-all; word-wrap:break-word;">' . $row->aprv1_by . '</td>';
+                        echo '<td align=center; style="font-size: 8; width:25%; word-break:break-all; word-wrap:break-word;">' . $row->aprv2_by . '</td>';
+                        echo '<td align=center; style="font-size: 8; width:25%; word-break:break-all; word-wrap:break-word;">' . $row->inputted_by . '</td>';
                         echo '</tr>';
                         echo '<tr>';
                         echo '<td align=center; style="font-size: 8; width:25%">' . date('d-m-Y', strtotime($row->created_date)) . '</td>';

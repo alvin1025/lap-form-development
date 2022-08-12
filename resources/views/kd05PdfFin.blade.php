@@ -128,9 +128,9 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900"">' . "Street" . '</td>';
-                    echo '<td align=left; colspan=3; style="font-size: 10;">' . $row->street1_old ." " . $row->addit1_old. '</td>';
+                    echo '<td align=left; colspan=3; style="font-size: 10; word-break:break-all; word-wrap:break-word;">' . $row->street1_old ." " . $row->addit1_old. '</td>';
                     echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900"">' . "Street" . '</td>';
-                    echo '<td align=left; colspan=3; style="font-size: 10;">' . $row->street1 = ($row->street1 != "") ? $row->street1 . " " . $row->addit1 : '-'. '</td>';
+                    echo '<td align=left; colspan=3; style="font-size: 10; word-break:break-all; word-wrap:break-word;">' . $row->street1 = ($row->street1 != "") ? $row->street1 . " " . $row->addit1 : '-'. '</td>';
                     echo "</tr>";
                     echo "<tr>";
                     echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900"">' . "Tax" . '</td>';
@@ -298,10 +298,10 @@
                     echo '<td align=center; colspan=3; style="font-size: 8;">' . 'Approve By' . '</td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td align=center; colspan=3; style="font-size: 8;">' . $row->created_by . '</td>';
-                    echo '<td align=center; colspan=3; style="font-size: 8;">' . $row->aprv1_by . '</td>';
-                    echo '<td align=center; colspan=3; style="font-size: 8;">' . $row->aprv2_by . '</td>';
-                    echo '<td align=center; colspan=3; style="font-size: 8;">' . $row->inputted_by . '</td>';
+                    echo '<td align=center; colspan=3; style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->created_by . '</td>';
+                    echo '<td align=center; colspan=3; style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->aprv1_by . '</td>';
+                    echo '<td align=center; colspan=3; style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->aprv2_by . '</td>';
+                    echo '<td align=center; colspan=3; style="font-size: 8; word-break:break-all; word-wrap:break-word;">' . $row->inputted_by . '</td>';
                     echo '</tr>';
                     echo '<tr>';
                     echo '<td align=center; colspan=3; style="font-size: 8;">' . date('d-m-Y', strtotime($row->created_date)) . '</td>';

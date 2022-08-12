@@ -111,7 +111,7 @@
                                             {{-- @endif --}}
                                             <a href="/dashboard/salesFolder/kd03request/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
-                                            @if (Auth::user()->division == 'FINANCE' || ((Auth::user()->division == 'FABRIC SALES' && $form->status_form == 'created') || $form->status_form == 'rejected') || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
+                                            @if (Auth::user()->division == 'FINANCE' || ((Auth::user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE' && $form->status_form == 'created') || (Auth::user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE' && $form->status_form == 'rejected') || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM'))
                                                 <a href="/dashboard/salesFolder/kd03request/{{ $form->id }}/edit"
                                                     class="badge bg-warning">Modify</a>
                                             @endif
