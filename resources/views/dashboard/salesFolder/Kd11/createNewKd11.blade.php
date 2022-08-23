@@ -17,6 +17,15 @@
         <div class="card-header">
             KD11 ASSOCIATIONS LIST
         </div>
+        <div class="col-sm-6">
+            <input id="association" type="hidden"
+                class="form-control @error('association') is-invalid @enderror" name="association" />
+                @error('association')
+                <div class="invalid-feedback" style="font-size: 30px">
+                    {{ $message }}
+                </div>
+                @enderror
+        </div>
         <div class="card-body">
             <div class="col-sm-8">
                 <div class="d-flex flex-row mt-2">
@@ -25,7 +34,7 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="cust_no" type="text" class="form-control @error('cust_no') is-invalid @enderror"
-                            name="kd11no_cust" value="{{ $kd11no_cust }}" readonly />
+                            name="kd11no_cust" value="{{ $kd11no_cust }}" readonly onkeyup="getVal();"/>
                         @error('cust_no')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -108,7 +117,7 @@
                     </div>
                     <div class="col-sm-3">
                         <select class="selectpicker" aria-label="Default select example" name="association_no1"
-                            data-live-search="true">
+                            data-live-search="true" onchange="getVal();" id="association_no1">
                             <option value="">Choose Association</option>
                             @foreach ($assocs as $assoc)
                                 @if (old('association_no1') == $assoc->assoc)
@@ -217,6 +226,16 @@
 
 
 
+    <script>
+        function getVal(){
+            var assoc = document.getElementById('association_no1').value;
+            let cust = document.getElementById('cust_no').value;
+            var association;
 
+            association = cust+assoc
+            document.getElementById('association').value = association;
+
+        }
+    </script>
 
 @endsection

@@ -14,25 +14,9 @@
     @endif
 
     <div class="d-flex justify-content-start">
-        {{-- <a href="{{ route('kd11.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
         <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
     </div>
     <hr>
-    {{-- <div class="d-flex justify-content-evenly">
-        <div class="row">
-            <a href="{{ route('kd2.index') }}" class="btn btn-secondary mb-3" style="width: 175px">KD02</a>
-            <a href="{{ route('kd3.index') }}" class="btn btn-secondary mb-3" style="width: 175px">CUSTOMER MAIN ADDRESS
-                (KD03)</a>
-            <a href="{{ route('kd4.index') }}" class="btn btn-secondary mb-3" style="width: 175px">DEBTOR DATA (KD04)</a>
-            <a href="{{ route('kd5.index') }}" class="btn btn-secondary mb-3" style="width: 175px">ADDITIONAL ADDRESSES
-                (KD05)</a>
-            <a href="{{ route('kd6.index') }}" class="btn btn-secondary mb-3" style="width: 175px">SALES CONDITION
-                (KD06)</a>
-            <a href="{{ route('kd11.index') }}" class="btn btn-secondary mb-3" style="width: 175px">ASSOCIATION LIST
-                (KD11)</a>
-            <a href="{{ route('kd14.index') }}" class="btn btn-secondary mb-3" style="width: 175px">CONTACT (KD14)</a>
-        </div>
-    </div> --}}
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
@@ -103,7 +87,7 @@
                                                 target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             <a href="/dashboard/salesFolder/kd11/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
-                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == 'rejected') || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
+                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <a href="/dashboard/salesFolder/kd11/{{ $form->id }}/edit"
                                                     class="badge bg-warning">Modify</a>
                                             @endif
@@ -111,7 +95,10 @@
                                                 <a href="/dashboard/salesFolder/kd11/new/{{ $form->kd11no_cust }}"
                                                     class="badge bg-success">Add More</a>
                                             @endif
-
+                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == 'rejected'))
+                                                <a href="/dashboard/salesFolder/kd11/edit/{{ $form->id }}/edit"
+                                                    class="badge bg-warning">Modify</a>
+                                            @endif
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd11/{{ $form->id }}"
                                                     method="post" class="d-inline">

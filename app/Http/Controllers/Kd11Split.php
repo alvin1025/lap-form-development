@@ -92,6 +92,7 @@ class Kd11Split extends Controller
             'central_regu1' => 'nullable',
             'conditions1' => 'nullable',
             'status_form' => 'nullable',
+            'association' => ['nullable', 'string', 'unique:kd11'],
 
         ]);
 
@@ -144,6 +145,23 @@ class Kd11Split extends Controller
         ]);
     }
 
+    public function editReject($kd11)
+    {
+        $kd11 = Kd11::findOrFail($kd11);
+        $kd6 = Kd06::where('kd6no_cust', $kd11->kd11no_cust);
+
+        $sd = $kd6->distinct('sd')->get('sd');
+        $sg = $kd6->distinct('kd6sg')->get('kd6sg');
+        $assoc = DB::table('assiociations')->distinct('assoc')->get('assoc');
+        return view('dashboard.salesFolder.Kd11.editReject', [
+            'sds' => $sd,
+            'kd6sg' => $sg,
+            'kd11' => $kd11,
+            'assocs' => $assoc,
+            // 'kd6sg' => $kd06
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -162,7 +180,7 @@ class Kd11Split extends Controller
             'central_regu1' => 'nullable',
             'conditions1' => 'nullable',
             'status_form' => 'nullable',
-
+            'association' => 'nullable',
         ]);
 
         Kd11::where('id', $id)->update($validated);

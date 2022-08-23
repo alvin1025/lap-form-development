@@ -94,7 +94,7 @@
                                             @elseif ($form->status_form == 'aprv 2')
                                                 Need Apprv Document Control
                                             @elseif ($form->status_form == 'inputted')
-                                                Inputted to INTEX
+                                                Final Authorize
                                             @elseif ($form->status_form == 'rejected')
                                                 Rejected
                                             @elseif ($form->status_form == 'finished')

@@ -277,7 +277,6 @@ class Kd03ReqController extends Controller
             $validated['ktp_image'] = $kd03request->ktp_image;
         }
         
-        // dd($kd03request->ktp_image);
         if ($files = $request->file('npwp_image')) {
             $month = Carbon::now()->format('m');
             $year = Carbon::now()->format('y');
@@ -292,9 +291,6 @@ class Kd03ReqController extends Controller
         }else {
             $validated['npwp_image'] = $kd03request->npwp_image;
         }
-
-
-
         Kd03Req::where('id', $kd03request->id)->update($validated);
         return redirect('/dashboard/salesFolder/change/request/submit/indexkd3')->with('success', 'Kd03 Request Has Been Updated!');
     }
@@ -365,7 +361,6 @@ class Kd03ReqController extends Controller
             $validated['ktp_image'] = $kd03request->ktp_image;
         }
         
-        // dd($kd03request->ktp_image);
         if ($files = $request->file('npwp_image')) {
             $month = Carbon::now()->format('m');
             $year = Carbon::now()->format('y');
@@ -401,7 +396,6 @@ class Kd03ReqController extends Controller
 
     public function pdfReqKd03($id){
         $data['kd03'] = Kd03Req::all()->where('id', $id);
-        // dd($data); funct
 
         $pdf = FacadePdf::loadView('pdfKd03Req', ['data' => $data])->setOptions(['defaultFont' => 'sans-serif']);
 
@@ -410,7 +404,6 @@ class Kd03ReqController extends Controller
 
     public function pdfReqKd03Fin($id){
         $data['kd03'] = Kd03Req::all()->where('id', $id);
-        // dd($data); funct
 
         $pdf = FacadePdf::loadView('pdfKd03ReqFin', ['data' => $data])->setOptions(['defaultFont' => 'sans-serif']);
 

@@ -67,10 +67,7 @@ class Kd5Split extends Controller
         $title = Tittle::all();
         $tax = Tax::all();
         $negara = Negara::all();
-        // $kd03 = Kd03::all();
         $kodeCountry = KodeCountry::all();
-        // $kd05 = Kd05::findOrFail($no_cust1)->where($no_cust1, '==', Kd03::where('no_cust', $kd03->no_cust))->get();
-        // $kd05 = Kd05::all()->where('no_cust1=', Kd03::all()->get('no_cust'));
         $kd05 = Kd05::all();
         return view('dashboard.salesFolder.Kd5.createSame', [
             'titles' => $title,
@@ -114,6 +111,7 @@ class Kd5Split extends Controller
             'status_form' => 'nullable',
             'ktp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'npwp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'addresscode' => ['nullable', 'string', 'unique:kd05'],
         ]);
 
         if ($file = $request->file('ktp_image')) {
@@ -169,12 +167,28 @@ class Kd5Split extends Controller
         $title = Tittle::all();
         $tax = Tax::all();
         $negara = Negara::all();
+        $kodeCountry = KodeCountry::all();
+        $kd05 = Kd05::findOrFail($id);
+        return view('dashboard.salesFolder.Kd5.edit', [
+            'titles' => $title,
+            'taxs' => $tax,
+            'negaras' => $negara,
+            'kodeCountries' => $kodeCountry,
+            'kd05' => $kd05
+        ]);
+    }
+
+    public function editReject($id)
+    {
+        $title = Tittle::all();
+        $tax = Tax::all();
+        $negara = Negara::all();
         // $kd03 = Kd03::all();
         $kodeCountry = KodeCountry::all();
         // $kd05 = Kd05::findOrFail($no_cust1)->where($no_cust1, '==', Kd03::where('no_cust', $kd03->no_cust))->get();
         // $kd05 = Kd05::all()->where('no_cust1=', Kd03::all()->get('no_cust'));
         $kd05 = Kd05::findOrFail($id);
-        return view('dashboard.salesFolder.Kd5.edit', [
+        return view('dashboard.salesFolder.Kd5.editReject', [
             'titles' => $title,
             'taxs' => $tax,
             'negaras' => $negara,
@@ -216,6 +230,7 @@ class Kd5Split extends Controller
             'status_form' => 'nullable',
             'ktp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'npwp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'addresscode' => ['nullable', 'string'],
         ]);
 
         if ($file = $request->file('ktp_image')) {
@@ -250,83 +265,6 @@ class Kd5Split extends Controller
         }
 
         Kd05::where('id', $kd5->id)->update($validated);
-        // $no_cust1 = $request->no_cust1;
-        // $addresscode1 = $request->addresscode1;
-        // $title1 = $request->title1;
-        // $kd5negara1 = $request->kd5negara1;
-        // $kode_county1 = $request->kode_county1;
-        // $kota1 = $request->kota1;
-        // $email1 = $request->email1;
-        // $telp1 = $request->telp1;
-        // $npwp1 = $request->npwp1;
-        // $nama1 = $request->nama11;
-        // $nama2 = $request->nama21;
-        // $street1 = $request->street1;
-        // $addit1 = $request->addit1;
-        // $postal_code1 = $request->postal_code1;
-        // $po_box1 = $request->po_box1;
-        // $tax1 = $request->tax1;
-        // $mobile1 = $request->mobile1;
-        // $home1 = $request->home1;
-        // $fax1 = $request->fax1;
-        // $status = $request->status;
-        // $i = 0;
-        // foreach ($nama1 as $nama) {
-        //     $kd05 = Kd05::where('id', $id)->first();
-        //     if ($kd05) {
-        //         Kd05::where('id', $id)->update([
-        //             'no_cust1' =>  $no_cust1[$i],
-        //             'addresscode1' => $addresscode1[$i],
-        //             'title1' => $title1[$i],
-        //             'kd5negara1' => $kd5negara1[$i],
-        //             'kode_county1' => $kode_county1[$i],
-        //             'kota1' => $kota1[$i],
-        //             'email1' => $email1[$i],
-        //             'telp1' => $telp1[$i],
-        //             'npwp1' => $npwp1[$i],
-        //             'nama11' => $nama,
-        //             'nama21' => $nama2[$i],
-        //             'street1' => $street1[$i],
-        //             'addit1' => $addit1[$i],
-        //             'postal_code1' => $postal_code1[$i],
-        //             'po_box1' => $po_box1[$i],
-        //             'tax1' => $tax1[$i],
-        //             'mobile1' => $mobile1[$i],
-        //             'home1' => $home1[$i],
-        //             'fax1' => $fax1[$i],
-        //             'status' => $status[$i]
-
-        //         ]);
-        //     } else {
-        //         Kd05::create([
-        //             'no_cust1' =>  $no_cust1[$i],
-        //             'addresscode1' => $addresscode1[$i],
-        //             'title1' => $title1[$i],
-        //             'kd5negara1' => $kd5negara1[$i],
-        //             'kode_county1' => $kode_county1[$i],
-        //             'kota1' => $kota1[$i],
-        //             'email1' => $email1[$i],
-        //             'telp1' => $telp1[$i],
-        //             'npwp1' => $npwp1[$i],
-        //             'nama11' => $nama,
-        //             'nama21' => $nama2[$i],
-        //             'street1' => $street1[$i],
-        //             'addit1' => $addit1[$i],
-        //             'postal_code1' => $postal_code1[$i],
-        //             'po_box1' => $po_box1[$i],
-        //             'tax1' => $tax1[$i],
-        //             'mobile1' => $mobile1[$i],
-        //             'home1' => $home1[$i],
-        //             'fax1' => $fax1[$i],
-        //         ]);
-        //         $kd05->save();
-        //         dd($kd05);
-        //     }
-        //     // dd($kd05);
-        //     $i++;
-        // }
-
-        // Kd05::where('id', $id)->update($validated);
         return redirect('/dashboard/salesFolder/kd2')->with('success', 'Kd05 Has Been Updated!');
     }
 

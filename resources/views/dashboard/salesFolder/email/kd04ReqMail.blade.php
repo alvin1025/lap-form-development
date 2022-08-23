@@ -63,7 +63,7 @@
                         Credit Line Check {{ $kd4['nama'] }}
                     </h2>
                     <p>
-                        <a href="/dashboard/salesFolder/kd4/new/{{ $kd4['no_cust'] }}/submit"
+                        <a href="luckytexgroup.com"
                             style="text-decoration: none;
 								color:black;
 								border: 2px solid #4cb96b;

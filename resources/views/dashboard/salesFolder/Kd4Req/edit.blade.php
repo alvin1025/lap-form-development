@@ -212,7 +212,7 @@
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="flexCheckIndeterminate"
-                                            name="block" value="{{ $kd04->block_old == 'Yes' ? 'checked' : '' }}"
+                                            name="block" value="block" {{ $kd04->block_old == 'block' ? 'checked' : '' }}
                                             disabled>
                                     </div>
                                     @error('block')
@@ -232,9 +232,9 @@
                                     </label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input id="block_delivery" type="text"
-                                        class="form-control @error('block_delivery') is-invalid @enderror"
-                                        name="block_delivery" value="{{ $kd04->block_reason_old }}" disabled />
+                                    <input id="block_reason_old" type="text"
+                                        class="form-control @error('block_reason_old') is-invalid @enderror"
+                                        name="block_reason_old" value="{{ $kd04->block_reason_old }}" disabled />
 
                                     @error('block_reason')
                                         <div class="invalid-feedback">
@@ -400,14 +400,14 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <select class="selectpicker" aria-label="Default select example"
-                                        name="credit_line_check" data-live-search="true">
-                                        @if (auth()->user()->division = 'FABRIC SALES')
+                                        name="credit_line_check" data-live-search="true" data-container="body">
+                                        {{-- @if (auth()->user()->division = 'FABRIC SALES')
                                             <option value="Cr.line check at deliv.release"
                                                 {{ $kd04->credit_line_check == 'Cr.line check at' ? 'selected' : '' }}>
                                                 Cr.line
                                                 check at
                                                 deliv.release</option>
-                                        @else
+                                        @else --}}
                                             <option value="Yes, credit line check">
                                                 Yes, credit line check
                                             </option>
@@ -428,7 +428,7 @@
                                                 Cr.line
                                                 check at
                                                 DN-creation</option>
-                                        @endif
+                                        {{-- @endif --}}
                                     </select>
                                     @error('credit_line_check')
                                         <div class="invalid-feedback">
@@ -466,7 +466,7 @@
                                 <div class="col-sm-10">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="flexCheckIndeterminate"
-                                            name="block">
+                                            name="block" value="block" {{ $kd04->block == 'block' ? 'checked' : '' }}>
                                     </div>
                                     @error('block')
                                         <div class="invalid-feedback">
@@ -485,9 +485,9 @@
                                     </label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input id="block_delivery" type="text"
-                                        class="form-control @error('block_delivery') is-invalid @enderror"
-                                        name="block_delivery" value="{{ $kd04->block_reason }}" />
+                                    <input id="block_reason" type="text"
+                                        class="form-control @error('block_reason') is-invalid @enderror"
+                                        name="block_reason" value="{{ $kd04->block_reason }}" />
 
                                     @error('block_reason')
                                         <div class="invalid-feedback">

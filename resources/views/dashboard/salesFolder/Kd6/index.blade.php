@@ -14,7 +14,7 @@
     @endif
 
     <div class="d-flex justify-content-start">
-        <a href="{{ route('kd6.create') }}" class="btn btn-primary mb-3 mr-3">New</a>
+        {{-- <a href="{{ route('kd6.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
         <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
     </div>
     <hr>

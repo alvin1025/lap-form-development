@@ -11,11 +11,18 @@
         </div>
     </div>
 
+    @error('short_name')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+    @enderror
+
     @if (session()->has('success'))
         <div class="alert alert-success col-lg-8" role="alert">
             {{ session('success') }}
         </div>
     @endif
+   
     <form action="{{ route('kd6.update', ['kd6' => $kd06->id]) }}" method="POST">
         @csrf
         @method('put')
@@ -25,6 +32,16 @@
         </div>
         <div class="card-header">
             KD06 Conditions
+        </div>
+        <div class="col-sm-6">
+            <input id="sdsg" type="hidden"
+                class="form-control @error('sdsg') is-invalid @enderror" name="sdsg"
+                value="{{ old('sdsg', $kd06->sdsg) }}" />
+                @error('sdsg')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
         </div>
         <div class="card-body">
             <h6 class="text-left mt-2"></h6>
@@ -37,7 +54,7 @@
                         </div>
                         <div class="col-sm-3">
                             <input id="kd6no_cust" type="text" class="form-control @error('d') is-invalid @enderror"
-                                name="kd6no_cust" value="{{ $kd06->kd6no_cust }}" readonly />
+                                name="kd6no_cust" value="{{ $kd06->kd6no_cust }}" readonly onkeyup="getVal();"/>
                             @error('kd6no_cust')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -53,13 +70,16 @@
                         </div>
                         <div class="col-sm-6">
                             @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE')
-                                <input id="sales" type="text" class="form-control @error('sales') is-invalid @enderror"
-                                name="sales" value="{{ $kd06->sales != '' ? $kd06->sales : auth()->user()->employee_name }}" readonly />
+                                <input id="sales" type="text"
+                                    class="form-control @error('sales') is-invalid @enderror" name="sales"
+                                    value="{{ $kd06->sales != '' ? $kd06->sales : auth()->user()->employee_name }}"
+                                    readonly />
                             @else
-                                <input id="sales" type="text" class="form-control @error('sales') is-invalid @enderror"
-                                name="sales" value="{{ $kd06->sales }}" readonly />
+                                <input id="sales" type="text"
+                                    class="form-control @error('sales') is-invalid @enderror" name="sales"
+                                    value="{{ $kd06->sales }}" readonly />
                             @endif
-                            
+
                             @error('sales')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -77,7 +97,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="sd"
-                                data-live-search="true">
+                                data-live-search="true" id="sd" onchange="getValue();">
                                 <option value="{{ $kd06->sd }}" selected>{{ $kd06->sd }}</option>
                                 @foreach ($sds as $sd)
                                     @if ($kd06->sd == $sd->sd)
@@ -104,7 +124,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="kd6sg"
-                                data-live-search="true">
+                                data-live-search="true" id="sg" onchange="getValue();">
                                 <option value="{{ $kd06->kd6sg }}" selected>{{ $kd06->kd6sg }}</option>
                                 @foreach ($sgs as $sg)
                                     @if (old('kd6sg', $kd06->kd6sg) == $sg->sg)
@@ -205,10 +225,12 @@
                                 <option value="{{ $kd06->kd6tax }}" selected>{{ $kd06->kd6tax }}</option>
                                 @foreach ($taxs as $tax)
                                     @if ($kd06->kd6tax == $tax->tax)
-                                        <option value="{{ $tax->tax }} / {{ $tax->description }}">{{ $kd06->kd6tax }}
+                                        <option value="{{ $tax->tax }} / {{ $tax->description }}">
+                                            {{ $kd06->kd6tax }}
                                         </option>
                                     @else
-                                        <option value="{{ $tax->tax }} / {{ $tax->description }}">{{ $tax->tax }}</option>
+                                        <option value="{{ $tax->tax }} / {{ $tax->description }}">
+                                            {{ $tax->tax }}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -353,7 +375,7 @@
                         @error('biz_type_p1')
                             <div class="invalid-feedback">
                                 {{ $message }}
-                        </div>
+                            </div>
                         @enderror
                     </div>
                 </div>
@@ -583,9 +605,11 @@
                             </div>
                         @enderror
                     </div>
+                    
                     <div class="col-sm-4">
                         <input class="form-control @error('staff_member') is-invalid @enderror" type="staff_member"
-                            id="staff_member" name="staff_member" value="{{ old('staff_member', $kd06->staff_member) }}">
+                            id="staff_member" name="staff_member"
+                            value="{{ old('staff_member', $kd06->staff_member) }}">
                         @error('staff_member')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -624,7 +648,8 @@
                         <label type="text" name="" id="" class="form-label">%-Com</label>
                     </div>
                     <div class="col-sm-4">
-                        <label type="text " name="" id="" class="form-label text-center">Percent</label>
+                        <label type="text " name="" id=""
+                            class="form-label text-center">Percent</label>
                     </div>
                     <div class="col-sm-3">
                         <label type="text " name="" id="" class="form-label text-center">Print</label>
@@ -734,7 +759,7 @@
                             $('#test').empty();
                             $.each(data, function(key, vs04) {
                                 $('#test').append(
-                                    '<input class="form-control" name="allowance_qty" value="' +
+                                    '<input class="form-control" readonly name="allowance_qty" value="' +
                                     vs04.allow + '">');
                             });
                         }
@@ -743,6 +768,18 @@
             });
             call_ajax("<?php echo $kd06->nama_agent1; ?>");
         });
+    </script>
+    <script>
+        function getVal(){
+            var sd = document.getElementById('sd').value;
+            var sg = document.getElementById('sg').value;
+            let cust = document.getElementById('kd6no_cust').value;
+            var sdsg;
+
+            sdsg = cust+sd+sg
+            document.getElementById('sdsg').value = sdsg;
+
+        }
     </script>
 
 

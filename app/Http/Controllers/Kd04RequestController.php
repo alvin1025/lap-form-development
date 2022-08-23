@@ -142,6 +142,7 @@ class Kd04RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($request);
         $validated = $request->validate([
             'kd4no_cust' => 'nullable',
             'no_debitor' => 'nullable',

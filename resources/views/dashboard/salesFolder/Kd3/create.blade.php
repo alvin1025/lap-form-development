@@ -26,10 +26,10 @@
                                     <label type="text" name="" id="" class="form-label text-center">No
                                         Cust</label>
                                 </div>
-                                <div class="col-sm-6">
+                                {{-- <div class="col-sm-6">
                                     <label type="text" name="" id="" class="form-label text-center">Short
                                         Name</label>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="d-flex flex-row my-2">
@@ -43,7 +43,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-sm-6">
+                                {{-- <div class="col-sm-6">
                                     <input id="short_name" type="text"
                                         class="form-control @error('short_name') is-invalid @enderror" name="short_name" value="{{ old('short_name') }}"/>
                                     @error('short_name')
@@ -51,9 +51,17 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+                                </div> --}}
+                            </div>
+                            <div class="d-flex flex-row mt-5 justify-content-end">
+                                <div class="col-sm-3">
+                                    <a href="{{ route('kd2.index') }}" class="btn btn-danger">BACK</a>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-primary">SAVE</button>
                                 </div>
                             </div>
-                            <div class="d-flex flex-row">
+                            {{-- <div class="d-flex flex-row">
                                 <div class="col-sm-3">
                                     <label type="text" name="" id="" class="form-label">Title</label>
                                 </div>
@@ -274,9 +282,9 @@
                                         </div>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
-                        <div class="col-sm-6">
+                        {{-- <div class="col-sm-6">
                             <div class="d-flex flex-row">
                                 <div class="col-sm-3">
 
@@ -451,16 +459,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="d-flex flex-row mt-2">
-                                <div class="col-sm-3">
-                                    <a href="{{ route('kd2.index') }}" class="btn btn-danger">BACK</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <button type="submit" class="btn btn-primary">SAVE</button>
-                                </div>
-                            </div>
+                            
 
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager')

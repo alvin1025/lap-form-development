@@ -18,6 +18,15 @@
         <div class="card-header">
             KD14 PIC/Contact Person
         </div>
+        <div class="col-sm-6">
+            <input id="contactperson" type="text"
+                class="form-control @error('contactperson') is-invalid @enderror" name="contactperson" />
+                @error('contactperson')
+                <div class="invalid-feedback" style="font-size: 30px">
+                    {{ $message }}
+                </div>
+                @enderror
+        </div>
         <div class="card-body">
 
             <hr class="mb-2">
@@ -28,7 +37,7 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="cust_no" type="text" class="form-control @error('cust_no') is-invalid @enderror"
-                            name="kd14no_cust" value="{{ $kd14no_cust }}" readonly />
+                            name="kd14no_cust" value="{{ $kd14no_cust }}" readonly onkeyup="getVal();"/>
                         @error('cust_no')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -40,7 +49,7 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="cp1" type="text" class="form-control @error('cp1') is-invalid @enderror"
-                            name="cp1" value="{{ old('cp1') }}"/>
+                            name="cp1" value="{{ old('cp1') }}" oninput="getVal();"/>
                         @error('cp1')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -276,6 +285,18 @@
 
 
 
-
+    <script>
+        function getVal(){
+            var cp1 = document.getElementById('cp1').value;
+            let cust = document.getElementById('cust_no').value;
+            var contactperson;
+    
+            contactperson = cust+cp1
+            document.getElementById('contactperson').value = contactperson;
+    
+    
+            
+        }
+    </script>
 
 @endsection

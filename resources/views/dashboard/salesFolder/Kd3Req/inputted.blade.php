@@ -103,7 +103,23 @@
                                         <td>{{ $form->nama1 }}</td>
                                         {{-- <td>{{ $form->sd }}</td>
                                         <td>{{ $form->kd6sg }}</td> --}}
-                                        <td>{{ $form->status_form }}</td>
+                                        <td>
+                                            @if ($form->status_form == '')
+                                                Need Submit
+                                            @elseif ($form->status_form == 'created')
+                                                Need Apprv DM
+                                            @elseif ($form->status_form == 'aprv 1 ')
+                                                Need Apprv GM
+                                            @elseif ($form->status_form == 'aprv 2')
+                                                Need Apprv Document Control
+                                            @elseif ($form->status_form == 'rejected')
+                                                Rejected
+                                            @elseif ($form->status_form == 'inputted')
+                                                Final Authorize
+                                            @elseif ($form->status_form == 'finished')
+                                                Finished
+                                            @endif
+                                        </td>
                                         <td>
                                             {{-- @if ($form->status == "inputted") --}}
                                             <a href="/kd3ReqPdf/{{ $form->id }}" class="badge bg-danger"

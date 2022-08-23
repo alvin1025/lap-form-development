@@ -91,8 +91,7 @@
                                     <th scope="col">SG</th> --}}
                                     <th scope="col">Cty</th>
                                     <th scope="col">Address Code</th>
-                                    <th scope="col">SD</th>
-                                    <th scope="col">SG</th>
+                                    <th scope="col" style="width: 80px">SD-SG</th>
                                     <th scope="col">Agent</th>
                                     <th scope="col">Contact</th>
                                     <th scope="col">Associate</th>
@@ -110,8 +109,7 @@
                                         <td>{{ $form->negara }}</td>
                                         <td>{{ $form->kota }}</td>
                                         <td>{{ $form->addresscode1 }}</td>
-                                        <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td>
+                                        <td>{{ $form->sd }} - {{ $form->kd6sg }}</td>
                                         <td>{{ $form->nama_agent1 }}</td>
                                         <td>{{ $form->cp1 }}</td>
                                         <td>{{ $form->association_no1 }}</td>
@@ -132,6 +130,8 @@
                                                 Inputted to INTEX
                                             @elseif ($form->status_form == 'rejected')
                                                 Rejected
+                                            @elseif ($form->status_form == 'finished')
+                                                Finish
                                             @endif
                                             {{-- {{ $form->status_form }} --}}
                                         </td>

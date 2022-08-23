@@ -13,12 +13,6 @@
         </div>
     @endif
     
-    {{-- <div class="d-flex justify-content-start">
-        @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE' ||auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
-            <a href="{{ route('kd3.create') }}" class="btn btn-primary mb-3 mr-3">Create New Customer</a>
-        @endif --}}
-        {{-- <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
-    {{-- </div> --}}
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -91,8 +85,7 @@
                                     <th scope="col">SG</th> --}}
                                     <th scope="col">Cty</th>
                                     <th scope="col">Address Code</th>
-                                    <th scope="col">SD</th>
-                                    <th scope="col">SG</th>
+                                    <th scope="col" style="width: 80px">SD-SG</th>
                                     <th scope="col">Agent</th>
                                     <th scope="col">Contact</th>
                                     <th scope="col">Associate</th>
@@ -110,8 +103,7 @@
                                         <td>{{ $form->negara }}</td>
                                         <td>{{ $form->kota }}</td>
                                         <td>{{ $form->addresscode1 }}</td>
-                                        <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td>
+                                        <td>{{ $form->sd }} - {{ $form->kd6sg }}</td>
                                         <td>{{ $form->nama_agent1 }}</td>
                                         <td>{{ $form->cp1 }}</td>
                                         <td>{{ $form->association_no1 }}</td>
@@ -132,21 +124,23 @@
                                                 Inputted to INTEX
                                             @elseif ($form->status_form == 'rejected')
                                                 Rejected
+                                            @elseif ($form->status_form == 'finished')
+                                                Finish
                                             @endif
                                             {{-- {{ $form->status_form }} --}}
                                         </td>
-                                        <td style="width: 9%"><a href="/dashboard/salesFolder/kd2/new/{{ $form->no_cust }}"
-                                                class="badge bg-success">KD03</a>
+                                        <td style="width: 15%"><a href="/dashboard/salesFolder/kd2/new/{{ $form->no_cust }}"
+                                                class="badge bg-info">KD03</a>
                                             <a href="/dashboard/salesFolder/kd2/new/kd4/{{ $form->no_cust }}"
-                                                class="badge bg-success">KD04</a>
+                                                class="badge bg-warning">KD04</a>
                                             <a href="/dashboard/salesFolder/kd2/new/kd5/{{ $form->no_cust }}"
                                                 class="badge bg-success">KD05</a>
                                             <a href="/dashboard/salesFolder/kd2/new/kd6/{{ $form->no_cust }}"
-                                                class="badge bg-success">KD06</a>
+                                                class="badge bg-primary">KD06</a>
                                             <a href="/dashboard/salesFolder/kd2/new/kd11/{{ $form->no_cust }}"
-                                                class="badge bg-success">KD11</a>
+                                                class="badge bg-danger">KD11</a>
                                             <a href="/dashboard/salesFolder/kd2/new/kd14/{{ $form->no_cust }}"
-                                                class="badge bg-success">KD14</a>
+                                                class="badge" style="background-color: orangered">KD14</a>
                                         </td>
                                         {{-- <td> --}}
                                         {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"

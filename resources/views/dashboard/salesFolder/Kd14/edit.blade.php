@@ -6,8 +6,6 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
         <h1 class="h2">@yield('title')</h1>
         <div class="col-sm-2">
-            {{-- <a href="{{ route('NewKd14', $kd14->kd14no_cust) }}" class="btn btn-success">New</a> --}}
-            {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
         </div>
     </div>
 
@@ -23,6 +21,15 @@
         <div class="card-header">
             KD14 PIC/Contact Person
         </div>
+        <div class="col-sm-6">
+            <input id="contactperson" type="hidden"
+                class="form-control @error('contactperson') is-invalid @enderror" name="contactperson" value="{{ $kd14->contactperson }}"/>
+                @error('contactperson')
+                <div class="invalid-feedback" style="font-size: 30px">
+                    {{ $message }}
+                </div>
+                @enderror
+        </div>
         <div class="card-body">
 
             <hr class="mb-2">
@@ -33,7 +40,7 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="cust_no" type="text" class="form-control @error('cust_no') is-invalid @enderror"
-                            name="kd14no_cust" value="{{ $kd14->kd14no_cust }}" readonly />
+                            name="kd14no_cust" value="{{ $kd14->kd14no_cust }}" readonly onkeyup="getVal();"/>
                         @error('cust_no')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -45,7 +52,7 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="cp1" type="text" class="form-control @error('cp1') is-invalid @enderror"
-                            name="cp1" value="{{ old('cp1', $kd14->cp1) }}" />
+                            name="cp1" value="{{ old('cp1', $kd14->cp1) }}" oninput="getVal();"/>
                         @error('cp1')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -276,7 +283,19 @@
 
     </form>
 
-
+    <script>
+        function getVal(){
+            var cp1 = document.getElementById('cp1').value;
+            let cust = document.getElementById('cust_no').value;
+            var contactperson;
+    
+            contactperson = cust+cp1
+            document.getElementById('contactperson').value = contactperson;
+    
+    
+            
+        }
+    </script>
 
 
 

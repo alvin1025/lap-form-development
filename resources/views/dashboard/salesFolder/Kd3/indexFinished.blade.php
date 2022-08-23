@@ -1,6 +1,6 @@
 @extends('dashboard.layout.lte')
 
-@section('title', 'CUSTOMER MAIN ADDRESS KD03 Inputted')
+@section('title', 'CUSTOMER MAIN ADDRESS KD03 Finished')
 
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">

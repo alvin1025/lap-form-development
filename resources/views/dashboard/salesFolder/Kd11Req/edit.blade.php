@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example"
-                                            name="association_no1" data-live-search="true">
+                                            name="association_no1" data-live-search="true" disabled>
                                             <option value="{{ $kd11->association_no1 }}" selected>
                                                 {{ $kd11->association_no1 }}
                                             </option>
@@ -206,7 +206,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="sd1"
-                                            data-live-search="true">
+                                            data-live-search="true" disabled>
                                             <option value="{{ $kd11->sd1 }}" selected>{{ $kd11->sd1 }}</option>
                                             @foreach ($sds as $sd)
                                                 @if ($kd11->sd1 == $sd->sd)
@@ -235,7 +235,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="sg1"
-                                            data-live-search="true">
+                                            data-live-search="true" disabled>
                                             <option value="{{ $kd11->sg1 }}" selected>{{ $kd11->sg1 }}</option>
                                             @foreach ($sgs as $sg)
                                                 @if ($kd11->sg1 == $sg->kd6sg)

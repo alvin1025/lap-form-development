@@ -6,8 +6,6 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
         <h1 class="h2">@yield('title')</h1>
         <div class="col-sm-2">
-            {{-- <a href="{{ route('newKd11', $kd11->kd11no_cust) }}" class="btn btn-success">New</a> --}}
-            {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
         </div>
     </div>
 
@@ -23,6 +21,15 @@
         <div class="card-header">
             KD11 ASSOCIATIONS LIST
         </div>
+        <div class="col-sm-6">
+            <input id="association" type="hidden"
+                class="form-control @error('association') is-invalid @enderror" name="association" value="{{ $kd11->association }}" />
+                @error('association')
+                <div class="invalid-feedback" style="font-size: 30px">
+                    {{ $message }}
+                </div>
+                @enderror
+        </div>
         <div class="card-body">
             <div class="col-sm-8">
                 <div class="d-flex flex-row mt-2">
@@ -31,7 +38,7 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="cust_no" type="text" class="form-control @error('cust_no') is-invalid @enderror"
-                            name="kd11no_cust" value="{{ $kd11->kd11no_cust }}" readonly />
+                            name="kd11no_cust" value="{{ $kd11->kd11no_cust }}" readonly onkeyup="getVal();"/>
                         @error('cust_no')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -114,7 +121,7 @@
                     </div>
                     <div class="col-sm-3">
                         <select class="selectpicker" aria-label="Default select example" name="association_no1"
-                            data-live-search="true">
+                            data-live-search="true" onchange="getVal();" id="association_no1">
                             <option value="{{ $kd11->association_no1 }}" selected>{{ $kd11->association_no1 }}
                             </option>
                             @foreach ($assocs as $assoc)
@@ -230,6 +237,16 @@
 
 
 
+    <script>
+        function getVal(){
+            var assoc = document.getElementById('association_no1').value;
+            let cust = document.getElementById('cust_no').value;
+            var association;
 
+            association = cust+assoc
+            document.getElementById('association').value = association;
+
+        }
+    </script>
 
 @endsection

@@ -95,7 +95,7 @@ class Kd14Split extends Controller
             'add_addr_cp1' => 'nullable',
             'status' => 'nullable',
             'status_form' => 'nullable',
-
+            'contactperson' => ['nullable', 'string', 'unique:kd14'],
         ]);
 
         Kd14::create($validated);
@@ -146,6 +146,24 @@ class Kd14Split extends Controller
         ]);
     }
 
+    public function editReject($kd14)
+    {
+        // dd($kd14->kd14no_cust);
+        $kd14 = Kd14::findOrFail($kd14);
+        $s = Kd05::where('no_cust1', $kd14->kd14no_cust);
+        $kd6 = Kd06::where('kd6no_cust', $kd14->kd14no_cust);
+
+        $sd = $kd6->distinct('sd')->get('sd');
+        $sg = $kd6->distinct('kd6sg')->get('kd6sg');
+        $kd05 = $s->distinct('addresscode1')->get('addresscode1');
+        return view('dashboard.salesFolder.Kd14.editReject', [
+            'sds' => $sd,
+            'sgs' => $sg,
+            'kd14' => $kd14,
+            'kd05' => $kd05
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -169,6 +187,7 @@ class Kd14Split extends Controller
             'add_addr_cp1' => 'nullable',
             'status' => 'nullable',
             'status_form' => 'nullable',
+            'contactperson' => ['nullable', 'string'],
         ]);
 
         Kd14::where('id', $id)->update($validated);

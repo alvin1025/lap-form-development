@@ -63,7 +63,7 @@
                         Nama {{ $details['nama'] }}
                     </h2>
                     <p>
-                        <a href="/dashboard/salesFolder/kd3/new/{{ $details['no_cust'] }}/submit"
+                        <a href="luckytexgroup.com"
                             style="text-decoration: none;
 								color:black;
 								border: 2px solid #4cb96b;

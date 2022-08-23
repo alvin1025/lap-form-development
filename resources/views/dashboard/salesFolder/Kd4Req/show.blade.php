@@ -192,7 +192,7 @@
             <div class="col-sm-6">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="flexCheckIndeterminate" name="block"
-                        value="{{ $kd04->block == 'Yes' ? 'checked' : '' }}" disabled>
+                    {{ $kd04->block == 'block' ? 'checked' : '' }} disabled>
                 </div>
                 @error('block')
                     <div class="invalid-feedback">

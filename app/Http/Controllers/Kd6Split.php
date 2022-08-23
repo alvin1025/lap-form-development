@@ -135,6 +135,7 @@ class Kd6Split extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->kd6sg);
         $validated = $request->validate([
             'kd6no_cust' => 'nullable',
             'sd' => 'nullable',
@@ -157,9 +158,9 @@ class Kd6Split extends Controller
             'status' => 'nullable',
             'status_old' => 'nullable',
             'status_form' => 'nullable',
-        ]);
+            'sdsg' => ['nullable', 'string', 'unique:kd06'],
 
-        // dd($request);
+        ]);
         ModelsKd06::create($validated);
         return redirect('/dashboard/salesFolder/kd2')->with('success', 'Kd06 Has Been Added!');
     }
@@ -244,6 +245,40 @@ class Kd6Split extends Controller
         ]);
     }
 
+    public function editReject($id)
+    {
+        $kd6 = ModelsKd06::findOrFail($id);
+        $user = User::all()->where('division', '==',  'FABRIC SALES')->where('jabatan', '==', 'Sub Division Manager');
+        $sd = Sd::all();
+        $sg = Sg::all();
+        $pays = PayTerm::all();
+        $bizType = BizType::all();
+        $tax = Tax::all();
+        $assignment = Assignment::all();
+        $delCon = DelCon::all();
+        $kurs = Kurs::all();
+        $satuan = Satuan::all();
+        $negara = Negara::all();
+        $agent = AgentMaster::all();
+        $clm = ClmAsi::all();
+        return view('dashboard.salesFolder.Kd6.editReject', [
+            'sds' => $sd,
+            'sgs' => $sg,
+            'agents' => $agent,
+            'users' => $user,
+            'bizTypes' => $bizType,
+            'taxs' => $tax,
+            'assignments' => $assignment,
+            'delCons' => $delCon,
+            'kurses' => $kurs,
+            'satuans' => $satuan,
+            'pays' => $pays,
+            'negaras' => $negara,
+            'kd06' => $kd6,
+            'clms' => $clm
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -253,6 +288,7 @@ class Kd6Split extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $kd06 = ModelsKd06::find('id', $id);
         $validated = $request->validate([
             'kd6no_cust' => 'nullable',
             'sd' => 'nullable',
@@ -274,10 +310,12 @@ class Kd6Split extends Controller
             'print' => 'nullable',
             'status' => 'nullable',
             'status_form' => 'nullable',
+            'sdsg' => ['nullable', 'string'],
         ]);
-
-        // dd($request);
+        
         ModelsKd06::where('id', $id)->update($validated);
+        
+    
         return redirect('/dashboard/salesFolder/kd2')->with('success', 'Kd06 Has Been Updated!');
     }
 

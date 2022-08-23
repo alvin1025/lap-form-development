@@ -2134,22 +2134,6 @@
             $kd03->status_form == '')
             <input type="hidden" name="status_form" value="created">
             <input type="hidden" name="created_by" value="{{ $kd03->employee_name }}">
-            {{-- <div class="d-flex flex-row my-3">
-                <div class="col-sm-2">
-                    <label type="text" name="" id="" class="form-label text-center">Reject
-                        Reason</label>
-                </div>
-                <div class="col-sm-5">
-                    <input id="reject_reason" type="text"
-                        class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                        value="{{ $kd03->reject_reason != '' ? $kd03->reject_reason : '' }}" />
-                    @error('reject_reason')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-            </div> --}}
         @elseif ($kd03->status_form == 'rejected' &&
             auth()->user()->division == 'FABRIC SALES' &&
             auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE')
@@ -2161,10 +2145,6 @@
                         Reason</label>
                 </div>
                 <div class="col-sm-5">
-                    {{-- <input id="reject_reason" type="text"
-                        class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                        placeholder="Abaikan jika tidak di reject!"
-                        value="{{ $kd03->reject_reason != '' ? $kd03->reject_reason : '' }}" /> --}}
                     <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason" readonly>{!! $kd03->reject_reason != '' ? $kd03->reject_reason : '' !!}</textarea>
                     @error('reject_reason')
                         <div class="invalid-feedback">
@@ -2204,10 +2184,6 @@
                         </div>
                     </div>
                 </div>
-                {{-- @if ($kd03->status_form == 'submitted')
-                    <input class="form-check-input" type="hidden" name="status_form" id="status_form2" value="rejected">
-                @else
-                @endif --}}
             </div>
             <div class="sub" id="sub" style="display: none">
                 <div class="d-flex flex-row my-3 ">
@@ -2216,9 +2192,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"/> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -2266,10 +2239,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"
-                            value="{{ $kd03->reject_reason != '' ? $kd03->reject_reason : '' }}" /> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -2318,10 +2287,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"
-                            value="{{ $kd03->reject_reason != '' ? $kd03->reject_reason : '' }}" /> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -2332,7 +2297,6 @@
                 </div>
             </div>
 
-            {{-- && auth()->user()->jabatan == 'Division Manager' --}}
         @elseif (auth()->user()->position_job_name == 'DIREKTUR FINANCE, ACCT & IT' &&
             auth()->user()->jabatan == 'Direksi' &&
             $kd03->status_form == 'aprv 1')
@@ -2370,9 +2334,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!" /> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -2417,10 +2378,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"
-                            value="{{ $kd03->reject_reason != '' ? $kd03->reject_reason : '' }}" /> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -2434,8 +2391,6 @@
             auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE' &&
             $kd03->status_form == 'inputted')
             <input type="hidden" name="status_form" value="finished">
-            {{-- @elseif (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $kd03->status_form == 'rejected')
-            <input type="hidden" name="created_by" value="{{ auth()->user()->employee_name }}"> --}}
         @endif
 
         </div>

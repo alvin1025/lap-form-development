@@ -17,6 +17,15 @@
         <div class="card-header">
             KD06 Conditions
         </div>
+        <div class="col-sm-6">
+            <input id="sdsg" type="hidden"
+                class="form-control @error('sdsg') is-invalid @enderror" name="sdsg" />
+                @error('sdsg')
+                <div class="invalid-feedback" style="font-size: 30px">
+                    {{ $message }}
+                </div>
+                @enderror
+        </div>
         <div class="card-body">
             <h6 class="text-left mt-2"></h6>
             <hr>
@@ -28,7 +37,7 @@
                         </div>
                         <div class="col-sm-3">
                             <input id="kd6no_cust" type="text" class="form-control @error('d') is-invalid @enderror"
-                                name="kd6no_cust" value="{{ $kd6no_cust }}" readonly />
+                                name="kd6no_cust" value="{{ $kd6no_cust }}" readonly onkeyup="getVal();"/>
                             @error('kd6no_cust')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -62,7 +71,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="sd"
-                                data-live-search="true">
+                                data-live-search="true" id="sd" onchange="getVal();">
                                 <option value="">Choose SD</option>
                                 @foreach ($sds as $sd)
                                     @if (old('sd') == $sd->sd)
@@ -89,7 +98,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="kd6sg"
-                                data-live-search="true">
+                                data-live-search="true" id="sg" onchange="getVal();">
                                 <option value="">Choose SG</option>
                                 @foreach ($sgs as $sg)
                                     @if (old('kd6sg') == $sg->sg)
@@ -313,6 +322,7 @@
                     </div>
                 </div>
             </div>
+           
             <div class="col-sm-8">
                 <div class="d-flex flex-row mt-2">
                     <div class="col-sm-2 mr-3">
@@ -731,7 +741,7 @@
 
                                 $.each(data, function(key, vs04) {
                                     $('#test').append(
-                                        '<input class="form-control" name="allowance_qty" value="' +
+                                        '<input class="form-control" readonly name="allowance_qty" value="' +
                                         vs04.allow + '">');
                                 });
 
@@ -745,6 +755,18 @@
                 }
             });
         });
+    </script>
+    <script>
+        function getVal(){
+            var sd = document.getElementById('sd').value;
+            var sg = document.getElementById('sg').value;
+            let cust = document.getElementById('kd6no_cust').value;
+            var sdsg;
+
+            sdsg = cust+sd+sg
+            document.getElementById('sdsg').value = sdsg;
+
+        }
     </script>
 
 

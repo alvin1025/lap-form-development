@@ -941,7 +941,7 @@
 
                                 $.each(data, function(key, vs04) {
                                     $('#test').append(
-                                        '<input class="form-control" name="allowance_qty" value="' +
+                                        '<input class="form-control" readonly name="allowance_qty" value="' +
                                         vs04.allow + '">');
                                 });
 

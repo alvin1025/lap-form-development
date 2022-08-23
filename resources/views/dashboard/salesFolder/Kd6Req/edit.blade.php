@@ -6,14 +6,18 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
         <h1 class="h2">@yield('title')</h1>
         <div class="col-sm-2">
-            {{-- <a href="{{ route('newKd6', $kd06->kd6no_cust) }}" class="btn btn-success">New</a> --}}
-            {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
         </div>
     </div>
 
     @if (session()->has('success'))
         <div class="alert alert-success col-lg-8" role="alert">
             {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session()->has('error'))
+        <div class="alert alert-danger col-lg-8" role="alert">
+            {{ session('error') }}
         </div>
     @endif
     <form action="{{ route('kd06request.update', ['kd06request' => $kd06->id]) }}" method="POST">
@@ -398,6 +402,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="col-sm-10">
                                 <div class="d-flex flex-row mt-2">
                                     <div class="col-sm-4">
@@ -406,7 +411,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="sd"
-                                            data-live-search="true">
+                                            data-live-search="true" disabled>
                                             <option value="{{ $kd06->sd }}" selected>{{ $kd06->sd }}</option>
                                             @foreach ($sds as $sd)
                                                 @if ($kd06->sd == $sd->sd)
@@ -435,7 +440,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="kd6sg"
-                                            data-live-search="true">
+                                            data-live-search="true" disabled>
                                             <option value="{{ $kd06->kd6sg }}" selected>{{ $kd06->kd6sg }}</option>
                                             @foreach ($sgs as $sg)
                                                 @if (old('kd6sg', $kd06->kd6sg) == $sg->sg)

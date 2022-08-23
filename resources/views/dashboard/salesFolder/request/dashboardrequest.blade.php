@@ -142,7 +142,7 @@
 
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->
-                                <div class="small-box bg-secondary">
+                                <div class="small-box" style="background-color: orangered">
                                     <div class="inner">
                                         <h3>KD14</h3>
                                         <p>CONTACT</p>

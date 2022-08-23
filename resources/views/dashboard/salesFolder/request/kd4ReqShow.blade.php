@@ -276,7 +276,7 @@
                                     <div class="col-sm-6">
                                         <input id="no_debitor" type="text"
                                             class="form-control @error('no_debitor') is-invalid @enderror"
-                                            name="no_debitor" />
+                                            name="no_debitor" value="{{ $kd04->kd4no_cust }}" readonly/>
                                         @error('no_debitor')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -295,7 +295,7 @@
                                     <div class="col-sm-6">
                                         <input id="no_creditor" type="text"
                                             class="form-control @error('no_creditor') is-invalid @enderror"
-                                            name="no_creditor" />
+                                            name="no_creditor" value="{{ $kd04->kd4no_cust }}" readonly/>
                                         @error('no_creditor')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -314,7 +314,7 @@
                                     <div class="col-sm-6">
                                         <input id="no_group_cust" type="text"
                                             class="form-control @error('no_group_cust') is-invalid @enderror"
-                                            name="no_group_cust" />
+                                            name="no_group_cust" value="{{ $kd04->kd4no_cust }}" readonly/>
                                         @error('no_group_cust')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -333,7 +333,7 @@
                                     <div class="col-sm-6">
                                         <input id="credit_cust" type="text"
                                             class="form-control @error('credit_cust') is-invalid @enderror"
-                                            name="credit_cust" />
+                                            name="credit_cust" value="{{ $kd04->kd4no_cust }}" readonly/>
                                         @error('credit_cust')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -407,7 +407,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example"
-                                            name="credit_line_check" data-live-search="true">
+                                            name="credit_line_check" data-live-search="true" data-container="body">
                                             <option value="">Choose Credit Line Check</option>
                                             <option value="Yes, credit line check">Yes, credit line check
                                             </option>

@@ -22,8 +22,8 @@
             </a>
         </li>
         <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" style="color: black; fontsize:13px;">
+            <button class="btn dropdown-toggle font-weight-bold text-lg-left" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="color: white; fontsize:16px;">
                 Welcome back, {{ auth()->user()->employee_name }}
             </button>
             <div class="dropdown-menu mr-3" aria-labelledby="dropdownMenuButton" style="width: 100%">

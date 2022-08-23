@@ -18,6 +18,15 @@
             <div class="card-header">
                 KD5 Additional
             </div>
+            <div class="col-sm-6">
+                <input id="addresscode" type="hidden"
+                    class="form-control @error('addresscode') is-invalid @enderror" name="addresscode" />
+                    @error('addresscode')
+                    <div class="invalid-feedback" style="font-size: 30px">
+                        {{ $message }}
+                    </div>
+                    @enderror
+            </div>
             <div class="row">
                 <div class="d-flex justify-content-start my-3 mx-3">
                     <div class="col-sm-12">
@@ -42,7 +51,7 @@
                                         <div class="col-sm-5">
                                             <input id="no_cust1" type="text"
                                                 class="form-control @error('no_cust1') is-invalid @enderror" name="no_cust1"
-                                                value="{{ $no_cust1 }}" />
+                                                value="{{ $no_cust1 }}" onkeyup="getVal();"/>
                                             @error('no_cust1')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -52,7 +61,7 @@
                                         <div class="col-sm-6">
                                             <input id="addresscode1" type="text"
                                                 class="form-control @error('addresscode1') is-invalid @enderror"
-                                                name="addresscode1" />
+                                                name="addresscode1" oninput="getVal();"/>
                                             @error('addresscode1')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -553,6 +562,20 @@
                 reader.readAsDataURL(event.target.files[0]);
             }
     </script>
+
+<script>
+    function getVal(){
+        var adresscode1 = document.getElementById('addresscode1').value;
+        let cust = document.getElementById('no_cust1').value;
+        var addresscode;
+
+        addresscode = cust+addresscode1.value
+        document.getElementById('addresscode').value = addresscode;
+
+
+        
+    }
+</script>
 
 
 @endsection

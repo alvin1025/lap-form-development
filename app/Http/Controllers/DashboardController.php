@@ -38,6 +38,7 @@ class DashboardController extends Controller
             'gmFin' => Kd03::all()->where('status_form', 'aprv 1')->count(),
             'doc' => Kd03::all()->where('status_form', 'aprv 2')->count(),
             'kd03inputted' => Kd03::all()->where('status_form', '=', 'inputted')->where('emailUser', auth()->user()->email)->count(),
+            // 'kd03reject' => Kd03::all()->where('status_form', '==', 'rejected')->where('emailUser', auth()->user()->email)->count(),
             'inputed' => Kd03::all()->where('status_form', '=', 'inputted')->count(),
             'finish' => Kd03::all()->where('status_form', '=', 'finished')->count(),
         ]);

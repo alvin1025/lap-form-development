@@ -61,6 +61,20 @@ class Kd3Split extends Controller
         ]);
     }
 
+    public function rejectIndex()
+    {
+
+        $kd03 = Kd03::all()->where('status_form', 'rejected');
+        $kd05 = DB::table('kd05')
+            ->leftJoin('kd03', 'kd05.no_cust1', '=', 'kd03.no_cust')
+            ->get(['no_cust']);
+        $count = $kd05->where('no_cust1', 'kd03.no_cust')->count();
+        // dd($count);
+        return view('dashboard.salesFolder.Kd3.reject', [
+            'kd03' => $kd03,
+        ]);
+    }
+
     public function finishedIndex()
     {
 
@@ -154,44 +168,7 @@ class Kd3Split extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'class' => 'required',
-            'no_cust' => 'required',
-            'title' => 'required',
-            // 'kode_cust' => 'required',
-            'kode_county' => 'required',
-            'kota' => 'required',
-            'email' => 'required',
-            'telp' => 'required',
-            'npwp' => 'required',
-            'short_name' => 'required',
-            'nama1' => 'required',
-            'nama2' => 'nullable',
-            'street' => 'required',
-            'negara' => 'required',
-            'addit' => 'nullable',
-            'postal_code' => 'required',
-            'po_box' => 'nullable',
-            'tax' => 'nullable',
-            'mobile' => 'nullable',
-            'home' => 'nullable',
-            'fax' => 'nullable',
-            'status' => 'required',
-
-
-            'created_by' => 'nullable',
-            'submitted_by' => 'nullable',
-            'status_form' => 'nullable',
-            'aprv1_by' => 'nullable',
-            'aprv2_by' => 'nullable',
-            'inputted_by' => 'nullable',
-            'finished_by' => 'nullable',
-            'rejectted_by' => 'nullable',
-            'acknowledged_by' => 'nullable',
-            'reject_reason' => 'nullable',
-            'status_form' => 'nullable',
-            'emailUser' => 'nullable',
-            'ktp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'npwp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'no_cust' => 'required|unique:kd03',
         ]);
         $validated['emailUser'] = auth()->user()->email;
 
@@ -257,7 +234,7 @@ class Kd3Split extends Controller
         $kd14->status_form = $kd3->status_form;
         $kd14->save();
         // Mail::to('alvin.fadhilah03@gmail.com')->send(new FormSubmitEmail($details));
-        return redirect('/dashboard/salesFolder/kd2')->with('success', 'Kd03 Has Been Added!');
+        return redirect()->route('kd3.edit', $kd3)->with('success', 'Kd03 Has Been Added!');
     }
 
     /**
@@ -309,7 +286,6 @@ class Kd3Split extends Controller
         $emailDm = User::where('division', 'FABRIC SALES')->where('position_job_name', 'DM FABRIC SALES')->first('email')->email;
         $emailGm = User::where('position_job_name', 'GM SALES FABRIC & FACTORY MANAGER LPA')->first('email')->email;
 
-        // dd($request);
         $now = Carbon::today()->format('Y-m-d');
         $submit2 = Carbon::today()->format('Y-m-d');
         $ack = Carbon::today()->format('Y-m-d');
@@ -317,28 +293,7 @@ class Kd3Split extends Controller
         $aprv22 = Carbon::now()->format('Y-m-d');
         $inputted2 = Carbon::now()->format('Y-m-d');
         $kd03 = Kd03::where('no_cust', '=', $no_cust)->first();
-        // dd($kd03);
         $user = $kd03->emailUser;
-        // if ($kd03->status_form == 'inputted') {
-        //     if ($request->input('status_form') == 'finished') {
-        //         $submit = $kd03->submitted_by;
-        //         $apprv1 = $kd03->aprv1_by;
-        //         $apprv2 = $kd03->aprv2_by;
-        //         $inputted = $kd03->inputted_by;
-        //         $finished = Auth()->user()->employee_name;
-        //         $reject = NULL;
-        //     } elseif ($request->input('status_form') == 'rejected') {
-        //         $submit = $kd03->submitted_by;
-        //         $apprv1 = $kd03->aprv1_by;
-        //         $apprv2 = $kd03->aprv2_by;
-        //         $inputted = $kd03->inputted_by;
-        //         $finished = NULL;
-        //         $reject = Auth()->user()->employee_name;
-        //     }
-        // }
-        // if($kd03->status_form == 'inputted'){
-        //     $sts = 'Data Customer telah di input ke INTEX!';
-        // }
         $details = [
             'title' => 'Aproval Form',
             'body' => 'Please Check Submit Form',
@@ -653,20 +608,6 @@ class Kd3Split extends Controller
                 $rejectDate = $now;
             }
         }
-
-        // dd($ackDate);
-
-
-
-
-        // if ($request->status_form == 'acknowledged') {
-        //     Mail::to('alvin.fadhilah03@gmail.com')->send(new FormSubmitEmail($details));
-        // }elseif (auth()->user()->division == 'SALES' && auth()->user()->position_job_name == 'GM COMMERCIAL FABRIC SALES & MARKETING') {
-        //     Mail::to('bettalistiwa@gmail.com')->send(new FormSubmitEmail($details));
-        // } else {
-        //     # code...
-        // }
-        // dd($details);
         Kd03::where('no_cust', $no_cust)->update([
             'status_form' => $request->input('status_form'),
             'created_by' => $created,
@@ -774,8 +715,8 @@ class Kd3Split extends Controller
             'home' => 'nullable',
             'fax' => 'nullable',
             'status' => 'required',
-            'ktp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'npwp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'ktp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'npwp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'old_ktp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'old_npwp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             

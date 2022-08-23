@@ -213,6 +213,7 @@ Route::put('/dashboard/salesFolder/kd3/new/{no_cust}', [Kd3Split::class, 'update
 Route::delete('/dashboard/salesFolder/kd3/delete/{no_cust}', [Kd3Split::class, 'destroyAll'])->name('destroyAll');
 Route::get('/kd3/outindex', [Kd3Split::class, 'OutIndex'])->name('kd3outindex');
 Route::get('/kd3/inputted/', [Kd3Split::class, 'InputtedIndex'])->name('kd3inputted');
+Route::get('/kd3/reject', [Kd3Split::class, 'rejectIndex'])->name('kd3reject');
 Route::get('/kd3/outindex/belumSelesai', [Kd3Split::class, 'belumSubmit'])->name('belumSelesai');
 Route::get('/kd3/outindex/submitDM', [Kd3Split::class, 'needDMSales'])->name('submitDM');
 Route::get('/kd3/outindex/submitGM', [Kd3Split::class, 'needGMSales'])->name('submitGM');
@@ -337,15 +338,19 @@ Route::get('/kd14ReqPdf/addFin/{id}', [Kd14ReqController::class, 'pdfKd14Request
 Route::resource('/dashboard/salesFolder/kd4', Kd4Split::class)->middleware('auth');
 Route::resource('/dashboard/salesFolder/kd5', Kd5Split::class)->middleware('auth');
 Route::get('/dashboard/salesFolder/kd5/new/{no_cust1}', [Kd5Split::class, 'createSame'])->name('createSame');
+Route::get('/dashboard/salesFolder/kd5/edit/{id}/edit', [Kd5Split::class, 'editReject'])->name('editReject');
 
 Route::resource('/dashboard/salesFolder/kd6', Kd6Split::class)->middleware('auth');
 Route::get('/dashboard/salesFolder/kd6/new/{kd6no_cust}', [Kd6Split::class, 'createNewKd6'])->name('newKd6');
+Route::get('/dashboard/salesFolder/kd6/edit/{id}/edit', [Kd6Split::class, 'editReject'])->name('editRejectKd6');
 
 Route::resource('/dashboard/salesFolder/kd11', Kd11Split::class)->middleware('auth');
 Route::get('/dashboard/salesFolder/kd11/new/{kd11no_cust}', [Kd11Split::class, 'createNewKd11'])->name('newKd11')->middleware('auth');
+Route::get('/dashboard/salesFolder/kd11/edit/{kd11}/edit', [Kd11Split::class, 'editReject'])->name('editRejectKd11')->middleware('auth');
 
 Route::resource('/dashboard/salesFolder/kd14', Kd14Split::class)->middleware('auth');
 Route::get('/dashboard/salesFolder/kd14/new/{kd14no_cust}', [Kd14Split::class, 'createNewKd14'])->middleware('auth')->name('NewKd14');
+Route::get('/dashboard/salesFolder/kd14/edit/{kd14}/edit', [Kd14Split::class, 'editReject'])->middleware('auth')->name('editRejectKd14');
 
 
 //RouteGroup

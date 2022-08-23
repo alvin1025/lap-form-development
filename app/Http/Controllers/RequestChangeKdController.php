@@ -373,7 +373,6 @@ class RequestChangeKdController extends Controller
             'gm' => $gm,
             'doc' => $doc,
             'mis' => $mis,
-            // 'join' => $join,
         ]);
     }
 

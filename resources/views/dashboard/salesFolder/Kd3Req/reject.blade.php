@@ -22,20 +22,20 @@
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
-            <a href="{{ route('kd03request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CUSTOMER MAIN
+            <a href="{{ route('kd03request.index') }}" class="btn btn-secondary mb-3" style="width: 175px">CUSTOMER MAIN
                 ADDRESS
                 (KD03)</a>
-            <a href="{{ route('kd04request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">DEBTOR DATA
+            <a href="{{ route('kd04request.index') }}" class="btn btn-secondary mb-3" style="width: 175px">DEBTOR DATA
                 (KD04)</a>
-            <a href="{{ route('kd05request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ADDITIONAL
+            <a href="{{ route('kd05request.index') }}" class="btn btn-secondary mb-3" style="width: 175px">ADDITIONAL
                 ADDRESSES
                 (KD05)</a>
-            <a href="{{ route('kd06request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">SALES CONDITION
+            <a href="{{ route('kd06request.index') }}" class="btn btn-secondary mb-3" style="width: 175px">SALES CONDITION
                 (KD06)</a>
-            <a href="{{ route('kd11request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ASSOCIATION
+            <a href="{{ route('kd11request.index') }}" class="btn btn-secondary mb-3" style="width: 175px">ASSOCIATION
                 LIST
                 (KD11)</a>
-            <a href="{{ route('kd14request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CONTACT
+            <a href="{{ route('kd14request.index') }}" class="btn btn-secondary mb-3" style="width: 175px">CONTACT
                 (KD14)</a>
         </div>
     </div>
@@ -103,7 +103,23 @@
                                         <td>{{ $form->nama1 }}</td>
                                         {{-- <td>{{ $form->sd }}</td>
                                         <td>{{ $form->kd6sg }}</td> --}}
-                                        <td>{{ $form->status_form }}</td>
+                                        <td>
+                                            @if ($form->status_form == '')
+                                                Need Submit
+                                            @elseif ($form->status_form == 'created')
+                                                Need Apprv DM
+                                            @elseif ($form->status_form == 'aprv 1 ')
+                                                Need Apprv GM
+                                            @elseif ($form->status_form == 'aprv 2')
+                                                Need Apprv Document Control
+                                            @elseif ($form->status_form == 'rejected')
+                                                Rejected
+                                            @elseif ($form->status_form == 'inputted')
+                                                Final Authorize
+                                            @elseif ($form->status_form == 'finished')
+                                                Finished
+                                            @endif
+                                        </td>
                                         <td>
                                             {{-- @if ($form->status == "inputted") --}}
                                             {{-- <a href="/kd3ReqPdf/{{ $form->id }}" class="badge bg-danger"

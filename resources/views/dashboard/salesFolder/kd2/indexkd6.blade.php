@@ -105,8 +105,12 @@
                                                 target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             <a href="/dashboard/salesFolder/kd6/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
-                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == 'rejected') || auth()->user()->division == 'FINANCE' || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
+                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') ||  auth()->user()->division == 'FINANCE' || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <a href="/dashboard/salesFolder/kd6/{{ $form->id }}/edit"
+                                                    class="badge bg-warning">Modify</a>
+                                            @endif
+                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == 'rejected'))
+                                                <a href="/dashboard/salesFolder/kd6/edit/{{ $form->id }}/edit"
                                                     class="badge bg-warning">Modify</a>
                                             @endif
                                             {{-- @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '' && (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->sd != '')) || (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->kd6sg != '') || ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == 'rejected' && (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->sd != '')) || (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->kd6sg != ''))) --}}

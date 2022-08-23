@@ -63,7 +63,7 @@
                         Contact Person {{ $kd14['nama'] }}
                     </h2>
                     <p>
-                        <a href="/dashboard/salesFolder/kd5/new/{{ $kd14['no_cust'] }}/submit"
+                        <a href="luckytexgroup.com"
                             style="text-decoration: none;
 								color:black;
 								border: 2px solid #4cb96b;
