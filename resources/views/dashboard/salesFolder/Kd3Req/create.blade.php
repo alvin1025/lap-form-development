@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <select class="selectpicker" aria-label="Default select example" name="title"
-                                    data-live-search="true">
+                                    data-live-search="true" data-container="body">
                                     <option value="">Choose Title</option>
                                     @foreach ($titles as $title)
                                         @if (old('title') == $title->title)
@@ -52,7 +52,7 @@
                             </div>
                             <div class="col-sm-7">
                                 <select class="selectpicker" aria-label="Default select example" name="class"
-                                    data-live-search="true">
+                                    data-live-search="true" data-container="body">
                                     <option value="">Choose Class</option>
                                     @foreach ($classes as $class)
                                         @if (old('class') == $class->class)
@@ -158,7 +158,7 @@
 
                             <div class="col-sm-6">
                                 <select class="selectpicker" aria-label="Default select example" name="tax"
-                                    data-live-search="true">
+                                    data-live-search="true" data-container="body">
                                     <option value="">Choose Tax</option>
                                     @foreach ($taxs as $tax)
                                         @if (old('tax') == $tax->tax)
@@ -345,7 +345,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <select class="selectpicker" aria-label="Default select example" name="negara"
-                                    data-live-search="true">
+                                    data-live-search="true" data-container="body">
                                     <option value="">Choose Country</option>
                                     @foreach ($negaras as $negara)
                                         @if (old('negara') == $negara->nama_negara)
@@ -375,7 +375,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <select class="selectpicker" aria-label="Default select example" name="kode_county"
-                                    data-live-search="true">
+                                    data-live-search="true" data-container="body">
                                     <option value="">Choose Code County</option>
                                     @foreach ($kodeCountries as $country)
                                         @if (old('kode_county') == $country->kode_county)

@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="col-sm-8">
                                             <select class="selectpicker" aria-label="Default select example" name="title1"
-                                                data-live-search="true">
+                                                data-live-search="true" data-container="body">
                                                 <option value="{{ $kd05->title1 }}" selected>{{ $kd05->title1 }}
                                                 </option>
                                                 @foreach ($titles as $title)

@@ -6,8 +6,6 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
         <h1 class="h2">@yield('title')</h1>
         <div class="col-sm-2">
-            {{-- <a href="{{ route('NewKd14', $kd14->kd14no_cust) }}" class="btn btn-success">New</a> --}}
-            {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
         </div>
     </div>
 
@@ -397,7 +395,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="sd_cp1"
-                                            data-live-search="true">
+                                            data-live-search="true" data-container="body">
                                             <option value="{{ $kd14->sd_cp1 }}" selected>{{ $kd14->sd_cp1 }}</option>
                                             @foreach ($sds as $sd)
                                                 @if ($kd14->sd_cp1 == $sd->sd)
@@ -426,7 +424,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="sg_cp1"
-                                            data-live-search="true">
+                                            data-live-search="true" data-container="body">
                                             <option value="{{ $kd14->sg_cp1 }}" selected>{{ $kd14->sg_cp1 }}</option>
                                             @foreach ($sgs as $sg)
                                                 @if ($kd14->sg_cp1 == $sg->kd6sg)
@@ -455,7 +453,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example"
-                                            name="add_addr_cp1" data-live-search="true">
+                                            name="add_addr_cp1" data-live-search="true" data-container="body">
                                             <option value="{{ $kd14->add_addr_cp1 }}" selected>
                                                 {{ $kd14->add_addr_cp1 }}</option>
                                             @foreach ($kd05 as $kd5)

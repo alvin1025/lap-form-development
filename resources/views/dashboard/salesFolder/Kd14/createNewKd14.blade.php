@@ -19,7 +19,7 @@
             KD14 PIC/Contact Person
         </div>
         <div class="col-sm-6">
-            <input id="contactperson" type="text"
+            <input id="contactperson" type="hidden"
                 class="form-control @error('contactperson') is-invalid @enderror" name="contactperson" />
                 @error('contactperson')
                 <div class="invalid-feedback" style="font-size: 30px">

@@ -273,7 +273,7 @@
                                 <div class="col-sm-6">
                                     <input id="no_debitor" type="number"
                                         class="form-control @error('no_debitor') is-invalid @enderror" name="no_debitor"
-                                        value="{{ $kd04->no_debitor }}" />
+                                        value="{{ $kd04->no_debitor }}" readonly/>
                                     @error('no_debitor')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -291,7 +291,7 @@
                                 <div class="col-sm-6">
                                     <input id="no_creditor" type="number"
                                         class="form-control @error('no_creditor') is-invalid @enderror"
-                                        name="no_creditor" value="{{ $kd04->no_creditor }}" />
+                                        name="no_creditor" value="{{ $kd04->no_creditor }}" readonly/>
                                     @error('no_creditor')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -309,7 +309,7 @@
                                 <div class="col-sm-6">
                                     <input id="no_group_cust" type="number"
                                         class="form-control @error('no_group_cust') is-invalid @enderror"
-                                        name="no_group_cust" value="{{ $kd04->no_group_cust }}" />
+                                        name="no_group_cust" value="{{ $kd04->no_group_cust }}" readonly/>
                                     @error('no_group_cust')
                                         <div class="invalid-feedback">
                                             {{ $message }}

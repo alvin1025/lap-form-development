@@ -715,8 +715,8 @@ class Kd3Split extends Controller
             'home' => 'nullable',
             'fax' => 'nullable',
             'status' => 'required',
-            'ktp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'npwp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'ktp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'npwp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'old_ktp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             // 'old_npwp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             

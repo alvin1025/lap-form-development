@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <select class="selectpicker" aria-label="Default select example" name="title"
-                                        data-live-search="true">
+                                        data-live-search="true" data-container="body">
                                         <option value="{{ $kd03->title }}" selected>{{ $kd03->title }}</option>
                                         @foreach ($titles as $title)
                                             @if (old('title') == $title->title)

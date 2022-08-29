@@ -109,8 +109,8 @@ class Kd5Split extends Controller
             'fax1' => 'nullable',
             'status' => 'nullable',
             'status_form' => 'nullable',
-            'ktp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'npwp_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'ktp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'npwp_image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'addresscode' => ['nullable', 'string', 'unique:kd05'],
         ]);
 

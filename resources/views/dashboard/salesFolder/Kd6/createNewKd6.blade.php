@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="sd"
-                                data-live-search="true" id="sd" onchange="getVal();">
+                                data-live-search="true" id="sd" onchange="getVal();" data-container="body">
                                 <option value="">Choose SD</option>
                                 @foreach ($sds as $sd)
                                     @if (old('sd') == $sd->sd)
@@ -98,7 +98,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="kd6sg"
-                                data-live-search="true" id="sg" onchange="getVal();">
+                                data-live-search="true" id="sg" onchange="getVal();" data-container="body">
                                 <option value="">Choose SG</option>
                                 @foreach ($sgs as $sg)
                                     @if (old('kd6sg') == $sg->sg)
@@ -106,8 +106,6 @@
                                     @else
                                         <option data-tokens="{{ $sg->sg }}">{{ $sg->sg }}</option>
                                     @endif
-                                    {{-- <option data-tokens="{{ $sg->sg }}"
-                                        {{ $kd06->kd6sg == $sg->sg ? 'selected' : '' }}>{{ $sg->sg }}</option> --}}
                                 @endforeach
                             </select>
                             @error('kd6sg')
@@ -128,7 +126,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="payterm"
-                                data-live-search="true">
+                                data-live-search="true" data-container="body">
                                 <option value="">Choose Payterm</option>
                                 @if (auth()->user()->division == 'FABRIC SALES')
                                     <option value="P3C / 30% DP BFR PROD/70% CBD">P3C </option>
@@ -164,7 +162,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="assigment"
-                                data-live-search="true">
+                                data-live-search="true" data-container="body">
                                 <option value="">Choose Assignment</option>
                                 @foreach ($clms as $clm)
                                     @if (old('assigment') == $clm->clmasi)
@@ -194,7 +192,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="kd6tax"
-                                data-live-search="true">
+                                data-live-search="true" data-container="body">
                                 <option value="">Choose Tax</option>
                                 @foreach ($taxs as $tax)
                                     @if (old('kd6tax') == $tax->tax)
@@ -217,7 +215,6 @@
                     <div class="d-flex flex-row mt-2">
                         <div class="col-sm-2 mr-3">
                             <label type="text" name="" id="" class="form-label">Status
-
                             </label>
                         </div>
                         <div class="col-sm-6">
@@ -246,7 +243,7 @@
                     </div>
                     <div class="col-sm-6">
                         <select class="selectpicker" aria-label="Default select example" name="del_con"
-                            data-live-search="true">
+                            data-live-search="true" data-container="body">
                             <option value="">Choose DelCon</option>
                             @foreach ($delCons as $delcon)
                                 @if (old('del_con') == $delcon->del_con)
@@ -274,7 +271,7 @@
                     </div>
                     <div class="col-sm-6">
                         <select class="selectpicker" aria-label="Default select example" name="kurs"
-                            data-live-search="true">
+                            data-live-search="true" data-container="body">
                             <option value="">Choose Kurs</option>
                             {{-- <option value="{{ $kd06->kurs }}">{{ $kurs->kurs }}</option> --}}
                             @foreach ($kurses as $kurs)
@@ -301,7 +298,7 @@
                     </div>
                     <div class="col-sm-6">
                         <select class="selectpicker" aria-label="Default select example" name="satuan"
-                            data-live-search="true">
+                            data-live-search="true" data-container="body">
                             <option value="">Choose Satuan</option>
                             @foreach ($satuans as $satuan)
                                 @if (old('satuan') == $satuan->satuan)
@@ -331,7 +328,7 @@
                     </div>
                     <div class="col-sm-6">
                         <select class="selectpicker" aria-label="Default select example" name="biz_type_p1"
-                            data-live-search="true">
+                            data-live-search="true" data-container="body">
                             <option value="">Choose Bisnis Type</option>
                             @foreach ($bizTypes as $biz)
                                 @if (old('biz_type_p1') == $biz->biz_type)
@@ -379,7 +376,7 @@
                     </div>
                     <div class="col-sm-4">
                         <select class="selectpicker" aria-label="Default select example" name="nama_agent1"
-                            data-live-search="true" id="agent">
+                            data-live-search="true" id="agent" data-container="body">
                             <option value="">Choose Agent</option>
                             @foreach ($agents as $agent)
                                 @if (old('nama_agent1') == $agent->name1)

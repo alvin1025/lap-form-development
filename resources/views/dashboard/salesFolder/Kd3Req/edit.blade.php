@@ -13,13 +13,6 @@
         </div>
     @endif
     <div class="d-flex justify-content-start">
-        {{-- <a href="{{ route('kd03.edit', ['kd03']) }}" class="btn btn-secondary mb-3" style="width: 150px">Kd03</a> --}}
-        {{-- <a href="{{ route('kd4.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd04</a> --}}
-        {{-- <a href="{{ route('editkd5', ['id']) }}" class="btn btn-secondary mb-3" style="width: 150px">Kd05</a> --}}
-        {{-- <a href="{{ route('kd6.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd06</a> --}}
-        {{-- <a href="{{ route('kd11.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd11</a> --}}
-        {{-- <a href="{{ route('kd14.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd14</a> --}}
-        {{-- </div> --}}
         <form action="{{ route('kd03request.update', ['kd03request' => $kd03->id]) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
@@ -423,7 +416,7 @@
                                     </div>
                                     <div class="col-sm-8">
                                         <select class="selectpicker" aria-label="Default select example" name="title"
-                                            data-live-search="true">
+                                            data-live-search="true" data-container="body">
                                             <option value="{{ $kd03->title }}" selected>{{ $kd03->title }}</option>
                                             @foreach ($titles as $title)
                                                 @if (old('title') == $title->title)
@@ -450,7 +443,7 @@
                                     </div>
                                     <div class="col-sm-7">
                                         <select class="selectpicker" aria-label="Default select example" name="class"
-                                            data-live-search="true">
+                                            data-live-search="true" data-container="body">
                                             <option value="{{ $kd03->class }}" selected>{{ $kd03->class }}</option>
                                             @foreach ($classes as $class)
                                                 @if (old('class') == $class->class)
@@ -563,7 +556,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <select class="selectpicker" aria-label="Default select example" name="tax"
-                                            data-live-search="true">
+                                            data-live-search="true" data-container="body">
                                             <option value="{{ $kd03->tax }}" selected>{{ $kd03->tax }}</option>
                                             @foreach ($taxs as $tax)
                                                 @if (old('tax') == $tax->tax)

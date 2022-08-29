@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd03->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
     @if ($kd14->cp1 == $kd14->cp1_old)
         <div class="card">
             <div class="d-flex content-justify-between">
@@ -815,22 +813,6 @@
             $kd14->status_form == '')
             <input type="hidden" name="status_form" value="created">
             <input type="hidden" name="created_by" value="{{ $kd14->employee_name }}">
-            {{-- <div class="d-flex flex-row my-3">
-                <div class="col-sm-2">
-                    <label type="text" name="" id="" class="form-label text-center">Reject
-                        Reason</label>
-                </div>
-                <div class="col-sm-5">
-                    <input id="reject_reason" type="text"
-                        class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                        value="{{ $kd14->reject_reason != '' ? $kd14->reject_reason : '' }}" />
-                    @error('reject_reason')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-            </div> --}}
         @elseif ($kd14->status_form == 'rejected')
             <input type="hidden" name="status_form" value="created">
             <input type="hidden" name="created_by" value="{{ auth()->user()->employee_name }}">
@@ -840,10 +822,6 @@
                         Reason</label>
                 </div>
                 <div class="col-sm-5">
-                    {{-- <input id="reject_reason" type="text"
-                        class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                        placeholder="Abaikan jika tidak di reject!"
-                        value="{{ $kd14->reject_reason != '' ? $kd14->reject_reason : '' }}" /> --}}
                     <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason" readonly>{!! $kd14->reject_reason != '' ? $kd14->reject_reason : '' !!}</textarea>
                     @error('reject_reason')
                         <div class="invalid-feedback">
@@ -891,10 +869,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"
-                            value="{{ $kd14->reject_reason != '' ? $kd14->reject_reason : '' }}" /> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -942,10 +916,6 @@
                             Reason</label>
                     </div>
                     <div class="col-sm-5">
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"
-                            value="{{ $kd14->reject_reason != '' ? $kd14->reject_reason : '' }}" /> --}}
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
                         @error('reject_reason')
                             <div class="invalid-feedback">
@@ -991,10 +961,6 @@
                     </div>
                     <div class="col-sm-5">
                         <textarea class="form-control" id="textAreaExample1" rows="4" name="reject_reason"></textarea>
-                        {{-- <input id="reject_reason" type="text"
-                            class="form-control @error('reject_reason') is-invalid @enderror" name="reject_reason"
-                            placeholder="Abaikan jika tidak di reject!"
-                            value="{{ $kd14->reject_reason != '' ? $kd14->reject_reason : '' }}" /> --}}
                         @error('reject_reason')
                             <div class="invalid-feedback">
                                 {{ $message }}

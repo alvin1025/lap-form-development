@@ -26,10 +26,6 @@
                                     <label type="text" name="" id="" class="form-label text-center">No
                                         Cust</label>
                                 </div>
-                                {{-- <div class="col-sm-6">
-                                    <label type="text" name="" id="" class="form-label text-center">Short
-                                        Name</label>
-                                </div> --}}
                             </div>
 
                             <div class="d-flex flex-row my-2">
@@ -43,15 +39,6 @@
                                         </div>
                                     @enderror
                                 </div>
-                                {{-- <div class="col-sm-6">
-                                    <input id="short_name" type="text"
-                                        class="form-control @error('short_name') is-invalid @enderror" name="short_name" value="{{ old('short_name') }}"/>
-                                    @error('short_name')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div> --}}
                             </div>
                             <div class="d-flex flex-row mt-5 justify-content-end">
                                 <div class="col-sm-3">

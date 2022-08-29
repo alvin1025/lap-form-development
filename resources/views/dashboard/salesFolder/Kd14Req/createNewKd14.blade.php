@@ -151,7 +151,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="sd_cp1"
-                                data-live-search="true">
+                                data-live-search="true" data-container="body">
                                 <option value="">Choose SD</option>
                                 @foreach ($sds as $sd)
                                     @if (old('sd_cp1') == $sd->sd)
@@ -181,7 +181,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="sg_cp1"
-                                data-live-search="true">
+                                data-live-search="true" data-container="body">
                                 <option value="">Choose SG</option>
                                 @foreach ($sgs as $sg)
                                     @if (old('sg_cp1') == $sg->sg)
@@ -213,7 +213,7 @@
                         </div>
                         <div class="col-sm-6">
                             <select class="selectpicker" aria-label="Default select example" name="add_addr_cp1"
-                                data-live-search="true">
+                                data-live-search="true" data-container="body">
                                 <option value="">Choose Address Code</option>
                                 @foreach ($kd05 as $kd5)
                                     @if (old('add_addr_cp1') == $kd5->addit1)
