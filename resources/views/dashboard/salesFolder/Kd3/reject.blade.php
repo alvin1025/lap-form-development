@@ -12,18 +12,13 @@
             {{ session('success') }}
         </div>
     @endif
-
-
-    {{-- <a href="{{ route('dashboardPrimary') }}" class="btn btn-primary mb-3">Create New Form</a> --}}
     <a href="{{ route('kd2.index') }}" class="btn btn-warning mb-2">Back To Customer</a>
 
     <div class="row justify-content-center mt-3">
         <div class="row">
             <div class="d-flex justify-content-around">
                 <div class="col-sm-12">
-                    {{-- <h6 class="justify-content-center mb-4" style="color: red">Outstanding Customer Form</h6> --}}
                     <div class="table-responsive">
-                        {{-- <a href="/dashboard/sales/create" class="btn btn-primary mb-3">Create New Form</a> --}}
                         <table class="table table-striped" id="dt-init">
                             <thead>
                                 <tr>
@@ -37,20 +32,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-
-
-                                <?php
-                                // if ((auth()->user()->jabatan == 'Direksi' && auth()->user()->division == 'Finance') || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM') {
-                                //     $kdout = $kd03OutFin;
-                                // }
-                                // elseif (auth()->user()->jabatan == "Division Manager" && auth()->user()->division == 'FABRIC SALES') {
-                                //     $kd03 = $kd03OutDm;
-                                // } else (auth()->user()->jabatan == "Senior Manager" && auth()->user()->division == 'SALES') {
-                                //     $kd03 = $kd03OutGm;
-                                // }
-                                ?>
-
                                 @foreach ($kd03 as $form)
                                     <tr>
                                         <td>{{ $form->no_cust }}</td>
@@ -60,43 +41,30 @@
                                         <td>{{ $form->kd6sg }}</td>
                                         <td>
                                             @if ($form->status_form == '')
-                                            Need Submit
+                                                <font style="color: brown">Need Submit</font>
                                             @elseif ($form->status_form == 'created')
-                                                Need Apprv DM
+                                                <font style="color: #DEA057">Need Apprv DM</font>
                                             @elseif ($form->status_form == 'submitted')
-                                                Need Apprv GM
+                                                <font style="color: orange">Need Apprv GM</font>
                                             @elseif ($form->status_form == 'acknowledged')
-                                                Need Apprv DM Finance
+                                                <font style="color: blue">Need Apprv DM Finance</font>
                                             @elseif ($form->status_form == 'aprv 1')
-                                                Need Apprv GM Finance
+                                                <font style="color: #251D3A">Need Apprv GM Finance</font>
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Need Apprv Document Control
+                                                <font style="color: #277BC0">Need Apprv Document Control</font>
                                             @elseif ($form->status_form == 'inputted')
-                                                Inputted to INTEX
+                                                <font style="color: #781C68">Inputted to INTEX</font>
                                             @elseif ($form->status_form == 'rejected')
-                                                Rejected
+                                                <font style="color: red">Rejected</font>
+                                            @elseif ($form->status_form == 'finished')
+                                                <font style="color: green">Finish</font>
                                             @endif
                                         </td>
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->no_cust }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
-                                            {{-- @if ($form->status_form == 'inputted')
-                                                <a href="/dashboard/salesFolder/inputan/{{ $form->id }}/btlastsubmit"
-                                                    class="badge bg-info"><i class="fa fa-eye"
-                                                        aria-hidden="true"></i></a>
-                                            @endif --}}
                                             @if ($form->status_form != 'inputted')
                                                 <a href="/dashboard/salesFolder/kd3/new/{{ $form->no_cust }}/submit"
                                                     class="badge bg-success">Submit</a>
                                             @endif
-                                            {{-- @if (Auth::user()->division == 'FABRIC SALES')
-                                                <a href="/dashboard/salesFolder/kd3/{{ $form->id }}/edit"
-                                                    class="badge bg-warning"><i class="fas fa-edit"></i></a>
-                                            @endif --}}
-                                            {{-- @if (Auth::user()->division == 'FINANCE')
-                                                <a href="/dashboard/salesFolder/kd3/{{ $form->id }}/edit"
-                                                    class="badge bg-warning"><i class="fas fa-edit"></i></a>
-                                            @endif --}}
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd3/{{ $form->id }}" method="post"
                                                     class="d-inline">

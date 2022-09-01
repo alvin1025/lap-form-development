@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use phpDocumentor\Reflection\Types\This;
 
 class Kd6ReqMail extends Mailable
 {
@@ -29,7 +30,7 @@ class Kd6ReqMail extends Mailable
      */
     public function build()
     {
-        $this->subject('Aproval Notifications KD06 Request')
+        $this->subject('Aproval Notifications KD06 Request Cust No: '. $this->kd6['no_cust']. ' SD: ' .$this->kd6['nama']. ' SG: '. $this->kd6['sg'])
         ->view('dashboard.salesFolder.email.kd06ReqMail');
 
         return $this;

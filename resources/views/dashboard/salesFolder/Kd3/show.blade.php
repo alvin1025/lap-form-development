@@ -12,11 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd03->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd03->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
-    {{-- @method('put') --}}
     <h6 class="text-left mt-3">KD03 Master</h6>
     <hr>
     <div class="row">
@@ -417,7 +412,6 @@
         </div>
     </div>
     </form>
-    {{-- </form> --}}
 
 
 

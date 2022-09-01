@@ -82,11 +82,7 @@
                                         <td>{{ $form->phone_cp1 }}</td>
                                         <td>{{ $form->mobile_cp1 }}</td>
                                         <td>{{ $form->email_cp1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             <a href="/dashboard/salesFolder/kd14/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
                                             @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')

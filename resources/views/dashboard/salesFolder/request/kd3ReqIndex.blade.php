@@ -71,7 +71,6 @@
             </div>
         </div>
     @endif
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -87,8 +86,6 @@
                                     <th scope="col">Kode Customer</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Alamat</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -101,8 +98,6 @@
                                         <td>{{ $form->short_name }}</td>
                                         <td>{{ $form->nama1 }}</td>
                                         <td>{{ $form->street }} {{ ' ' }} {{ $form->addit }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
                                             @if ($form->status_form == '')
                                                 Need Submit
@@ -121,17 +116,11 @@
                                             @endif
                                         </td>
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE')
                                             <a href="/dashboard/salesFolder/change/request/show/{{ $form->id }}"
                                                 class="badge bg-warning">Request Modify</a>
                                             @endif
                                             
-                                            {{-- @if (Auth::user()->division == 'FINANCE' || Auth::user()->division == 'FABRIC SALES' || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
-                                                <a href="/dashboard/salesFolder/kd3/{{ $form->id }}/edit"
-                                                    class="badge bg-warning"><i class="fas fa-edit"></i></a>
-                                            @endif --}}
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd3/delete/{{ $form->no_cust }}"
                                                     method="post" class="d-inline">

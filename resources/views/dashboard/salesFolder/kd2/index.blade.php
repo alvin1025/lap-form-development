@@ -12,7 +12,7 @@
             {{ session('success') }}
         </div>
     @endif
-    
+
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -33,9 +33,6 @@
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
-            {{-- <button type="button" class="btn btn-success mb-3 mx-3" data-bs-toggle="modal" data-bs-target="#kd03">
-                Import KD03
-            </button> --}}
 
             {{-- Kd03 --}}
             <div class="modal fade" id="kd03" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -81,8 +78,6 @@
                                     <th scope="col">Kode Customer</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">CoC</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Cty</th>
                                     <th scope="col">Address Code</th>
                                     <th scope="col" style="width: 80px">SD-SG</th>
@@ -109,27 +104,27 @@
                                         <td>{{ $form->association_no1 }}</td>
                                         <td>
                                             @if ($form->status_form == '')
-                                                Need Submit
+                                                <font style="color: brown">Need Submit</font>
                                             @elseif ($form->status_form == 'created')
-                                                Need Apprv DM
+                                                <font style="color: #DEA057">Need Apprv DM</font>
                                             @elseif ($form->status_form == 'submitted')
-                                                Need Apprv GM
+                                                <font style="color: orange">Need Apprv GM</font>
                                             @elseif ($form->status_form == 'acknowledged')
-                                                Need Apprv DM Finance
+                                                <font style="color: blue">Need Apprv DM Finance</font>
                                             @elseif ($form->status_form == 'aprv 1')
-                                                Need Apprv GM Finance
+                                                <font style="color: #251D3A">Need Apprv GM Finance</font>
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Need Apprv Document Control
+                                                <font style="color: #277BC0">Need Apprv Document Control</font>
                                             @elseif ($form->status_form == 'inputted')
-                                                Inputted to INTEX
+                                                <font style="color: #781C68">Inputted to INTEX</font>
                                             @elseif ($form->status_form == 'rejected')
-                                                Rejected
+                                                <font style="color: red">Rejected</font>
                                             @elseif ($form->status_form == 'finished')
-                                                Finish
+                                                <font style="color: green">Finish</font>
                                             @endif
-                                            {{-- {{ $form->status_form }} --}}
                                         </td>
-                                        <td style="width: 15%"><a href="/dashboard/salesFolder/kd2/new/{{ $form->no_cust }}"
+                                        <td style="width: 15%"><a
+                                                href="/dashboard/salesFolder/kd2/new/{{ $form->no_cust }}"
                                                 class="badge bg-info">KD03</a>
                                             <a href="/dashboard/salesFolder/kd2/new/kd4/{{ $form->no_cust }}"
                                                 class="badge bg-warning">KD04</a>
@@ -142,26 +137,6 @@
                                             <a href="/dashboard/salesFolder/kd2/new/kd14/{{ $form->no_cust }}"
                                                 class="badge" style="background-color: orangered">KD14</a>
                                         </td>
-                                        {{-- <td> --}}
-                                        {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
-                                        {{-- <a href="/dashboard/salesFolder/kd3/{{ $form->id }}"
-                                                class="badge bg-info"><i class="fa fa-eye" aria-hidden="true"></i></a> --}}
-                                        {{-- @if (Auth::user()->division == 'FINANCE' || Auth::user()->division == 'FABRIC SALES')
-                                                <a href="/dashboard/salesFolder/kd3/{{ $form->id }}/edit"
-                                                    class="badge bg-warning"><i class="fas fa-edit"></i></a>
-                                            @endif --}}
-                                        {{-- @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
-                                                <form action="/dashboard/salesFolder/kd3/{{ $form->id }}" method="post"
-                                                    class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-danger border-0"
-                                                        onclick="return confirm('Are you sure?')"><i
-                                                            class="fas fa-trash-alt"></i></span></button>
-                                                </form>
-                                            @endif --}}
-                                        {{-- </td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>

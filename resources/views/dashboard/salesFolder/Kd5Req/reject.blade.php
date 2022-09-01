@@ -12,13 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-
-    {{-- <div class="d-flex justify-content-start">
-        <a href="{{ route('kd05request.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
-    {{-- <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
-    {{-- </div>
-    <hr> --}}
-    {{-- <a href="{{ route('OutReqKd5') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -74,7 +67,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -91,8 +83,6 @@
                                     <th scope="col">Street</th>
                                     <th scope="col">Cocd</th>
                                     <th scope="col">Cty</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -105,21 +95,7 @@
                                         <td>{{ $form->street1 }}</td>
                                         <td>{{ $form->kd5negara1 }}</td>
                                         <td>{{ $form->kota1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-                                            {{-- @if ($form->status == "inputted") --}}
-                                        {{-- @if ($form->addresscode1 == $form->addresscode1_old)
-                                        <a href="/kd5ReqPdf/{{ $form->id }}" class="badge bg-danger"
-                                            target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a>
-                                        @else    
-                                        <a href="/kd5ReqPdf/add/{{ $form->id }}" class="badge bg-danger"
-                                            target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a>
-                                        @endif --}}
-                                            
-                                           
-                                            
-                                            {{-- @endif --}}
                                             <a href="/dashboard/salesFolder/kd05request/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
                                             @if (Auth::user()->division == 'FINANCE' || ((Auth::user()->division == 'FABRIC SALES' && $form->status_form == 'created') || $form->status_form == 'rejected') || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')

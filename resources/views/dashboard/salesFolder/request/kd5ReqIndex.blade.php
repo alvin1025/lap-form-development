@@ -37,25 +37,6 @@
     </div>
     </div>
     <hr>
-    {{-- <div class="d-flex justify-content-evenly">
-        <div class="row">
-            <a href="{{ route('kd03request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CUSTOMER MAIN
-                ADDRESS
-                (KD03)</a>
-            <a href="{{ route('kd04request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">DEBTOR DATA
-                (KD04)</a>
-            <a href="{{ route('kd05request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ADDITIONAL
-                ADDRESSES
-                (KD05)</a>
-            <a href="{{ route('kd06request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">SALES CONDITION
-                (KD06)</a>
-            <a href="{{ route('kd11request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ASSOCIATION
-                LIST
-                (KD11)</a>
-            <a href="{{ route('kd14request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CONTACT
-                (KD14)</a>
-        </div>
-    </div> --}}
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
@@ -91,7 +72,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -109,8 +89,6 @@
                                     <th scope="col">Street</th>
                                     <th scope="col">Cocd</th>
                                     <th scope="col">Cty</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -124,8 +102,6 @@
                                         <td>{{ $form->street1 }} {{ ' ' }} {{ $form->addit1 }}</td>
                                         <td>{{ $form->kd5negara1 }}</td>
                                         <td>{{ $form->kota1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
                                             @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE')
                                                 <a href="/dashboard/salesFolder/change/request/show/kd5/{{ $form->id }}"

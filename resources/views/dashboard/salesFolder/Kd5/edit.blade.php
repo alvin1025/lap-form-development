@@ -100,66 +100,6 @@
 
                                         </div>
                                     </div>
-                                    {{-- <div class="d-flex flex-row mt-2">
-                                                <div class="col-sm-3">
-                                                    <label type="text" name="" id="" class="form-label">Class</label>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <select class="selectpicker" aria-label="Default select example"
-                                                        name="class" data-live-search="true">
-                                                        <option selected value="">Open this select menu</option>
-                                                        @foreach ($classes as $class)
-                                                            @if (old('class') == $class->class)
-                                                                <option data-tokens="{{ $class->class }}" selected>
-                                                                    {{ $class->class }}
-                                                                </option>
-                                                            @else
-                                                                <option data-tokens="{{ $class->class }}">
-                                                                    {{ $class->class }}
-                                                                </option>
-                                                            @endif
-                                                        @endforeach
-                                                    </select>
-                                                    @error('class')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div> --}}
-                                    {{-- <div class="d-flex flex-row mt-2">
-                                                <div class="col-sm-3">
-                                                    <label type="text" name="" id="" class="form-label">Status</label>
-                                                </div>
-                                                <div class="col-sm-7">
-                                                    <select class="selectpicker" aria-label="Default select example"
-                                                        name="status" data-live-search="true">
-                                                        <option selected>Open this select menu</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="2">Inactive</option>
-                                                    </select>
-                                                    @error('status')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div> --}}
-                                    {{-- <div class="d-flex flex-row mt-2">
-                                                <div class="col-sm-3">
-                                                    <label type="text" name="" id="" class="form-label">Short Name</label>
-                                                </div>
-                                                <div class="col-sm-8">
-                                                    <input id="short_name" type="text"
-                                                        class="form-control @error('short_name') is-invalid @enderror"
-                                                        name="short_name" />
-                                                    @error('short_name')
-                                                        <div class="invalid-feedback">
-                                                            {{ $message }}
-                                                        </div>
-                                                    @enderror
-                                                </div>
-                                            </div> --}}
                                     <div class="d-flex flex-row mt-2">
                                         <div class="col-sm-3">
                                             <label type="text" name="" id="" class="form-label">Nama

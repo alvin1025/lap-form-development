@@ -92,10 +92,6 @@
     <div class="col-lg">
         <table id="table">
             <thead>
-                {{-- <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr> --}}
             </thead>
             <tbody>
                 <?php

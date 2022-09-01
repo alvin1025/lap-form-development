@@ -18,21 +18,6 @@
         <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
     </div>
     <hr>
-    {{-- <div class="d-flex justify-content-evenly">
-        <div class="row">
-            <a href="{{ route('kd2.index') }}" class="btn btn-secondary mb-3" style="width: 175px">KD02</a>
-            <a href="{{ route('kd3.index') }}" class="btn btn-secondary mb-3" style="width: 175px">CUSTOMER MAIN ADDRESS
-                (KD03)</a>
-            <a href="{{ route('kd4.index') }}" class="btn btn-secondary mb-3" style="width: 175px">DEBTOR DATA (KD04)</a>
-            <a href="{{ route('kd5.index') }}" class="btn btn-secondary mb-3" style="width: 175px">ADDITIONAL ADDRESSES
-                (KD05)</a>
-            <a href="{{ route('kd6.index') }}" class="btn btn-secondary mb-3" style="width: 175px">SALES CONDITION
-                (KD06)</a>
-            <a href="{{ route('kd11.index') }}" class="btn btn-secondary mb-3" style="width: 175px">ASSOCIATION LIST
-                (KD11)</a>
-            <a href="{{ route('kd14.index') }}" class="btn btn-secondary mb-3" style="width: 175px">CONTACT (KD14)</a>
-        </div>
-    </div> --}}
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
@@ -68,7 +53,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -83,8 +67,6 @@
                                     <th scope="col">Cust No</th>
                                     <th scope="col">Kode Customer</th>
                                     <th scope="col">Nama</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -95,15 +77,35 @@
                                         <td>{{ $form->no_cust }}</td>
                                         <td>{{ $form->short_name }}</td>
                                         <td>{{ $form->nama1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
-                                        <td>{{ $form->status_form }}</td>
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
+                                            @if ($form->status_form == '')
+                                                <font style="color: brown">Need Submit</font>
+                                            @elseif ($form->status_form == 'created')
+                                                <font style="color: #483838">Need Apprv DM</font>
+                                            @elseif ($form->status_form == 'submitted')
+                                                <font style="color: orange">Need Apprv GM</font>
+                                            @elseif ($form->status_form == 'acknowledged')
+                                                <font style="color: blue">Need Apprv DM Finance</font>
+                                            @elseif ($form->status_form == 'aprv 1')
+                                                <font style="color: #6FEDD6">Need Apprv GM Finance</font>
+                                            @elseif ($form->status_form == 'aprv 2')
+                                                <font style="color: #277BC0">Need Apprv Document Control</font>
+                                            @elseif ($form->status_form == 'inputted')
+                                                <font style="color: #781C68">Inputted to INTEX</font>
+                                            @elseif ($form->status_form == 'rejected')
+                                                <font style="color: red">Rejected</font>
+                                            @elseif ($form->status_form == 'finished')
+                                                <font style="color: green">Finish</font>
+                                            @endif
+                                        </td>
+                                        <td>
                                             <a href="/dashboard/salesFolder/kd3/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
-                                            @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || $form->status_form == 'rejected' || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
+                                            @if ((auth()->user()->division == 'FABRIC SALES' &&
+                                                auth()->user()->jabatan == 'Sub Division Manager' &&
+                                                $form->status_form == '') ||
+                                                $form->status_form == 'rejected' ||
+                                                auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <a href="/dashboard/salesFolder/kd3/{{ $form->id }}/edit"
                                                     class="badge bg-warning">Modify</a>
                                             @endif

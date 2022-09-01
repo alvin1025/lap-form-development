@@ -29,7 +29,7 @@ class Kd11ReqMail extends Mailable
      */
     public function build()
     {
-        $this->subject('Aproval Notifications KD11 Request')
+        $this->subject('Aproval Notifications KD11 Request Cust No: '.$this->kd11['no_cust']. ' Association No: ' .$this->kd11['nama'])
         ->view('dashboard.salesFolder.email.kd11ReqMail');
 
         return $this;

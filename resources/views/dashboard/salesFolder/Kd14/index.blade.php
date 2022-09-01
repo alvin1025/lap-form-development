@@ -14,7 +14,6 @@
     @endif
 
     <div class="d-flex justify-content-start">
-        {{-- <a href="{{ route('kd14.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
         <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
     </div>
     <hr>
@@ -68,7 +67,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -84,8 +82,6 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Email</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -97,19 +93,9 @@
                                         <td>{{ $form->phone_cp1 }}</td>
                                         <td>{{ $form->mobile_cp1 }}</td>
                                         <td>{{ $form->email_cp1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             <a href="/dashboard/salesFolder/kd14/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
-                                            {{-- @if (Auth::user()->division == 'FINANCE' || ((Auth::user()->division == 'FABRIC SALES' && $form->status_form == 'created') || $form->status_form == 'rejected') || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
-                                                <a href="/dashboard/salesFolder/kd14/{{ $form->id }}/edit"
-                                                    class="badge bg-warning">Modify</a>
-                                                <a href="/dashboard/salesFolder/kd14/new/{{ $form->kd14no_cust }}"
-                                                    class="badge bg-success">Add More</a>
-                                            @endif --}}
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd14/{{ $form->id }}"
                                                     method="post" class="d-inline">

@@ -812,7 +812,7 @@ class SubmitReqController extends Controller
             'title' => 'Aproval Form',
             'body' => 'Please Check Submit Form',
             'no_cust' => $kd05->no_cust1,
-            'nama' => $kd05->short_name,
+            'nama' => $kd05->addresscode1,
             // 'status' => $sts
         ];
 

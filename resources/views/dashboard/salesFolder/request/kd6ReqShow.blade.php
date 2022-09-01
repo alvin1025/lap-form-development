@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd03->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
     <div class="card">
         <div class="d-flex content-justify-between">
             <div class="col-sm-6">
@@ -493,10 +491,6 @@
                                             <select class="selectpicker" aria-label="Default select example"
                                                 name="payterm" data-live-search="true">
                                                 <option value="">Choose Payterm</option>
-                                                {{-- @if (auth()->user()->division == 'FABRIC SALES')
-                                                <option selected value="P3C / 30% DP BFR PROD/70% CBD">P3C </option>
-                                                <option selected value="OOC / CASH BEFORE DELIVERY">OOC</option>
-                                                @else --}}
                                                     @foreach ($pays as $pay)
                                                         @if (old('payterm') == $pay->pay_term)
                                                             <option value ="{{ $pay->pay_term }} / {{ $pay->description }}" selected>
@@ -508,7 +502,6 @@
                                                             </option>
                                                         @endif
                                                     @endforeach
-                                                {{-- @endif --}}
                                             </select>
                                             @error('payterm')
                                                 <div class="invalid-feedback">
@@ -621,7 +614,6 @@
                                             <select class="selectpicker" aria-label="Default select example"
                                                 name="kurs" data-live-search="true">
                                                 <option value="">Choose Kurs</option>
-                                                {{-- <option value="{{ $kd06->kurs }}">{{ $kurs->kurs }}</option> --}}
                                                 @foreach ($kurses as $kurs)
                                                     @if (old('kurs') == $kurs->kurs)
                                                         <option data-tokens="{{ $kurs->kurs }}" selected>
@@ -910,7 +902,6 @@
 
     </div>
     </div>
-    {{-- </form> --}}
 
 
     <script>

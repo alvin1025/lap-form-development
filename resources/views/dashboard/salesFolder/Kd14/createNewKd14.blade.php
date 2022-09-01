@@ -292,10 +292,7 @@
             var contactperson;
     
             contactperson = cust+cp1
-            document.getElementById('contactperson').value = contactperson;
-    
-    
-            
+            document.getElementById('contactperson').value = contactperson;        
         }
     </script>
 

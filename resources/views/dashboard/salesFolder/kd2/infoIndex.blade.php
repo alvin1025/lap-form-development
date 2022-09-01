@@ -12,13 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    
-    {{-- <div class="d-flex justify-content-start">
-        @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE' ||auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')
-            <a href="{{ route('kd3.create') }}" class="btn btn-primary mb-3 mr-3">New</a>
-        @endif
-        <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
-    </div> --}}
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -39,9 +32,6 @@
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
-            {{-- <button type="button" class="btn btn-success mb-3 mx-3" data-bs-toggle="modal" data-bs-target="#kd03">
-                Import KD03
-            </button> --}}
 
             {{-- Kd03 --}}
             <div class="modal fade" id="kd03" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -70,8 +60,6 @@
             </div>
         </div>
     @endif
-
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -87,8 +75,6 @@
                                     <th scope="col">Kode Customer</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">CoC</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Cty</th>
                                     <th scope="col">Address Code</th>
                                     <th scope="col" style="width: 80px">SD-SG</th>
@@ -97,7 +83,6 @@
                                     <th scope="col">Associate</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
-                                    {{-- <th scope="col">Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -115,25 +100,24 @@
                                         <td>{{ $form->association_no1 }}</td>
                                         <td>
                                             @if ($form->status_form == '')
-                                                Need Submit
+                                                <font style="color: brown">Need Submit</font>
                                             @elseif ($form->status_form == 'created')
-                                                Need Apprv DM
+                                                <font style="color: #DEA057">Need Apprv DM</font>
                                             @elseif ($form->status_form == 'submitted')
-                                                Need Apprv GM
+                                                <font style="color: orange">Need Apprv GM</font>
                                             @elseif ($form->status_form == 'acknowledged')
-                                                Need Apprv DM Finance
+                                                <font style="color: blue">Need Apprv DM Finance</font>
                                             @elseif ($form->status_form == 'aprv 1')
-                                                Need Apprv GM Finance
+                                                <font style="color: #251D3A">Need Apprv GM Finance</font>
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Need Apprv Document Control
+                                                <font style="color: #277BC0">Need Apprv Document Control</font>
                                             @elseif ($form->status_form == 'inputted')
-                                                Inputted to INTEX
+                                                <font style="color: #781C68">Inputted to INTEX</font>
                                             @elseif ($form->status_form == 'rejected')
-                                                Rejected
+                                                <font style="color: red">Rejected</font>
                                             @elseif ($form->status_form == 'finished')
-                                                Finish
+                                                <font style="color: green">Finish</font>
                                             @endif
-                                            {{-- {{ $form->status_form }} --}}
                                         </td>
                                         <td>
                                             <a href="/dashboard/salesFolder/kd2/info/{{ $form->no_cust }}"

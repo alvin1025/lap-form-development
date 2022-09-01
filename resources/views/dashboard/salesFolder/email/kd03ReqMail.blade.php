@@ -60,10 +60,10 @@
                     <h2 style="text-align: left;
 							align-items: center;">
                         Request Perubahan data KD03 dengan nomor customer {{ $kd3['no_cust'] }} <br>
-                        Nama {{ $kd3['nama'] }}
+                        Code Customer {{ $kd3['nama'] }}
                     </h2>
                     <p>
-                        <a href="luckytexgroup.com"
+                        <a href="http://www.luckytexgroup.com/"
                             style="text-decoration: none;
 								color:black;
 								border: 2px solid #4cb96b;

@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-
-    {{-- <a href="{{ route('OutReqKd14') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -69,7 +67,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -86,8 +83,6 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Email</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -99,20 +94,7 @@
                                         <td>{{ $form->phone_cp1 }}</td>
                                         <td>{{ $form->mobile_cp1 }}</td>
                                         <td>{{ $form->email_cp1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-                                            {{-- @if ($form->status == "inputted") --}}
-                                            {{-- @if ($form->cp1 == $form->cp1_old)
-                                            <a href="/kd14ReqPdf/{{ $form->id }}" class="badge bg-danger"
-                                                target="blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a>
-                                            @else
-                                            <a href="/kd14ReqPdf/add/{{ $form->id }}" class="badge bg-danger"
-                                                target="blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a>
-                                            @endif
-                                            --}}
-                                           
-                                            {{-- @endif --}}
                                             
                                             <a href="/dashboard/salesFolder/kd14request/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>

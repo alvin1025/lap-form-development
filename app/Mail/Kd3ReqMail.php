@@ -30,7 +30,7 @@ class Kd3ReqMail extends Mailable
      */
     public function build()
     {
-        $this->subject('Aproval Notifications KD03 Request')
+        $this->subject('Aproval Notifications KD03 Request Cust No: '.$this->kd3['no_cust']. ' Customer Code '. $this->kd3['nama'])
         ->view('dashboard.salesFolder.email.kd03ReqMail');
 
         return $this;

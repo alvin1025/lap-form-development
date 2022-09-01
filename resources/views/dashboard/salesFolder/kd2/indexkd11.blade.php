@@ -52,7 +52,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -68,8 +67,6 @@
                                     <th scope="col">SD</th>
                                     <th scope="col">SG</th>
                                     <th scope="col">Assoc</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -80,11 +77,7 @@
                                         <td>{{ $form->sd1 }}</td>
                                         <td>{{ $form->sg1 }}</td>
                                         <td>{{ $form->association_no1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             <a href="/dashboard/salesFolder/kd11/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
                                             @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')

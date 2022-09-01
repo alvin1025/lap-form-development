@@ -12,12 +12,7 @@
             {{ session('success') }}
         </div>
     @endif
-
-    {{-- <div class="d-flex justify-content-start"> --}}
-    {{-- <a href="{{ route('kd03request.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
-    {{-- <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
-    {{-- </div>
-    <hr> --}}<a href="{{ route('OutReqKd3') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
+    <a href="{{ route('OutReqKd3') }}" class="btn btn-warning mb-3">Outstanding Customer</a>
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -73,7 +68,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-5">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -88,8 +82,6 @@
                                     <th scope="col">Cust No</th>
                                     <th scope="col">Kode Customer</th>
                                     <th scope="col">Nama</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -100,8 +92,6 @@
                                         <td>{{ $form->no_cust }}</td>
                                         <td>{{ $form->short_name }}</td>
                                         <td>{{ $form->nama1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
                                             @if ($form->status_form == '')
                                                 Need Submit
@@ -120,13 +110,12 @@
                                             @endif
                                         </td>
                                         <td>
-                                            {{-- @if ($form->status == "inputted") --}}
-                                            {{-- <a href="/kd3ReqPdf/{{ $form->id }}" class="badge bg-danger"
-                                                target="blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
-                                            {{-- @endif --}}
                                             <a href="/dashboard/salesFolder/kd03request/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
-                                            @if (Auth::user()->division == 'FINANCE' || ((Auth::user()->division == 'FABRIC SALES' && $form->status_form == 'created') || $form->status_form == 'rejected') || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
+                                            @if (Auth::user()->division == 'FINANCE' ||
+                                                ((Auth::user()->division == 'FABRIC SALES' && $form->status_form == 'created') ||
+                                                    $form->status_form == 'rejected') ||
+                                                Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <a href="/dashboard/salesFolder/kd03request/{{ $form->id }}/edit"
                                                     class="badge bg-warning">Modify</a>
                                             @endif
@@ -164,7 +153,8 @@
             $('#dt-init2').DataTable({
                 "bAutoWidth": false,
                 "aaSorting": [
-                    [1, "desc"], [0, "desc"]
+                    [1, "desc"],
+                    [0, "desc"]
                 ]
             });
             $('#dt-init4').DataTable();

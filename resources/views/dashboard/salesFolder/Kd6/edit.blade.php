@@ -132,8 +132,6 @@
                                     @else
                                         <option data-tokens="{{ $sg->sg }}">{{ $sg->sg }}</option>
                                     @endif
-                                    {{-- <option data-tokens="{{ $sg->sg }}"
-                                        {{ $kd06->kd6sg == $sg->sg ? 'selected' : '' }}>{{ $sg->sg }}</option> --}}
                                 @endforeach
                             </select>
                             @error('kd6sg')
@@ -566,8 +564,6 @@
             }
             $('#agent').on('change', function() {
                 var agentID = $(this).val();
-                // window.print(agentID);
-                // document.write(agentID);
                 if (agentID) {
                     $.ajax({
                         url: '/getAllow/' + agentID,

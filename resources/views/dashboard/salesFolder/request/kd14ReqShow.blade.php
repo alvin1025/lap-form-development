@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd03->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
     <div class="card">
         <div class="d-flex content-justify-between">
             <div class="col-sm-6">
@@ -571,7 +569,6 @@
 
     </div>
     </div>
-    {{-- </form> --}}
 
 
 

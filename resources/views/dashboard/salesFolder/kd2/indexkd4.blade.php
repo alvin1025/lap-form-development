@@ -52,7 +52,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -67,8 +66,6 @@
                                     <th scope="col">Cust No</th>
                                     <th scope="col">Credit Cust</th>
                                     <th scope="col">Credit Limit</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Block Delivery</th>
                                     <th scope="col">Block Reason</th>
                                     <th scope="col">Credit Line Check</th>
@@ -81,14 +78,10 @@
                                         <td>{{ $form->kd4no_cust }}</td>
                                         <td>{{ $form->credit_cust }}</td>
                                         <td>{{ $form->credit_limit }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>{{ $form->block_delivery }}</td>
                                         <td>{{ $form->block_reason }}</td>
                                         <td>{{ $form->credit_line_check }}</td>
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
                                             <a href="/dashboard/salesFolder/kd4/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
                                             @if ((auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == '') || (auth()->user()->division == 'FABRIC SALES' && auth()->user()->jabatan == 'Sub Division Manager' && $form->status_form == 'rejected') || auth()->user()->division == 'FINANCE' || auth()->user()->division == 'MANAGEMENT INFORMATION SYSTEM')

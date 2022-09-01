@@ -42,25 +42,6 @@
     </div>
 </div>
     <hr>
-    {{-- <div class="d-flex justify-content-evenly">
-        <div class="row">
-            <a href="{{ route('kd03request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CUSTOMER MAIN
-                ADDRESS
-                (KD03)</a>
-            <a href="{{ route('kd04request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">DEBTOR DATA
-                (KD04)</a>
-            <a href="{{ route('kd05request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ADDITIONAL
-                ADDRESSES
-                (KD05)</a>
-            <a href="{{ route('kd06request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">SALES CONDITION
-                (KD06)</a>
-            <a href="{{ route('kd11request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ASSOCIATION
-                LIST
-                (KD11)</a>
-            <a href="{{ route('kd14request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CONTACT
-                (KD14)</a>
-        </div>
-    </div> --}}
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
@@ -96,14 +77,12 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
             <div class="col-sm-12">
                 <div class="row">
                     <div class="table-responsive mt-0">
-                        {{-- <div class="container"> --}}
 
                         <table class="table table-striped table-sm p-2" id="dt-init2">
                             <thead>
@@ -112,8 +91,6 @@
                                     <th scope="col">Cust No</th>
                                     <th scope="col">Credit Cust</th>
                                     <th scope="col">Credit Limit</th>
-                                    {{-- <th scope="col">SD</th>
-                                        <th scope="col">SG</th> --}}
                                     <th scope="col">Block Delivery</th>
                                     <th scope="col">Block Reason</th>
                                     <th scope="col">Credit Line Check</th>
@@ -127,8 +104,6 @@
                                         <td>{{ $form->kd4no_cust }}</td>
                                         <td>{{ $form->credit_cust }}</td>
                                         <td>{{ $form->credit_limit }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                            <td>{{ $form->kd6sg }}</td> --}}
                                         <td>{{ $form->block_delivery }}</td>
                                         <td>{{ $form->block_reason }}</td>
                                         <td>{{ $form->credit_line_check }}</td>
@@ -153,7 +128,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- </div> --}}
                     </div>
                 </div>
             </div>
@@ -162,7 +136,6 @@
             <a href="{{ route('request') }}" class="btn btn-danger">BACK</a>
         </div>
     </div>
-    {{-- </div> --}}
 
 @endsection
 @push('after-script')

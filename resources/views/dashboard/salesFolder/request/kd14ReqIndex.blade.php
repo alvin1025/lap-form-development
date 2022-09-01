@@ -29,8 +29,6 @@
         @else
         @endif
 
-        {{-- <a href="{{ route('kd14.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
-
         <a href="{{ route('kd14req.inputted') }}" class="btn btn-success mb-3 mr-2">Inputted Request</a>
         <a href="{{ route('kd14req.finished') }}" class="btn btn-primary mb-3 mr-2">Finished Request</a>
         @if (auth()->user()->division == 'FABRIC SALES' || auth()->user()->position_job_name == 'GM SALES FABRIC & FACTORY MANAGER LPA') 
@@ -39,25 +37,6 @@
     </div>
     </div>
     <hr>
-    {{-- <div class="d-flex justify-content-evenly">
-        <div class="row">
-            <a href="{{ route('kd03request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CUSTOMER MAIN
-                ADDRESS
-                (KD03)</a>
-            <a href="{{ route('kd04request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">DEBTOR DATA
-                (KD04)</a>
-            <a href="{{ route('kd05request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ADDITIONAL
-                ADDRESSES
-                (KD05)</a>
-            <a href="{{ route('kd06request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">SALES CONDITION
-                (KD06)</a>
-            <a href="{{ route('kd11request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">ASSOCIATION
-                LIST
-                (KD11)</a>
-            <a href="{{ route('kd14request.index') }}" class="btn btn-secondary mb-3" style="width: 215px">CONTACT
-                (KD14)</a>
-        </div>
-    </div> --}}
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
         <div class="d-flex justify-content-start">
@@ -110,8 +89,6 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Mobile</th>
                                     <th scope="col">Email</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -124,8 +101,6 @@
                                         <td>{{ $form->phone_cp1 }}</td>
                                         <td>{{ $form->mobile_cp1 }}</td>
                                         <td>{{ $form->email_cp1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
                                             @if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE')
                                                 <a href="/dashboard/salesFolder/change/request/show/kd14/{{ $form->id }}"

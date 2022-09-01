@@ -82,7 +82,7 @@
         <footer class="main-footer mt-3">
             <strong>Copyright &copy; {{ date('Y') }} Lucky Print Abadi.</strong>
             All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
+            <div class="float-right d-none d-sm-inline-block ">
                 <marquee behavior="" direction=""><b>Work With Your Heart</b></marquee>
             </div>
         </footer>

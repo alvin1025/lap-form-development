@@ -53,7 +53,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -68,8 +67,6 @@
                                     <th scope="col">Cust No</th>
                                     <th scope="col">Credit Cust</th>
                                     <th scope="col">Credit Limit</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Block Delivery</th>
                                     <th scope="col">Block Reason</th>
                                     <th scope="col">Credit Line Check</th>
@@ -84,40 +81,33 @@
                                         <td>{{ $form->kd4no_cust }}</td>
                                         <td>{{ $form->credit_cust }}</td>
                                         <td>{{ $form->credit_limit }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>{{ $form->block_delivery }}</td>
                                         <td>{{ $form->block_reason }}</td>
                                         <td>{{ $form->credit_line_check }}</td>
                                         <td>
                                             @if ($form->status_form == '')
-                                            Need Submit
+                                                <font style="color: brown">Need Submit</font>
                                             @elseif ($form->status_form == 'created')
-                                                Need Apprv DM
+                                                <font style="color: #DEA057">Need Apprv DM</font>
                                             @elseif ($form->status_form == 'submitted')
-                                                Need Apprv GM
+                                                <font style="color: orange">Need Apprv GM</font>
                                             @elseif ($form->status_form == 'acknowledged')
-                                                Need Apprv DM Finance
+                                                <font style="color: blue">Need Apprv DM Finance</font>
                                             @elseif ($form->status_form == 'aprv 1')
-                                                Need Apprv GM Finance
+                                                <font style="color: #251D3A">Need Apprv GM Finance</font>
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Need Apprv Document Control
+                                                <font style="color: #277BC0">Need Apprv Document Control</font>
                                             @elseif ($form->status_form == 'inputted')
-                                                Final Authorize
+                                                <font style="color: #781C68">Inputted to INTEX</font>
                                             @elseif ($form->status_form == 'rejected')
-                                                Rejected
+                                                <font style="color: red">Rejected</font>
                                             @elseif ($form->status_form == 'finished')
-                                                Finished
+                                                <font style="color: green">Finish</font>
                                             @endif
                                         </td>
                                         <td>
-                                            {{-- <a href="/exportCust/{{ $form->id }}" class="badge bg-danger"
-                                                target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a> --}}
-
-                                            {{-- @if (Auth::user()->division == 'FINANCE' || Auth::user()->division == 'FABRIC SALES') --}}
                                             <a href="/dashboard/salesFolder/change/request/kd4/{{ $form->id }}/submit"
                                                 class="badge bg-success">Submit</a>
-                                            {{-- @endif --}}
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd04request/{{ $form->id }}"
                                                     method="post" class="d-inline">
@@ -149,7 +139,8 @@
             $('#dt-init2').DataTable({
                 "bAutoWidth": false,
                 "aaSorting": [
-                    [1, "desc"], [0, "desc"]
+                    [1, "desc"],
+                    [0, "desc"]
                 ],
                 "columnDefs": [
                     //hide the second & fourth column

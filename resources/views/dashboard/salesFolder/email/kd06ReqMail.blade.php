@@ -60,10 +60,10 @@
                     <h2 style="text-align: left;
 							align-items: center;">
                         Request Perubahan data KD06 dengan nomor customer {{ $kd6['no_cust'] }} <br>
-                        sd {{ $kd6['nama'] }} & sg{{ $kd6['sg'] }}
+                        sd {{ $kd6['nama'] }} & sg {{ $kd6['sg'] }}
                     </h2>
                     <p>
-                        <a href="luckytexgroup.com"
+                        <a href="http://www.luckytexgroup.com/"
                             style="text-decoration: none;
 								color:black;
 								border: 2px solid #4cb96b;

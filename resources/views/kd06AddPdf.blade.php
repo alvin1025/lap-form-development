@@ -83,7 +83,6 @@
                     <?php
                     foreach ($data['kd06'] as $row) {
                         echo '<tr>';
-                        // echo "<th align=center; colspan=12; >". "NO : " .$row->no_formmis."</th>";
                         echo '</tr>';
                         echo '<br>';
                         echo '<br>';

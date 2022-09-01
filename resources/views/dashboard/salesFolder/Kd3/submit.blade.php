@@ -37,8 +37,6 @@
                                                 <th scope="col">Cust No</th>
                                                 <th scope="col">Kode Customer</th>
                                                 <th scope="col">Nama</th>
-                                                {{-- <th scope="col">SD</th>
-                                                <th scope="col">SG</th> --}}
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
@@ -49,9 +47,27 @@
                                                     <td>{{ $form->no_cust }}</td>
                                                     <td>{{ $form->short_name }}</td>
                                                     <td>{{ $form->nama1 }}</td>
-                                                    {{-- <td>{{ $form->sd }}</td>
-                                                    <td>{{ $form->kd6sg }}</td> --}}
-                                                    <td>{{ $form->status_form }}</td>
+                                                    <td>
+                                                        @if ($form->status_form == '')
+                                                            <font style="color: brown">Need Submit</font>
+                                                        @elseif ($form->status_form == 'created')
+                                                            <font style="color: #DEA057">Need Apprv DM</font>
+                                                        @elseif ($form->status_form == 'submitted')
+                                                            <font style="color: orange">Need Apprv GM</font>
+                                                        @elseif ($form->status_form == 'acknowledged')
+                                                            <font style="color: blue">Need Apprv DM Finance</font>
+                                                        @elseif ($form->status_form == 'aprv 1')
+                                                            <font style="color: #251D3A">Need Apprv GM Finance</font>
+                                                        @elseif ($form->status_form == 'aprv 2')
+                                                            <font style="color: #277BC0">Need Apprv Document Control</font>
+                                                        @elseif ($form->status_form == 'inputted')
+                                                            <font style="color: #781C68">Inputted to INTEX</font>
+                                                        @elseif ($form->status_form == 'rejected')
+                                                            <font style="color: red">Rejected</font>
+                                                        @elseif ($form->status_form == 'finished')
+                                                            <font style="color: green">Finish</font>
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         <button type="button" class="btn btn-info" data-toggle="modal"
                                                             data-target=".kd03"><i class="fa fa-eye" aria-hidden="true"></i>
@@ -143,7 +159,8 @@
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control"
                                                             value="{{ $kd03->class ?? 'Data Belum Lengkap!' }}"
-                                                            style="{{ $kd03->class == null ? 'color:red' : '' }}" disabled>
+                                                            style="{{ $kd03->class == null ? 'color:red' : '' }}"
+                                                            disabled>
                                                         @error('class')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -494,8 +511,6 @@
                                                 <th scope="col">Cust No</th>
                                                 <th scope="col">Credit Cust</th>
                                                 <th scope="col">Credit Limit</th>
-                                                {{-- <th scope="col">SD</th>
-                                                <th scope="col">SG</th> --}}
                                                 <th scope="col">Block Delivery</th>
                                                 <th scope="col">Block Reason</th>
                                                 <th scope="col">Credit Line Check</th>
@@ -508,8 +523,6 @@
                                                     <td>{{ $form->kd4no_cust }}</td>
                                                     <td>{{ $form->credit_cust }}</td>
                                                     <td>{{ $form->credit_limit }}</td>
-                                                    {{-- <td>{{ $form->sd }}</td>
-                                                    <td>{{ $form->kd6sg }}</td> --}}
                                                     <td>{{ $form->block_delivery }}</td>
                                                     <td>{{ $form->block_reason }}</td>
                                                     <td>{{ $form->credit_line_check }}</td>
@@ -2296,7 +2309,6 @@
                     </div>
                 </div>
             </div>
-
         @elseif (auth()->user()->position_job_name == 'DIREKTUR FINANCE, ACCT & IT' &&
             auth()->user()->jabatan == 'Direksi' &&
             $kd03->status_form == 'aprv 1')
@@ -2608,30 +2620,30 @@
                 <div class="col-sm-1">
                     <button type="submit" class="btn btn-primary disabled" hidden>SUBMIT</button>
                 </div>
-            @elseif ((auth()->user()->division == 'FABRIC SALES' &&
+            @elseif (auth()->user()->division == 'FABRIC SALES' &&
                 auth()->user()->position_job_name == 'DM FABRIC SALES' &&
-                $kd03->status_form != 'created'))
+                $kd03->status_form != 'created')
                 <div class="col-sm-1 mr-5">
                     <button type="submit" class="btn btn-primary disabled" hidden>SUBMIT</button>
                 </div>
-            @elseif ((auth()->user()->position_job_name == 'GM SALES FABRIC & FACTORY MANAGER LPA' &&
-                $kd03->status_form != 'submitted'))
+            @elseif (auth()->user()->position_job_name == 'GM SALES FABRIC & FACTORY MANAGER LPA' &&
+                $kd03->status_form != 'submitted')
                 <div class="col-sm-1 mr-5">
                     <button type="submit" class="btn btn-primary disabled" hidden>SUBMIT</button>
                 </div>
-            @elseif ((auth()->user()->division == 'FINANCE' &&
+            @elseif (auth()->user()->division == 'FINANCE' &&
                 auth()->user()->jabatan == 'Division Manager' &&
-                $kd03->status_form != 'acknowledged'))
+                $kd03->status_form != 'acknowledged')
                 <div class="col-sm-1 mr-5">
                     <button type="submit" class="btn btn-primary disabled" hidden>SUBMIT</button>
                 </div>
-            @elseif ((auth()->user()->position_job_name == 'DIREKTUR FINANCE, ACCT & IT' &&
+            @elseif (auth()->user()->position_job_name == 'DIREKTUR FINANCE, ACCT & IT' &&
                 auth()->user()->jabatan == 'Direksi' &&
-                $kd03->status_form != 'aprv 1'))
+                $kd03->status_form != 'aprv 1')
                 <div class="col-sm-1 mr-5">
                     <button type="submit" class="btn btn-primary disabled" hidden>SUBMIT</button>
                 </div>
-            @elseif ((auth()->user()->division == 'INTERNAL AUDIT' && $kd03->status_form != 'aprv 2'))
+            @elseif (auth()->user()->division == 'INTERNAL AUDIT' && $kd03->status_form != 'aprv 2')
                 <div class="col-sm-1 mr-5">
                     <button type="submit" class="btn btn-primary disabled" hidden>SUBMIT</button>
                 </div>

@@ -7,8 +7,6 @@
         <h1 class="h2">@yield('title')</h1>
         <div class="d-flex flex-row mb-3 justify-content-end">
             <div class="col-sm-2">
-                {{-- <a href="{{ route('createSame', $kd05->no_cust1) }}" class="btn btn-success">New</a> --}}
-                {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
             </div>
         </div>
     </div>

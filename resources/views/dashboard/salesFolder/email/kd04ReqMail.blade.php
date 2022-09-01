@@ -63,7 +63,7 @@
                         Credit Line Check {{ $kd4['nama'] }}
                     </h2>
                     <p>
-                        <a href="luckytexgroup.com"
+                        <a href="http://www.luckytexgroup.com/"
                             style="text-decoration: none;
 								color:black;
 								border: 2px solid #4cb96b;

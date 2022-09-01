@@ -53,7 +53,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -72,8 +71,6 @@
                                     <th scope="col">Cocd</th>
                                     <th scope="col">Cty</th>
                                     <th scope="col">Status</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -89,31 +86,24 @@
                                         <td>{{ $form->kota1 }}</td>
                                         <td>
                                             @if ($form->status_form == '')
-                                                Need Submit
+                                                <font style="color: brown">Need Submit</font>
                                             @elseif ($form->status_form == 'created')
-                                                Need Apprv DM
+                                                <font style="color: #541690">Need Apprv DM</font>
                                             @elseif ($form->status_form == 'aprv 1 ')
-                                                Need Apprv GM
+                                                <font style="color: #FF8D29">Need Apprv GM</font>
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Need Apprv Document Control
+                                                <font style="color: #FF4949">Need Apprv Document Control</font>
                                             @elseif ($form->status_form == 'rejected')
-                                                Rejected
+                                                <font style="color: red">Rejected</font>
                                             @elseif ($form->status_form == 'inputted')
-                                                Final Authorize
+                                                <font style="color: blue">Inputted to INTEX</font>
                                             @elseif ($form->status_form == 'finished')
-                                                Finished
+                                                <font style="color: green">Finished</font>
                                             @endif
                                         </td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-
-                                            {{-- @if ($form->status_form != 'finished') --}}
                                             <a href="/dashboard/salesFolder/change/request/kd5/{{ $form->id }}/submit"
                                                 class="badge bg-success">Submit</a>
-                                            {{-- <a href="/dashboard/salesFolder/kd5/new/{{ $form->no_cust1 }}"
-                                                class="badge bg-success"><i class="fas fa-plus-circle"></i></a> --}}
-                                            {{-- @endif --}}
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd5/{{ $form->id }}"
                                                     method="post" class="d-inline">

@@ -79,16 +79,11 @@
             </div>
             <table id="table">
                 <thead>
-                    {{-- <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr> --}}
                 </thead>
                 <tbody>
                     <?php
                     foreach ($data['kd04'] as $row) {
                         echo '<tr>';
-                        // echo "<th align=center; colspan=12; >". "NO : " .$row->no_formmis."</th>";
                         echo '</tr>';
                         echo '<br>';
                         echo '<br>';

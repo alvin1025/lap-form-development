@@ -36,7 +36,7 @@
                                 <input type="password" id="first-name" placeholder="Enter new password"
                                     class="form-control @error('newpassword') is-invalid @enderror" name="newpassword">
                             </div>
-                            @error('oldpassword')
+                            @error('newpassword')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

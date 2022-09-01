@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd06->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
     @if ($kd06->sd_old == $kd06->sd)
         <div class="card">
             <div class="d-flex content-justify-between">

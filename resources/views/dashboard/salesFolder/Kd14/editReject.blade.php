@@ -6,8 +6,6 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
         <h1 class="h2">@yield('title')</h1>
         <div class="col-sm-2">
-            {{-- <a href="{{ route('NewKd14', $kd14->kd14no_cust) }}" class="btn btn-success">New</a> --}}
-            {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
         </div>
     </div>
 

@@ -401,13 +401,6 @@
                                 <div class="col-sm-6">
                                     <select class="selectpicker" aria-label="Default select example"
                                         name="credit_line_check" data-live-search="true" data-container="body">
-                                        {{-- @if (auth()->user()->division = 'FABRIC SALES')
-                                            <option value="Cr.line check at deliv.release"
-                                                {{ $kd04->credit_line_check == 'Cr.line check at' ? 'selected' : '' }}>
-                                                Cr.line
-                                                check at
-                                                deliv.release</option>
-                                        @else --}}
                                             <option value="Yes, credit line check">
                                                 Yes, credit line check
                                             </option>

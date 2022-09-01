@@ -19,21 +19,6 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="col-sm-4">
-                            <div class="mb-3 row">
-                                <label class="col-sm-5 col-form-label my-2"></label>
-                                <div class="col-sm-7 my-2">
-                                    <input id="tanggal" type="date"
-                                        class="form-control @error('tanggal') is-invalid @enderror" name="tanggal"
-                                        value="{{ $kd03->tanggal }}" disabled />
-                                    @error('tanggal')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div> --}}
                 </div>
                 <h4 style="font-weight: bold;" class="text-center">Form Permintaan Input Cust Baru / Perubahan Data
                     Cust
@@ -615,25 +600,6 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-sm-6">
-                                <div class="d-flex flex-row mt-2">
-                                    <div class="col-sm-3 mr-2">
-                                        <label type="text" name="" id="" class="form-label"
-                                            style="font-size: 12px">Block</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input id="block" type="text"
-                                            class="form-control @error('block') is-invalid @enderror" name="block"
-                                            value="{{ $kd04->block ?? 'Data Belum Lengkap!' }}"
-                                            style="{{ $kd04->block == null ? 'color:red' : '' }}" disabled />
-                                        @error('block')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="col-sm-8">
                                 <div class="d-flex flex-row mt-2">
                                     <div class="col-sm-2 mr-4">

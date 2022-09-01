@@ -13,13 +13,6 @@
         </div>
     @endif
     <div class="d-flex justify-content-start">
-        {{-- <a href="{{ route('kd3.edit', ['kd3']) }}" class="btn btn-secondary mb-3" style="width: 150px">Kd03</a> --}}
-        {{-- <a href="{{ route('kd4.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd04</a> --}}
-        {{-- <a href="{{ route('editkd5', ['id']) }}" class="btn btn-secondary mb-3" style="width: 150px">Kd05</a> --}}
-        {{-- <a href="{{ route('kd6.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd06</a> --}}
-        {{-- <a href="{{ route('kd11.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd11</a> --}}
-        {{-- <a href="{{ route('kd14.edit') }}" class="btn btn-secondary mb-3" style="width: 150px">Kd14</a> --}}
-        {{-- </div> --}}
         <form action="{{ route('updatekd3', ['no_cust' => $kd03->no_cust]) }}" method="POST">
             @csrf
             @method('put')

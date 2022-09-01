@@ -29,7 +29,7 @@ class Kd5ReqMail extends Mailable
      */
     public function build()
     {
-        $this->subject('Aproval Notifications KD05 Request')
+        $this->subject('Aproval Notifications KD05 Request Cust No: '.$this->kd5['no_cust']. ' Address Code: '. $this->kd5['nama'])
         ->view('dashboard.salesFolder.email.kd05ReqMail');
 
         return $this;

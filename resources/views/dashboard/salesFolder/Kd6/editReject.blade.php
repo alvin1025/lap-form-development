@@ -6,8 +6,6 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center border-bottom">
         <h1 class="h2">@yield('title')</h1>
         <div class="col-sm-2">
-            {{-- <a href="{{ route('newKd6', $kd06->kd6no_cust) }}" class="btn btn-success">New</a> --}}
-            {{-- <button type="button" class="btn btn-success me-2 remove-tr" id="add">Add More</button> --}}
         </div>
     </div>
 
@@ -132,8 +130,6 @@
                                     @else
                                         <option data-tokens="{{ $sg->sg }}">{{ $sg->sg }}</option>
                                     @endif
-                                    {{-- <option data-tokens="{{ $sg->sg }}"
-                                        {{ $kd06->kd6sg == $sg->sg ? 'selected' : '' }}>{{ $sg->sg }}</option> --}}
                                 @endforeach
                             </select>
                             @error('kd6sg')
@@ -380,183 +376,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="col-sm-10 mt-3">
-                <div class="d-flex flex-row">
-                    <div class="col-sm-2">
-                        <label type="text" name="" id="" class="form-label">SG/Brand</label>
-                    </div>
-                    <div class="col-sm-3">
-                        <label type="text" name="" id="" class="form-label">Kode Brand</label>
-                    </div>
-                    <div class="col-sm-5">
-                        <label type="text " name="" id="" class="form-label text-center">Long
-                            Description</label>
-                    </div>
-                    <div class="col-sm-3">
-                        <label type="text " name="" id="" class="form-label text-center">Negara</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-10">
-                <div class="d-flex flex-row">
-                    <div class="col-sm-2">
-                        <label type="text" name="" id="" class="form-label"></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input class="form-control" type="text" id="kode_brand" name="kode_brand1"
-                            value="{{ $kd06->kode_brand1 }}">
-                    </div>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="long_desc" name="long_desc1"
-                            value="{{ $kd06->long_desc1 }}">
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="selectpicker" aria-label="Default select example" name="negara1"
-                            data-live-search="true">
-                            <option selected value="">Open this select menu</option>
-                            @foreach ($negaras as $negara)
-                                @if ($kd06->negara1 == $negara->nama_negara)
-                                    <option data-tokens="{{ $negara->nama_negara }}" selected>
-                                        {{ $kd06->negara1 }}
-                                    </option>
-                                @else
-                                    <option data-tokens="{{ $negara->nama_negara }}">
-                                        {{ $negara->nama_negara }}
-                                    </option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-10">
-                <div class="d-flex flex-row">
-                    <div class="col-sm-2">
-                        <label type="text" name="" id="" class="form-label"></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input class="form-control" type="text" id="kode_brand" name="kode_brand2"
-                            value="{{ $kd06->kode_brand2 }}">
-                    </div>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="long_desc" name="long_desc2"
-                            value="{{ $kd06->long_desc2 }}">
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="selectpicker" aria-label="Default select example" name="negara2"
-                            data-live-search="true">
-                            <option selected value="">Open this select menu</option>
-                            @foreach ($negaras as $negara)
-                                @if ($kd06->negara2 == $negara->nama_negara)
-                                    <option data-tokens="{{ $negara->nama_negara }}" selected>
-                                        {{ $kd06->negara2 }}
-                                    </option>
-                                @else
-                                    <option data-tokens="{{ $negara->nama_negara }}">
-                                        {{ $negara->nama_negara }}
-                                    </option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-10">
-                <div class="d-flex flex-row">
-                    <div class="col-sm-2">
-                        <label type="text" name="" id="" class="form-label"></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input class="form-control" type="text" id="kode_brand" name="kode_brand3"
-                            value="{{ $kd06->kode_brand3 }}">
-                    </div>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="long_desc" name="long_desc3"
-                            value="{{ $kd06->long_desc3 }}">
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="selectpicker" aria-label="Default select example" name="negara3"
-                            data-live-search="true">
-                            <option selected value="">Open this select menu</option>
-                            @foreach ($negaras as $negara)
-                                @if ($kd06->negara3 == $negara->nama_negara)
-                                    <option data-tokens="{{ $negara->nama_negara }}" selected>
-                                        {{ $kd06->negara3 }}
-                                    </option>
-                                @else
-                                    <option data-tokens="{{ $negara->nama_negara }}">
-                                        {{ $negara->nama_negara }}
-                                    </option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-10">
-                <div class="d-flex flex-row">
-                    <div class="col-sm-2">
-                        <label type="text" name="" id="" class="form-label"></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input class="form-control" type="text" id="kode_brand" name="kode_brand4"
-                            value="{{ $kd06->kode_brand4 }}">
-                    </div>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="long_desc" name="long_desc4"
-                            value="{{ $kd06->long_desc4 }}">
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="selectpicker" aria-label="Default select example" name="negara4"
-                            data-live-search="true">
-                            <option selected value="">Open this select menu</option>
-                            @foreach ($negaras as $negara)
-                                @if ($kd06->negara4 == $negara->nama_negara)
-                                    <option data-tokens="{{ $negara->nama_negara }}" selected>
-                                        {{ $negara->nama_negara }}
-                                    </option>
-                                @else
-                                    <option data-tokens="{{ $negara->nama_negara }}">
-                                        {{ $negara->nama_negara }}
-                                    </option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-10">
-                <div class="d-flex flex-row">
-                    <div class="col-sm-2">
-                        <label type="text" name="" id="" class="form-label"></label>
-                    </div>
-                    <div class="col-sm-3">
-                        <input class="form-control" type="text" id="kode_brand" name="kode_brand5"
-                            value="{{ $kd06->kode_brand5 }}">
-                    </div>
-                    <div class="col-sm-5">
-                        <input class="form-control" type="text" id="long_desc" name="long_desc5"
-                            value="{{ $kd06->long_desc5 }}">
-                    </div>
-                    <div class="col-sm-3">
-                        <select class="selectpicker" aria-label="Default select example" name="negara5"
-                            data-live-search="true">
-                            <option selected value="">Open this select menu</option>
-                            @foreach ($negaras as $negara)
-                                @if ($kd06->negara5 == $negara->nama_negara)
-                                    <option data-tokens="{{ $negara->nama_negara }}" selected>
-                                        {{ $kd06->negara5 }}
-                                    </option>
-                                @else
-                                    <option data-tokens="{{ $negara->nama_negara }}">
-                                        {{ $negara->nama_negara }}
-                                    </option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div> --}}
 
             <div class="col-sm-8 my-2 text-center">
                 <div class="d-flex flex-row">

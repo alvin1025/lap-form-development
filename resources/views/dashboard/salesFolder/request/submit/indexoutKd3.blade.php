@@ -17,11 +17,6 @@
             <a href="{{ route('kd3reqindex') }}" class="btn btn-danger">BACK</a>
         </div>
     </div>
-    {{-- <div class="d-flex justify-content-start"> --}}
-    {{-- <a href="{{ route('kd03request.create') }}" class="btn btn-primary mb-3 mr-3">New</a> --}}
-    {{-- <a href="{{ route('kd3outindex') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
-    {{-- </div>
-    <hr> --}}
 
     @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
         <hr class="my-2">
@@ -58,7 +53,6 @@
         </div>
     @endif
 
-    {{-- <div class="row justify-content-center"> --}}
     <hr class="mb-3 mt-2">
     <div class="row">
         <div class="d-flex justify-content-around">
@@ -73,8 +67,6 @@
                                     <th scope="col">Cust No</th>
                                     <th scope="col">Kode Customer</th>
                                     <th scope="col">Nama</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -86,30 +78,26 @@
                                         <td>{{ $form->no_cust }}</td>
                                         <td>{{ $form->short_name }}</td>
                                         <td>{{ $form->nama1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
                                             @if ($form->status_form == '')
-                                                Need Submit
+                                                <font style="color: brown">Need Submit</font>
                                             @elseif ($form->status_form == 'created')
-                                                Need Apprv DM
+                                                <font style="color: #541690">Need Apprv DM</font>
                                             @elseif ($form->status_form == 'aprv 1 ')
-                                                Need Apprv GM
+                                                <font style="color: #FF8D29">Need Apprv GM</font>
                                             @elseif ($form->status_form == 'aprv 2')
-                                                Need Apprv Document Control
+                                                <font style="color: #FF4949">Need Apprv Document Control</font>
                                             @elseif ($form->status_form == 'rejected')
-                                                Rejected
+                                                <font style="color: red">Rejected</font>
                                             @elseif ($form->status_form == 'inputted')
-                                                Final Authorize
+                                                <font style="color: blue">Inputted to INTEX</font>
                                             @elseif ($form->status_form == 'finished')
-                                                Finished
+                                                <font style="color: green">Finished</font>
                                             @endif
                                         </td>
                                         <td>
-                                            {{-- @if (Auth::user()->division == 'FINANCE' || Auth::user()->division == 'FABRIC SALES' || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM') --}}
                                             <a href="/dashboard/salesFolder/change/request/submit/{{ $form->id }}/submit"
                                                 class="badge bg-success">Submit</a>
-                                            {{-- @endif --}}
                                             @if (Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')
                                                 <form action="/dashboard/salesFolder/kd03request/{{ $form->id }}"
                                                     method="post" class="d-inline">

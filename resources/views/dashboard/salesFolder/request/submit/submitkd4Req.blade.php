@@ -12,9 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd4.update', ['kd4' => $kd04->id]) }}" method="POST">
-        @csrf
-        @method('put') --}}
     <h6 class="text-left mt-3">KD04 Finance</h6>
     <hr>
     <div class="row">

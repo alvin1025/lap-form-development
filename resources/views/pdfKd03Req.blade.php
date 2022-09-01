@@ -79,16 +79,11 @@
             </div>
             <table id="table">
                 <thead>
-                    {{-- <tr>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr> --}}
                 </thead>
                 <tbody>
                     <?php
                     foreach ($data['kd03'] as $row) {
                         echo '<tr>';
-                        // echo "<th align=center; colspan=12; >". "NO : " .$row->no_formmis."</th>";
                         echo '</tr>';
                         echo '<br>';
                         echo '<br>';
@@ -126,24 +121,12 @@
                         echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Nama' . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10;">' . ($row->nama1 = $row->nama1 != '' ? $row->nama1 . ' ' . $row->nama2 : '-' . '</td>');
                         echo '</tr>';
-                        // echo "<tr>";
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "Nama" . '</td>';
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "". '</td>';
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "Nama" . '</td>';
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "". '</td>';
-                        // echo "</tr>";
                         echo '<tr>';
                         echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Street' . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10; word-break:break-all; word-wrap:break-word;">' . $row->street_old . ' ' . $row->addit_old . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Street' . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10; word-break:break-all; word-wrap:break-word;">' . ($row->street = $row->street != '' ? $row->street . ' ' . $row->addit : '-' . '</td>');
                         echo '</tr>';
-                        // echo "<tr>";
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "Add Street" . '</td>';
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "". '</td>';
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "Add Street" . '</td>';
-                        // echo '<td align=left; colspan=3; style="font-size: 10;">' . "". '</td>';
-                        // echo "</tr>";
                         echo '<tr>';
                         echo '<td align=left; colspan=3; style="font-size: 10; font-weight:900">' . 'Tax' . '</td>';
                         echo '<td align=left; colspan=3; style="font-size: 10;">' . $row->tax_old . '</td>';

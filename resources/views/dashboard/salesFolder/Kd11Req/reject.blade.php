@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-
-    {{-- <a href="{{ route('OutReqKd11') }}" class="btn btn-warning mb-3">Outstanding Customer</a> --}}
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="row">
@@ -85,8 +83,6 @@
                                     <th scope="col">SD</th>
                                     <th scope="col">SG</th>
                                     <th scope="col">Assoc</th>
-                                    {{-- <th scope="col">SD</th>
-                                    <th scope="col">SG</th> --}}
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -97,20 +93,7 @@
                                         <td>{{ $form->sd1 }}</td>
                                         <td>{{ $form->sg1 }}</td>
                                         <td>{{ $form->association_no1 }}</td>
-                                        {{-- <td>{{ $form->sd }}</td>
-                                        <td>{{ $form->kd6sg }}</td> --}}
                                         <td>
-                                            {{-- @if ($form->status == "inputted") --}}
-                                            {{-- @if ($form->association_no1_old == $form->association_no1)
-                                            <a href="/kd11ReqPdf/{{ $form->id }}" class="badge bg-danger"
-                                                target="blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a>
-                                            @else
-                                            <a href="/kd11ReqPdf/add/{{ $form->id }}" class="badge bg-danger"
-                                                target="blank"><i class="fas fa-file-pdf" aria-hidden="true"></i></a>
-                                            @endif --}}
-                                           
-                                           
-                                            {{-- @endif --}}
                                             <a href="/dashboard/salesFolder/kd11request/{{ $form->id }}"
                                                 class="badge bg-info">Info</a>
                                             @if (Auth::user()->division == 'FINANCE' || ((Auth::user()->division == 'FABRIC SALES' && $form->status_form == 'created') || $form->status_form == 'rejected') || Auth::user()->division == 'MANAGEMENT INFORMATION SYSTEM')

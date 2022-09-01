@@ -37,8 +37,6 @@
                                                 <th scope="col">Cust No</th>
                                                 <th scope="col">Kode Customer</th>
                                                 <th scope="col">Nama</th>
-                                                {{-- <th scope="col">SD</th>
-                                                <th scope="col">SG</th> --}}
                                                 <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
@@ -49,9 +47,27 @@
                                                     <td>{{ $form->no_cust }}</td>
                                                     <td>{{ $form->short_name }}</td>
                                                     <td>{{ $form->nama1 }}</td>
-                                                    {{-- <td>{{ $form->sd }}</td>
-                                                    <td>{{ $form->kd6sg }}</td> --}}
-                                                    <td>{{ $form->status_form }}</td>
+                                                    <td>
+                                                        @if ($form->status_form == '')
+                                                            <font style="color: brown">Need Submit</font>
+                                                        @elseif ($form->status_form == 'created')
+                                                            <font style="color: #DEA057">Need Apprv DM</font>
+                                                        @elseif ($form->status_form == 'submitted')
+                                                            <font style="color: orange">Need Apprv GM</font>
+                                                        @elseif ($form->status_form == 'acknowledged')
+                                                            <font style="color: blue">Need Apprv DM Finance</font>
+                                                        @elseif ($form->status_form == 'aprv 1')
+                                                            <font style="color: #251D3A">Need Apprv GM Finance</font>
+                                                        @elseif ($form->status_form == 'aprv 2')
+                                                            <font style="color: #277BC0">Need Apprv Document Control</font>
+                                                        @elseif ($form->status_form == 'inputted')
+                                                            <font style="color: #781C68">Inputted to INTEX</font>
+                                                        @elseif ($form->status_form == 'rejected')
+                                                            <font style="color: red">Rejected</font>
+                                                        @elseif ($form->status_form == 'finished')
+                                                            <font style="color: green">Finish</font>
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         <button type="button" class="btn btn-info" data-toggle="modal"
                                                             data-target=".kd03"><i class="fa fa-eye" aria-hidden="true"></i>
@@ -127,8 +143,7 @@
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control"
                                                             value="{{ $kd03->title ?? 'Data Belum Lengkap!' }}"
-                                                            style="{{ $kd03->title == null ? 'color:red' : '' }}"
-                                                            disabled>
+                                                            style="{{ $kd03->title == null ? 'color:red' : '' }}" disabled>
                                                         @error('title')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -181,8 +196,7 @@
                                                     <div class="col-sm-8">
                                                         <input id="nama" type="text"
                                                             class="form-control @error('nama') is-invalid @enderror"
-                                                            name="nama" value="{{ $kd03->nama2 ?? '-' }}"
-                                                            disabled />
+                                                            name="nama" value="{{ $kd03->nama2 ?? '-' }}" disabled />
                                                         @error('nama')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -218,8 +232,7 @@
                                                     <div class="col-sm-8">
                                                         <input id="addit" type="text"
                                                             class="form-control @error('addit') is-invalid @enderror"
-                                                            name="addit" value="{{ $kd03->addit ?? '-' }}"
-                                                            disabled />
+                                                            name="addit" value="{{ $kd03->addit ?? '-' }}" disabled />
                                                         @error('alamat')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -415,8 +428,7 @@
                                                     <div class="col-sm-6">
                                                         <input id="po_box" type="text"
                                                             class="form-control @error('po_box') is-invalid @enderror"
-                                                            name="po_box" value="{{ $kd03->po_box ?? '-' }}"
-                                                            disabled />
+                                                            name="po_box" value="{{ $kd03->po_box ?? '-' }}" disabled />
                                                         @error('po_box')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -449,7 +461,8 @@
                                                             class="form-label">NPWP Image</label>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <img src="{{ URL::to($kd03->npwp_image) }}" alt="" style="height: 100px; weight: 100px;"
+                                                        <img src="{{ URL::to($kd03->npwp_image) }}" alt=""
+                                                            style="height: 100px; weight: 100px;"
                                                             class="rounded mx-auto d-block"></a>
                                                         @error('npwp')
                                                             <div class="invalid-feedback">
@@ -464,7 +477,8 @@
                                                             class="form-label">KTP Image</label>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <img src="{{ URL::to($kd03->ktp_image) }}" alt="" style="height: 100px; weight: 100px;"
+                                                        <img src="{{ URL::to($kd03->ktp_image) }}" alt=""
+                                                            style="height: 100px; weight: 100px;"
                                                             class="rounded mx-auto d-block"></a>
                                                         @error('npwp')
                                                             <div class="invalid-feedback">
@@ -473,7 +487,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                
+
 
                                             </div>
                                         </div>
@@ -660,8 +674,8 @@
                                                     <div class="col-sm-6">
                                                         <input id="credit_limit" type="text"
                                                             class="form-control @error('credit_limit') is-invalid @enderror"
-                                                            name="credit_limit"
-                                                            value="{{ $kd04->credit_limit ?? '-' }}" disabled />
+                                                            name="credit_limit" value="{{ $kd04->credit_limit ?? '-' }}"
+                                                            disabled />
                                                         @error('credit_limit')
                                                             <div class="invalid-feedback">
                                                                 {{ $message }}
@@ -742,8 +756,8 @@
                                                 <div class="col-sm-6">
                                                     <input id="block_delivery" type="text"
                                                         class="form-control @error('block_delivery') is-invalid @enderror"
-                                                        name="block_delivery"
-                                                        value="{{ $kd04->block_delivery ?? '-' }}" disabled />
+                                                        name="block_delivery" value="{{ $kd04->block_delivery ?? '-' }}"
+                                                        disabled />
                                                     @error('block_delivery')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -998,7 +1012,8 @@
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-3">
                                                                 <label type="text" name="" id=""
-                                                                    class="form-label" style="font-size: 15px">Freight</label>
+                                                                    class="form-label"
+                                                                    style="font-size: 15px">Freight</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input id="kode_cust" type="text"
@@ -1196,8 +1211,9 @@
                                                                     class="form-label">NPWP Image</label>
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <img src="{{ URL::to($kd05->npwp_image) }}" alt="" style="height: 100px; weight: 100px;"
-                                                                class="rounded mx-auto d-block"></a>
+                                                                <img src="{{ URL::to($kd05->npwp_image) }}"
+                                                                    alt="" style="height: 100px; weight: 100px;"
+                                                                    class="rounded mx-auto d-block"></a>
                                                                 @error('npwp1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -1211,8 +1227,9 @@
                                                                     class="form-label">KTP Image</label>
                                                             </div>
                                                             <div class="col-sm-6">
-                                                                <img src="{{ URL::to($kd05->ktp_image) }}" alt="" style="height: 100px; weight: 100px;"
-                                                                class="rounded mx-auto d-block"></a>
+                                                                <img src="{{ URL::to($kd05->ktp_image) }}"
+                                                                    alt="" style="height: 100px; weight: 100px;"
+                                                                    class="rounded mx-auto d-block"></a>
                                                                 @error('npwp1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -1475,8 +1492,7 @@
                                                         class="form-control @error('npwp') is-invalid @enderror"
                                                         name="npwp"
                                                         value="{{ $kd06->kurs ?? 'Data Belum Lengkap!' }}"
-                                                        style="{{ $kd06->kurs == null ? 'color:red' : '' }}"
-                                                        disabled />
+                                                        style="{{ $kd06->kurs == null ? 'color:red' : '' }}" disabled />
                                                     @error('sd')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -1591,8 +1607,7 @@
                                                         class="form-control @error('npwp') is-invalid @enderror"
                                                         name="npwp"
                                                         value="{{ $kd06->from ?? 'Data Belum Lengkap!' }}"
-                                                        style="{{ $kd06->from == null ? 'color:red' : '' }}"
-                                                        disabled />
+                                                        style="{{ $kd06->from == null ? 'color:red' : '' }}" disabled />
                                                     @error('from')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -1792,8 +1807,7 @@
                                                         class="form-control @error('sales') is-invalid @enderror"
                                                         name="sales"
                                                         value="{{ $kd11->sd1 ?? 'Data Belum Lengkap!' }}"
-                                                        style="{{ $kd11->sd1 == null ? 'color:red' : '' }}"
-                                                        disabled />
+                                                        style="{{ $kd11->sd1 == null ? 'color:red' : '' }}" disabled />
                                                     @error('sales')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -1813,8 +1827,7 @@
                                                         class="form-control @error('sales') is-invalid @enderror"
                                                         name="sales"
                                                         value="{{ $kd11->sg1 ?? 'Data Belum Lengkap!' }}"
-                                                        style="{{ $kd11->sg1 == null ? 'color:red' : '' }}"
-                                                        disabled />
+                                                        style="{{ $kd11->sg1 == null ? 'color:red' : '' }}" disabled />
                                                     @error('sales')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -1912,8 +1925,6 @@
                                             <th scope="col">Phone</th>
                                             <th scope="col">Mobile</th>
                                             <th scope="col">Email</th>
-                                            {{-- <th scope="col">SD</th>
-                                            <th scope="col">SG</th> --}}
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -1925,8 +1936,6 @@
                                                 <td>{{ $form->phone_cp1 }}</td>
                                                 <td>{{ $form->mobile_cp1 }}</td>
                                                 <td>{{ $form->email_cp1 }}</td>
-                                                {{-- <td>{{ $form->sd }}</td>
-                                                <td>{{ $form->kd6sg }}</td> --}}
                                                 <td>
 
                                                     <button type="button" class="btn btn-info" data-toggle="modal"
@@ -1963,12 +1972,14 @@
                                                     <div class="col-sm-6">
                                                         <div class="d-flex flex-row">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">No. Cust</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">No. Cust</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->kd14no_cust ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->kd14no_cust == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->kd14no_cust == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -1978,12 +1989,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">Nama</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">Nama</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->nama_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->nama_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->nama_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -1993,12 +2006,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">Function</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">Function</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->function_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->function_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->function_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2008,12 +2023,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">Mobile</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">Mobile</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->mobile_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->mobile_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->mobile_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2023,12 +2040,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">SD</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">SD</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->sd_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->sd_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->sd_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2040,12 +2059,14 @@
                                                     <div class="col-sm-6">
                                                         <div class="d-flex flex-row">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">CP Code</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">CP Code</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2055,12 +2076,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">Email</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">Email</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->email_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->email_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->email_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2070,12 +2093,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">Since</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">Since</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->sinc_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->sinc_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->sinc_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2085,12 +2110,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">Phone</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">Phone</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->phone_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->phone_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->phone_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2100,12 +2127,14 @@
                                                         </div>
                                                         <div class="d-flex flex-row mt-2">
                                                             <div class="col-sm-4">
-                                                                <label type="text" name="" id="" class="form-label">SG</label>
+                                                                <label type="text" name="" id=""
+                                                                    class="form-label">SG</label>
                                                             </div>
                                                             <div class="col-sm-8">
                                                                 <input type="text" class="form-control"
                                                                     value="{{ $kd14->sg_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                                    style="{{ $kd14->sg_cp1 == null ? 'color:red' : '' }}" disabled>
+                                                                    style="{{ $kd14->sg_cp1 == null ? 'color:red' : '' }}"
+                                                                    disabled>
                                                                 @error('title1')
                                                                     <div class="invalid-feedback">
                                                                         {{ $message }}
@@ -2113,7 +2142,7 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -2122,12 +2151,16 @@
                                     <div class="col-sm-12">
                                         <div class="d-flex flex-row mt-2">
                                             <div class="col-sm-2 mr-2">
-                                                <label type="text" name="" id="" class="form-label">Add Address</label>
+                                                <label type="text" name="" id=""
+                                                    class="form-label">Add Address</label>
                                             </div>
                                             <div class="col-sm-6">
-                                                <input id="sales" type="text" class="form-control @error('sales') is-invalid @enderror"
-                                                    name="sales" value="{{ $kd14->add_addr_cp1 ?? 'Data Belum Lengkap!' }}"
-                                                    style="{{ $kd14->add_addr_cp1 == null ? 'color:red' : '' }}" disabled />
+                                                <input id="sales" type="text"
+                                                    class="form-control @error('sales') is-invalid @enderror"
+                                                    name="sales"
+                                                    value="{{ $kd14->add_addr_cp1 ?? 'Data Belum Lengkap!' }}"
+                                                    style="{{ $kd14->add_addr_cp1 == null ? 'color:red' : '' }}"
+                                                    disabled />
                                                 @error('sales')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}

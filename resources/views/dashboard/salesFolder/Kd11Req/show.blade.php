@@ -12,8 +12,6 @@
             {{ session('success') }}
         </div>
     @endif
-    {{-- <form action="{{ route('kd3.update', ['kd3' => $kd03->id]) }}" method="POST"> --}}
-    {{-- @csrf --}}
     <div class="card">
         <h5 class="card-header">KD11 Association Request</h5>
         <div class="card-body">
@@ -134,7 +132,6 @@
 
     </div>
     </div>
-    {{-- </form> --}}
 
 
 

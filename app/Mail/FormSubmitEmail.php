@@ -11,13 +11,12 @@ class FormSubmitEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
-
     /**
      * Create a new message instance.
      *
      * @return void
      */
+    public $details;
     public function __construct($details)
     {
         $this->details = $details;
@@ -30,7 +29,7 @@ class FormSubmitEmail extends Mailable
      */
     public function build()
     {
-        $this->subject('Aproval Notifications')
+        $this->subject('Aproval Notifications Cust no: '. $this->details['no_cust'])
         ->view('dashboard.salesFolder.email.submitForm');
 
         return $this;

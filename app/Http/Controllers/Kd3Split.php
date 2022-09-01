@@ -844,7 +844,6 @@ class Kd3Split extends Controller
             ->leftJoin('kd06', 'kd03.no_cust', '=', 'kd06.kd6no_cust')
             ->get();
 
-
         $kd03 = $kd03fix->unique('no_cust');
         $kd03->all();
         if (auth()->user()->division == 'FABRIC SALES' && auth()->user()->position_job_name == 'FABRIC SALES EXECUTIVE') {
